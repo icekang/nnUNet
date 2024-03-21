@@ -9,6 +9,8 @@ from datetime import datetime
 from time import time, sleep
 from typing import Union, Tuple, List
 
+import wandb
+
 import numpy as np
 import torch
 from batchgenerators.dataloading.multi_threaded_augmenter import MultiThreadedAugmenter
@@ -170,6 +172,13 @@ class nnUNetTrainer(object):
                              (timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute,
                               timestamp.second))
         self.logger = nnUNetLogger()
+        wandb_project_name = f"{self.plans_manager.dataset_name}__{self.configuration_name}"
+        wandb_run_name = f"fold_{fold}"
+        wandb.init(
+            project=wandb_project_name,
+            name=wandb_run_name,
+            dir=self.output_folder,
+        )
 
         ### placeholders
         self.dataloader_train = self.dataloader_val = None  # see on_train_start
@@ -266,6 +275,7 @@ class nnUNetTrainer(object):
             dct['torch_version'] = torch_version
             dct['cudnn_version'] = cudnn_version
             save_json(dct, join(self.output_folder, "debug.json"))
+            wandb.config.update(dct)
 
     @staticmethod
     def build_network_architecture(architecture_class_name: str,
