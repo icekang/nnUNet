@@ -172,13 +172,7 @@ class nnUNetTrainer(object):
                              (timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute,
                               timestamp.second))
         self.logger = nnUNetLogger()
-        wandb_project_name = f"{self.plans_manager.dataset_name}__{self.configuration_name}"
-        wandb_run_name = f"fold_{fold}"
-        wandb.init(
-            project=wandb_project_name,
-            name=wandb_run_name,
-            dir=self.output_folder,
-        )
+        self.initialize_wandb(fold=fold)
 
         ### placeholders
         self.dataloader_train = self.dataloader_val = None  # see on_train_start
@@ -237,6 +231,15 @@ class nnUNetTrainer(object):
         else:
             raise RuntimeError("You have called self.initialize even though the trainer was already initialized. "
                                "That should not happen.")
+
+    def initialize_wandb(self, fold: int):
+        wandb_project_name = f"{self.plans_manager.dataset_name}__{self.configuration_name}"
+        wandb_run_name = f"fold_{fold}"
+        wandb.init(
+            project=wandb_project_name,
+            name=wandb_run_name,
+            dir=self.output_folder,
+        )
 
     def _do_i_compile(self):
         return ('nnUNet_compile' in os.environ.keys()) and (os.environ['nnUNet_compile'].lower() in ('true', '1', 't'))
