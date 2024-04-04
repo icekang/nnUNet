@@ -33,10 +33,10 @@ def crop_to_nonzero(data, seg=None, nonzero_label=-1):
     bbox = get_bbox_from_mask(nonzero_mask)
 
     slicer = bounding_box_to_slice(bbox)
-    data = data[tuple([slice(None), *slicer])]
+    data = data[tuple([slice(None), *slicer])] # data[:, z_min:z_max, x_min:x_max, y_min:y_max]
 
     if seg is not None:
-        seg = seg[tuple([slice(None), *slicer])]
+        seg = seg[tuple([slice(None), *slicer])] # seg[:, z_min:z_max, x_min:x_max, y_min:y_max]
 
     nonzero_mask = nonzero_mask[slicer][None]
     if seg is not None:
