@@ -151,6 +151,9 @@ class nnUNetTrainer(object):
         self.num_epochs = 1000
         self.current_epoch = 0
         self.enable_deep_supervision = True
+        self.patience = 50
+        self.patience_counter = 0
+        self.patience_val_loss = 1000.0
 
         ### Dealing with labels/regions
         self.label_manager = self.plans_manager.get_label_manager(dataset_json)
@@ -1052,6 +1055,13 @@ class nnUNetTrainer(object):
         self.logger.log('mean_fg_dice', mean_fg_dice, self.current_epoch)
         self.logger.log('dice_per_class_or_region', global_dc_per_class, self.current_epoch)
         self.logger.log('val_losses', loss_here, self.current_epoch)
+        if loss_here < self.patience_val_loss:
+            self.print_to_log_file(f"Validation loss improved from {self.patience_val_loss:.5f} to {loss_here:.5f}! Patience: {self.patience_counter}/{self.patience}")
+            self.patience_val_loss = loss_here
+            self.patience_counter = 0
+        else:
+            self.patience_counter += 1
+            self.print_to_log_file(f"Validation loss did not improve from {self.patience_val_loss:.5f}. Patience: {self.patience_counter}/{self.patience}")
 
     def on_epoch_start(self):
         self.logger.log('epoch_start_timestamps', time(), self.current_epoch)
@@ -1102,6 +1112,8 @@ class nnUNetTrainer(object):
                     'init_args': self.my_init_kwargs,
                     'trainer_name': self.__class__.__name__,
                     'inference_allowed_mirroring_axes': self.inference_allowed_mirroring_axes,
+                    'patience_counter': self.patience_counter,
+                    'patience_val_loss': self.patience_val_loss,
                 }
                 torch.save(checkpoint, filename)
             else:
@@ -1128,6 +1140,8 @@ class nnUNetTrainer(object):
         self._best_ema = checkpoint['_best_ema']
         self.inference_allowed_mirroring_axes = checkpoint[
             'inference_allowed_mirroring_axes'] if 'inference_allowed_mirroring_axes' in checkpoint.keys() else self.inference_allowed_mirroring_axes
+        self.patience_counter = checkpoint['patience_counter']
+        self.patience_val_loss = checkpoint['patience_val_loss']
 
         # messing with state dict naming schemes. Facepalm.
         if self.is_ddp:
@@ -1293,6 +1307,9 @@ class nnUNetTrainer(object):
         self.on_train_start()
 
         for epoch in range(self.current_epoch, self.num_epochs):
+            if self.patience_counter >= self.patience:
+                self.print_to_log_file(f"Patience reached. Stopping training.")
+                break
             self.on_epoch_start()
 
             self.on_train_epoch_start()
