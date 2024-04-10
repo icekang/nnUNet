@@ -2,7 +2,7 @@ import torch
 from batchgenerators.utilities.file_and_folder_operations import join, load_json, isfile
 from nnunetv2.training.dataloading.utils import get_case_identifiers
 from nnunetv2.training.nnUNetTrainer.nnUNetTrainer import nnUNetTrainer
-
+import wandb
 
 class nnUNetTrainerScaleAnalysis4(nnUNetTrainer):
     def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict, unpack_dataset: bool = True,
@@ -50,3 +50,11 @@ class nnUNetTrainerScaleAnalysis4(nnUNetTrainer):
                                        'splits.json or ignore if this is intentional.')
         return tr_keys, val_keys
 
+    def initialize_wandb(self, fold: int):
+        wandb_project_name = f"{self.__class__.__name__}__{self.plans_manager.dataset_name}__{self.configuration_name}"
+        wandb_run_name = f"fold_{fold}"
+        wandb.init(
+            project=wandb_project_name,
+            name=wandb_run_name,
+            dir=self.output_folder,
+        )
