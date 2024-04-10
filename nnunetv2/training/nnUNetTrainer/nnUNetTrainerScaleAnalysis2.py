@@ -1,9 +1,10 @@
 import torch
 from batchgenerators.utilities.file_and_folder_operations import join, load_json, isfile
 from nnunetv2.training.dataloading.utils import get_case_identifiers
+from nnunetv2.training.nnUNetTrainer.nnUNetTrainer import nnUNetTrainer
 
 
-class nnUNetTrainerScaleAnalysis2(object):
+class nnUNetTrainerScaleAnalysis2(nnUNetTrainer):
     def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict, unpack_dataset: bool = True,
                  device: torch.device = torch.device('cuda')):
         super().__init__(plans, configuration, fold, dataset_json, unpack_dataset, device)
