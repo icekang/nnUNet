@@ -3,11 +3,16 @@ from batchgenerators.utilities.file_and_folder_operations import join, load_json
 from nnunetv2.training.dataloading.utils import get_case_identifiers
 from nnunetv2.training.nnUNetTrainer.nnUNetTrainer import nnUNetTrainer
 import wandb
+from nnunetv2.configuration import default_num_processes
+from nnunetv2.utilities.default_n_proc_DA import get_allowed_n_proc_DA
+
 
 class nnUNetTrainerScaleAnalysis2(nnUNetTrainer):
     def __init__(self, plans: dict, configuration: str, fold: int, dataset_json: dict, unpack_dataset: bool = True,
                  device: torch.device = torch.device('cuda')):
         super().__init__(plans, configuration, fold, dataset_json, unpack_dataset, device)
+        self.print_to_log_file(f'Using {default_num_processes} processes for validation.')
+        self.print_to_log_file(f'Using {get_allowed_n_proc_DA()} processes for data augmentation.')
 
     def do_split(self):
         """
@@ -26,10 +31,10 @@ class nnUNetTrainerScaleAnalysis2(nnUNetTrainer):
             tr_keys = case_identifiers
             val_keys = tr_keys
         else:
-            splits_file = join(self.preprocessed_dataset_folder_base, "splits_final_2.json")
+            splits_file = join(self.preprocessed_dataset_folder_base, "splits_final_33.json")
 
             if not isfile(splits_file):
-                raise ValueError("splits_final_2.json does not exist. You need to create it.")
+                raise ValueError("splits_final_33.json does not exist. You need to create it.")
 
             else:
                 self.print_to_log_file("Using splits from existing split file:", splits_file)
