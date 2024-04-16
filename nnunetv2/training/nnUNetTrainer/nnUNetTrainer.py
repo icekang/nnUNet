@@ -652,6 +652,7 @@ class nnUNetTrainer(object):
         dl_tr, dl_val = self.get_plain_dataloaders(initial_patch_size, dim)
 
         allowed_num_processes = get_allowed_n_proc_DA()
+        self.print_to_log_file(f"Allowed number of processes for data augmentation: {allowed_num_processes}")
         if allowed_num_processes == 0:
             mt_gen_train = SingleThreadedAugmenter(dl_tr, tr_transforms)
             mt_gen_val = SingleThreadedAugmenter(dl_val, val_transforms)
