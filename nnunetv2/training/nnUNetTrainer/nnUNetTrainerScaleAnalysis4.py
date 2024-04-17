@@ -13,6 +13,7 @@ class nnUNetTrainerScaleAnalysis4(nnUNetTrainer):
         super().__init__(plans, configuration, fold, dataset_json, unpack_dataset, device)
         self.print_to_log_file(f'Using {default_num_processes} processes for validation.')
         self.print_to_log_file(f'Using {get_allowed_n_proc_DA()} processes for data augmentation.')
+        self.save_every = 1
         mp.set_start_method('spawn', force=True)
 
     def do_split(self):

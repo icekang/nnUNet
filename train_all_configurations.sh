@@ -1,7 +1,6 @@
-DATASET_ID=300
+#!/bin/bash
 
-# export nnUNet_def_n_proc=10
-export nnUNet_n_proc_DA=0
+DATASET_ID=300
 
 for fold in $(seq 0 2); do
 	nnUNetv2_train -tr nnUNetTrainerScaleAnalysis4 $DATASET_ID 2d $fold --val_best --c
