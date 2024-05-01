@@ -1,5 +1,5 @@
 from pathlib import Path
-import nibabel as nib
+import SimpleITK as sitk
 import cv2
 import numpy as np
 from matplotlib import colormaps
@@ -17,7 +17,8 @@ output_2d_dir.mkdir(exist_ok=True)
 cmap = colormaps.get_cmap('Set3')
 for cnt, prediction_file in enumerate(prediction_dir.glob('*.nii.gz')):
     print(f'Processing {prediction_file}')
-    prediction = nib.load(prediction_file)
+    prediction = sitk.ReadImage(str(prediction_file))
+    prediction = sitk.GetArrayFromImage(prediction)
     out_folder = output_2d_dir / prediction_file.name.replace('.nii.gz', '')
     out_folder.mkdir(exist_ok=True)
     out_debug_folder = out_folder / 'debug'
@@ -36,7 +37,7 @@ for cnt, prediction_file in enumerate(prediction_dir.glob('*.nii.gz')):
     img = cv2.imread
     for i in range(prediction.shape[2]):
         print(f'Saving {i}')
-        slice = prediction.get_fdata()[:, :, i].astype(np.uint8).transpose(1, 0)
+        slice = prediction.get_fdata()[i, :, :].astype(np.uint8).transpose(1, 0)
         colored_slice = np.zeros((slice.shape[0], slice.shape[1], 3), dtype=np.uint8)
         for j in range(1, slice.max() + 1):
             colored_slice[slice == j] = [v * 255 for v in cmap(j)[:3]]
