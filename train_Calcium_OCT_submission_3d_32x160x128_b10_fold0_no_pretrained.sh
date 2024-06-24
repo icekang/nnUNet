@@ -13,8 +13,8 @@ export nnUNet_results="/home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_
 fold=0
 CONFIG=3d_32x160x128_b10
 DATASET_ID=302
-PATH_TO_CHECKPOINT=/home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset300_Lumen_and_Wall_OCT/nnUNetTrainer__nnUNetPreprocessPlans__3d_fullres/fold_all/checkpoint_best.pth
-nnUNetv2_train 302 $CONFIG $fold -pretrained_weights $PATH_TO_CHECKPOINT
+# PATH_TO_CHECKPOINT=/home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset300_Lumen_and_Wall_OCT/nnUNetTrainer__nnUNetPreprocessPlans__3d_fullres/fold_all/checkpoint_best.pth
+nnUNetv2_train $DATASET_ID $CONFIG $fold # -pretrained_weights $PATH_TO_CHECKPOINT
 
 TRAINER=nnUNetTrainer
 echo "FOLD $fold CONFIG $CONFIG TRAINER $TRAINER"
