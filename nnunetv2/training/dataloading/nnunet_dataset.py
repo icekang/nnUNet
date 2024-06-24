@@ -83,7 +83,7 @@ class nnUNetDataset(object):
             data = entry['open_data_file']
             # print('using open data file')
         elif isfile(entry['data_file'][:-4] + ".npy"):
-            data = np.load(entry['data_file'][:-4] + ".npy", 'r')
+            data = np.load(entry['data_file'][:-4] + ".npy", 'r+')
             if self.keep_files_open:
                 self.dataset[key]['open_data_file'] = data
                 # print('saving open data file')
