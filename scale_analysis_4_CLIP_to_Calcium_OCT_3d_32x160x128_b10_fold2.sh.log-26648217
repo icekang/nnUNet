@@ -1,0 +1,1452 @@
+/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/python
+wandb: Tracking run with wandb version 0.16.6
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+
+############################
+INFO: You are using the old nnU-Net default plans. We have updated our recommendations. Please consider using those instead! Read more here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md
+############################
+
+Using device: cuda:0
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+2024-07-24 22:28:05.116983: Using 8 processes for validation.
+2024-07-24 22:28:05.136228: Using 12 processes for data augmentation.
+2024-07-24 22:28:06.164424: Using torch.compile...
+/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:28: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn("The verbose parameter is deprecated. Please use get_last_lr() "
+################### Loading pretrained weights from file  /home/gridsan/nchutisilp/projects/OpenAI-CLIP/clip_pretrained_nnUNet.pt ###################
+Below is the list of overlapping blocks in pretrained model and nnUNet architecture:
+encoder.stages.0.0.convs.0.conv.weight shape torch.Size([32, 1, 3, 3, 3])
+encoder.stages.0.0.convs.0.conv.bias shape torch.Size([32])
+encoder.stages.0.0.convs.0.norm.weight shape torch.Size([32])
+encoder.stages.0.0.convs.0.norm.bias shape torch.Size([32])
+encoder.stages.0.0.convs.0.all_modules.0.weight shape torch.Size([32, 1, 3, 3, 3])
+encoder.stages.0.0.convs.0.all_modules.0.bias shape torch.Size([32])
+encoder.stages.0.0.convs.0.all_modules.1.weight shape torch.Size([32])
+encoder.stages.0.0.convs.0.all_modules.1.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.conv.weight shape torch.Size([32, 32, 3, 3, 3])
+encoder.stages.0.0.convs.1.conv.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.norm.weight shape torch.Size([32])
+encoder.stages.0.0.convs.1.norm.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.all_modules.0.weight shape torch.Size([32, 32, 3, 3, 3])
+encoder.stages.0.0.convs.1.all_modules.0.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.all_modules.1.weight shape torch.Size([32])
+encoder.stages.0.0.convs.1.all_modules.1.bias shape torch.Size([32])
+encoder.stages.1.0.convs.0.conv.weight shape torch.Size([64, 32, 3, 3, 3])
+encoder.stages.1.0.convs.0.conv.bias shape torch.Size([64])
+encoder.stages.1.0.convs.0.norm.weight shape torch.Size([64])
+encoder.stages.1.0.convs.0.norm.bias shape torch.Size([64])
+encoder.stages.1.0.convs.0.all_modules.0.weight shape torch.Size([64, 32, 3, 3, 3])
+encoder.stages.1.0.convs.0.all_modules.0.bias shape torch.Size([64])
+encoder.stages.1.0.convs.0.all_modules.1.weight shape torch.Size([64])
+encoder.stages.1.0.convs.0.all_modules.1.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.conv.weight shape torch.Size([64, 64, 3, 3, 3])
+encoder.stages.1.0.convs.1.conv.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.norm.weight shape torch.Size([64])
+encoder.stages.1.0.convs.1.norm.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.all_modules.0.weight shape torch.Size([64, 64, 3, 3, 3])
+encoder.stages.1.0.convs.1.all_modules.0.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.all_modules.1.weight shape torch.Size([64])
+encoder.stages.1.0.convs.1.all_modules.1.bias shape torch.Size([64])
+encoder.stages.2.0.convs.0.conv.weight shape torch.Size([128, 64, 3, 3, 3])
+encoder.stages.2.0.convs.0.conv.bias shape torch.Size([128])
+encoder.stages.2.0.convs.0.norm.weight shape torch.Size([128])
+encoder.stages.2.0.convs.0.norm.bias shape torch.Size([128])
+encoder.stages.2.0.convs.0.all_modules.0.weight shape torch.Size([128, 64, 3, 3, 3])
+encoder.stages.2.0.convs.0.all_modules.0.bias shape torch.Size([128])
+encoder.stages.2.0.convs.0.all_modules.1.weight shape torch.Size([128])
+encoder.stages.2.0.convs.0.all_modules.1.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.conv.weight shape torch.Size([128, 128, 3, 3, 3])
+encoder.stages.2.0.convs.1.conv.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.norm.weight shape torch.Size([128])
+encoder.stages.2.0.convs.1.norm.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.all_modules.0.weight shape torch.Size([128, 128, 3, 3, 3])
+encoder.stages.2.0.convs.1.all_modules.0.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.all_modules.1.weight shape torch.Size([128])
+encoder.stages.2.0.convs.1.all_modules.1.bias shape torch.Size([128])
+encoder.stages.3.0.convs.0.conv.weight shape torch.Size([256, 128, 3, 3, 3])
+encoder.stages.3.0.convs.0.conv.bias shape torch.Size([256])
+encoder.stages.3.0.convs.0.norm.weight shape torch.Size([256])
+encoder.stages.3.0.convs.0.norm.bias shape torch.Size([256])
+encoder.stages.3.0.convs.0.all_modules.0.weight shape torch.Size([256, 128, 3, 3, 3])
+encoder.stages.3.0.convs.0.all_modules.0.bias shape torch.Size([256])
+encoder.stages.3.0.convs.0.all_modules.1.weight shape torch.Size([256])
+encoder.stages.3.0.convs.0.all_modules.1.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.conv.weight shape torch.Size([256, 256, 3, 3, 3])
+encoder.stages.3.0.convs.1.conv.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.norm.weight shape torch.Size([256])
+encoder.stages.3.0.convs.1.norm.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.all_modules.0.weight shape torch.Size([256, 256, 3, 3, 3])
+encoder.stages.3.0.convs.1.all_modules.0.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.all_modules.1.weight shape torch.Size([256])
+encoder.stages.3.0.convs.1.all_modules.1.bias shape torch.Size([256])
+encoder.stages.4.0.convs.0.conv.weight shape torch.Size([320, 256, 3, 3, 3])
+encoder.stages.4.0.convs.0.conv.bias shape torch.Size([320])
+encoder.stages.4.0.convs.0.norm.weight shape torch.Size([320])
+encoder.stages.4.0.convs.0.norm.bias shape torch.Size([320])
+encoder.stages.4.0.convs.0.all_modules.0.weight shape torch.Size([320, 256, 3, 3, 3])
+encoder.stages.4.0.convs.0.all_modules.0.bias shape torch.Size([320])
+encoder.stages.4.0.convs.0.all_modules.1.weight shape torch.Size([320])
+encoder.stages.4.0.convs.0.all_modules.1.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.4.0.convs.1.conv.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.norm.weight shape torch.Size([320])
+encoder.stages.4.0.convs.1.norm.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.4.0.convs.1.all_modules.0.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.all_modules.1.weight shape torch.Size([320])
+encoder.stages.4.0.convs.1.all_modules.1.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.0.conv.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.norm.weight shape torch.Size([320])
+encoder.stages.5.0.convs.0.norm.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.0.all_modules.0.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.all_modules.1.weight shape torch.Size([320])
+encoder.stages.5.0.convs.0.all_modules.1.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.1.conv.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.norm.weight shape torch.Size([320])
+encoder.stages.5.0.convs.1.norm.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.1.all_modules.0.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.all_modules.1.weight shape torch.Size([320])
+encoder.stages.5.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.0.0.convs.0.conv.weight shape torch.Size([32, 1, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.0.conv.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.norm.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.norm.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.all_modules.0.weight shape torch.Size([32, 1, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.0.all_modules.0.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.all_modules.1.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.all_modules.1.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.conv.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.1.conv.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.norm.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.norm.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.all_modules.0.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.1.all_modules.0.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.all_modules.1.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.all_modules.1.bias shape torch.Size([32])
+decoder.encoder.stages.1.0.convs.0.conv.weight shape torch.Size([64, 32, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.0.conv.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.norm.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.norm.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.all_modules.0.weight shape torch.Size([64, 32, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.0.all_modules.0.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.all_modules.1.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.all_modules.1.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.conv.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.1.conv.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.norm.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.norm.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.all_modules.0.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.1.all_modules.0.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.all_modules.1.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.all_modules.1.bias shape torch.Size([64])
+decoder.encoder.stages.2.0.convs.0.conv.weight shape torch.Size([128, 64, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.0.conv.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.norm.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.norm.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.all_modules.0.weight shape torch.Size([128, 64, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.0.all_modules.0.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.all_modules.1.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.all_modules.1.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.conv.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.1.conv.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.norm.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.norm.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.all_modules.0.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.1.all_modules.0.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.all_modules.1.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.all_modules.1.bias shape torch.Size([128])
+decoder.encoder.stages.3.0.convs.0.conv.weight shape torch.Size([256, 128, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.0.conv.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.norm.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.norm.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.all_modules.0.weight shape torch.Size([256, 128, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.0.all_modules.0.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.all_modules.1.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.all_modules.1.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.conv.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.1.conv.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.norm.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.norm.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.all_modules.0.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.1.all_modules.0.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.all_modules.1.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.all_modules.1.bias shape torch.Size([256])
+decoder.encoder.stages.4.0.convs.0.conv.weight shape torch.Size([320, 256, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.0.conv.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.norm.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.norm.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.all_modules.0.weight shape torch.Size([320, 256, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.0.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.1.conv.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.norm.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.norm.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.1.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.0.conv.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.norm.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.norm.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.0.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.1.conv.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.norm.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.norm.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.1.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.stages.0.convs.0.conv.weight shape torch.Size([320, 640, 3, 3, 3])
+decoder.stages.0.convs.0.conv.bias shape torch.Size([320])
+decoder.stages.0.convs.0.norm.weight shape torch.Size([320])
+decoder.stages.0.convs.0.norm.bias shape torch.Size([320])
+decoder.stages.0.convs.0.all_modules.0.weight shape torch.Size([320, 640, 3, 3, 3])
+decoder.stages.0.convs.0.all_modules.0.bias shape torch.Size([320])
+decoder.stages.0.convs.0.all_modules.1.weight shape torch.Size([320])
+decoder.stages.0.convs.0.all_modules.1.bias shape torch.Size([320])
+decoder.stages.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.stages.0.convs.1.conv.bias shape torch.Size([320])
+decoder.stages.0.convs.1.norm.weight shape torch.Size([320])
+decoder.stages.0.convs.1.norm.bias shape torch.Size([320])
+decoder.stages.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.stages.0.convs.1.all_modules.0.bias shape torch.Size([320])
+decoder.stages.0.convs.1.all_modules.1.weight shape torch.Size([320])
+decoder.stages.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.stages.1.convs.0.conv.weight shape torch.Size([256, 512, 3, 3, 3])
+decoder.stages.1.convs.0.conv.bias shape torch.Size([256])
+decoder.stages.1.convs.0.norm.weight shape torch.Size([256])
+decoder.stages.1.convs.0.norm.bias shape torch.Size([256])
+decoder.stages.1.convs.0.all_modules.0.weight shape torch.Size([256, 512, 3, 3, 3])
+decoder.stages.1.convs.0.all_modules.0.bias shape torch.Size([256])
+decoder.stages.1.convs.0.all_modules.1.weight shape torch.Size([256])
+decoder.stages.1.convs.0.all_modules.1.bias shape torch.Size([256])
+decoder.stages.1.convs.1.conv.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.stages.1.convs.1.conv.bias shape torch.Size([256])
+decoder.stages.1.convs.1.norm.weight shape torch.Size([256])
+decoder.stages.1.convs.1.norm.bias shape torch.Size([256])
+decoder.stages.1.convs.1.all_modules.0.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.stages.1.convs.1.all_modules.0.bias shape torch.Size([256])
+decoder.stages.1.convs.1.all_modules.1.weight shape torch.Size([256])
+decoder.stages.1.convs.1.all_modules.1.bias shape torch.Size([256])
+decoder.stages.2.convs.0.conv.weight shape torch.Size([128, 256, 3, 3, 3])
+decoder.stages.2.convs.0.conv.bias shape torch.Size([128])
+decoder.stages.2.convs.0.norm.weight shape torch.Size([128])
+decoder.stages.2.convs.0.norm.bias shape torch.Size([128])
+decoder.stages.2.convs.0.all_modules.0.weight shape torch.Size([128, 256, 3, 3, 3])
+decoder.stages.2.convs.0.all_modules.0.bias shape torch.Size([128])
+decoder.stages.2.convs.0.all_modules.1.weight shape torch.Size([128])
+decoder.stages.2.convs.0.all_modules.1.bias shape torch.Size([128])
+decoder.stages.2.convs.1.conv.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.stages.2.convs.1.conv.bias shape torch.Size([128])
+decoder.stages.2.convs.1.norm.weight shape torch.Size([128])
+decoder.stages.2.convs.1.norm.bias shape torch.Size([128])
+decoder.stages.2.convs.1.all_modules.0.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.stages.2.convs.1.all_modules.0.bias shape torch.Size([128])
+decoder.stages.2.convs.1.all_modules.1.weight shape torch.Size([128])
+decoder.stages.2.convs.1.all_modules.1.bias shape torch.Size([128])
+decoder.stages.3.convs.0.conv.weight shape torch.Size([64, 128, 3, 3, 3])
+decoder.stages.3.convs.0.conv.bias shape torch.Size([64])
+decoder.stages.3.convs.0.norm.weight shape torch.Size([64])
+decoder.stages.3.convs.0.norm.bias shape torch.Size([64])
+decoder.stages.3.convs.0.all_modules.0.weight shape torch.Size([64, 128, 3, 3, 3])
+decoder.stages.3.convs.0.all_modules.0.bias shape torch.Size([64])
+decoder.stages.3.convs.0.all_modules.1.weight shape torch.Size([64])
+decoder.stages.3.convs.0.all_modules.1.bias shape torch.Size([64])
+decoder.stages.3.convs.1.conv.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.stages.3.convs.1.conv.bias shape torch.Size([64])
+decoder.stages.3.convs.1.norm.weight shape torch.Size([64])
+decoder.stages.3.convs.1.norm.bias shape torch.Size([64])
+decoder.stages.3.convs.1.all_modules.0.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.stages.3.convs.1.all_modules.0.bias shape torch.Size([64])
+decoder.stages.3.convs.1.all_modules.1.weight shape torch.Size([64])
+decoder.stages.3.convs.1.all_modules.1.bias shape torch.Size([64])
+decoder.stages.4.convs.0.conv.weight shape torch.Size([32, 64, 3, 3, 3])
+decoder.stages.4.convs.0.conv.bias shape torch.Size([32])
+decoder.stages.4.convs.0.norm.weight shape torch.Size([32])
+decoder.stages.4.convs.0.norm.bias shape torch.Size([32])
+decoder.stages.4.convs.0.all_modules.0.weight shape torch.Size([32, 64, 3, 3, 3])
+decoder.stages.4.convs.0.all_modules.0.bias shape torch.Size([32])
+decoder.stages.4.convs.0.all_modules.1.weight shape torch.Size([32])
+decoder.stages.4.convs.0.all_modules.1.bias shape torch.Size([32])
+decoder.stages.4.convs.1.conv.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.stages.4.convs.1.conv.bias shape torch.Size([32])
+decoder.stages.4.convs.1.norm.weight shape torch.Size([32])
+decoder.stages.4.convs.1.norm.bias shape torch.Size([32])
+decoder.stages.4.convs.1.all_modules.0.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.stages.4.convs.1.all_modules.0.bias shape torch.Size([32])
+decoder.stages.4.convs.1.all_modules.1.weight shape torch.Size([32])
+decoder.stages.4.convs.1.all_modules.1.bias shape torch.Size([32])
+decoder.transpconvs.0.weight shape torch.Size([320, 320, 1, 2, 2])
+decoder.transpconvs.0.bias shape torch.Size([320])
+decoder.transpconvs.1.weight shape torch.Size([320, 256, 2, 2, 2])
+decoder.transpconvs.1.bias shape torch.Size([256])
+decoder.transpconvs.2.weight shape torch.Size([256, 128, 2, 2, 2])
+decoder.transpconvs.2.bias shape torch.Size([128])
+decoder.transpconvs.3.weight shape torch.Size([128, 64, 2, 2, 2])
+decoder.transpconvs.3.bias shape torch.Size([64])
+decoder.transpconvs.4.weight shape torch.Size([64, 32, 2, 2, 2])
+decoder.transpconvs.4.bias shape torch.Size([32])
+################### Done ###################
+2024-07-24 22:28:18.259752: do_dummy_2d_data_aug: True
+2024-07-24 22:28:18.261837: Using splits from existing split file: /home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_preprocessed/Dataset302_Calcium_OCTv2/splits_final_4.json
+2024-07-24 22:28:18.279483: The split file contains 3 splits.
+2024-07-24 22:28:18.280617: Desired fold for training: 2
+2024-07-24 22:28:18.281700: This split has 3 training and 1 validation cases.
+using pin_memory on device 0
+using pin_memory on device 0
+
+This is the configuration used by this training:
+Configuration name: 3d_32x160x128_b10
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 10, 'patch_size': [32, 160, 128], 'median_image_size_in_voxels': [375.0, 498.0, 498.0], 'spacing': [1.0, 1.0, 1.0], 'normalization_schemes': ['ZScoreNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': [32, 64, 128, 256, 320, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [1, 2, 2]], 'n_conv_per_stage': [2, 2, 2, 2, 2, 2], 'n_conv_per_stage_decoder': [2, 2, 2, 2, 2], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}, 'deep_supervision': True}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': True, 'inherits_from': '3d_fullres'} 
+
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset302_Calcium_OCTv2', 'plans_name': 'nnUNetPlans', 'original_median_spacing_after_transp': [1.0, 1.0, 1.0], 'original_median_shape_after_transp': [375, 498, 498], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'ExperimentPlanner', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 0.4977976381778717, 'mean': 0.13332499563694, 'median': 0.08871842920780182, 'min': 0.0, 'percentile_00_5': 0.014754901640117168, 'percentile_99_5': 0.4977976381778717, 'std': 0.12022686749696732}}} 
+
+2024-07-24 22:28:55.741066: unpacking dataset...
+2024-07-24 22:29:00.555387: unpacking done...
+2024-07-24 22:29:00.590961: Unable to plot network architecture: nnUNet_compile is enabled!
+2024-07-24 22:29:00.637827: 
+2024-07-24 22:29:00.638994: Epoch 0
+2024-07-24 22:29:00.640009: Current learning rate: 0.01
+2024-07-24 22:36:45.095250: Validation loss improved from 1000.00000 to -0.17386! Patience: 0/50
+2024-07-24 22:36:45.096757: train_loss -0.0846
+2024-07-24 22:36:45.098105: val_loss -0.1739
+2024-07-24 22:36:45.099309: Pseudo dice [0.5095]
+2024-07-24 22:36:45.100409: Epoch time: 464.46 s
+2024-07-24 22:36:45.456731: Yayy! New best EMA pseudo Dice: 0.5095
+2024-07-24 22:36:47.103248: 
+2024-07-24 22:36:47.105141: Epoch 1
+2024-07-24 22:36:47.106606: Current learning rate: 0.00999
+2024-07-24 22:42:35.632999: Validation loss improved from -0.17386 to -0.29226! Patience: 0/50
+2024-07-24 22:42:35.634560: train_loss -0.2383
+2024-07-24 22:42:35.635782: val_loss -0.2923
+2024-07-24 22:42:35.636797: Pseudo dice [0.5918]
+2024-07-24 22:42:35.637871: Epoch time: 348.53 s
+2024-07-24 22:42:36.059478: Yayy! New best EMA pseudo Dice: 0.5177
+2024-07-24 22:42:37.947435: 
+2024-07-24 22:42:37.949485: Epoch 2
+2024-07-24 22:42:37.950773: Current learning rate: 0.00998
+2024-07-24 22:48:43.256345: Validation loss improved from -0.29226 to -0.31392! Patience: 0/50
+2024-07-24 22:48:43.257741: train_loss -0.2987
+2024-07-24 22:48:43.258879: val_loss -0.3139
+2024-07-24 22:48:43.259795: Pseudo dice [0.6047]
+2024-07-24 22:48:43.260671: Epoch time: 365.31 s
+2024-07-24 22:48:43.692879: Yayy! New best EMA pseudo Dice: 0.5264
+2024-07-24 22:48:45.672180: 
+2024-07-24 22:48:45.674268: Epoch 3
+2024-07-24 22:48:45.675560: Current learning rate: 0.00997
+2024-07-24 22:54:07.333725: Validation loss improved from -0.31392 to -0.36522! Patience: 0/50
+2024-07-24 22:54:07.334904: train_loss -0.3482
+2024-07-24 22:54:07.335988: val_loss -0.3652
+2024-07-24 22:54:07.343831: Pseudo dice [0.6317]
+2024-07-24 22:54:07.345316: Epoch time: 321.66 s
+2024-07-24 22:54:07.778979: Yayy! New best EMA pseudo Dice: 0.5369
+2024-07-24 22:54:09.738591: 
+2024-07-24 22:54:09.740118: Epoch 4
+2024-07-24 22:54:09.741443: Current learning rate: 0.00996
+2024-07-24 23:00:35.841193: Validation loss improved from -0.36522 to -0.38822! Patience: 0/50
+2024-07-24 23:00:35.842554: train_loss -0.3672
+2024-07-24 23:00:35.843665: val_loss -0.3882
+2024-07-24 23:00:35.844659: Pseudo dice [0.6238]
+2024-07-24 23:00:35.845627: Epoch time: 386.11 s
+2024-07-24 23:00:36.259482: Yayy! New best EMA pseudo Dice: 0.5456
+2024-07-24 23:00:38.171927: 
+2024-07-24 23:00:38.175939: Epoch 5
+2024-07-24 23:00:38.177429: Current learning rate: 0.00995
+2024-07-24 23:06:11.861033: Validation loss improved from -0.38822 to -0.42714! Patience: 0/50
+2024-07-24 23:06:11.862293: train_loss -0.411
+2024-07-24 23:06:11.863577: val_loss -0.4271
+2024-07-24 23:06:11.864817: Pseudo dice [0.6709]
+2024-07-24 23:06:11.866000: Epoch time: 333.69 s
+2024-07-24 23:06:12.278667: Yayy! New best EMA pseudo Dice: 0.5581
+2024-07-24 23:06:14.077085: 
+2024-07-24 23:06:14.078474: Epoch 6
+2024-07-24 23:06:14.079754: Current learning rate: 0.00995
+2024-07-24 23:11:40.903601: Validation loss did not improve from -0.42714. Patience: 1/50
+2024-07-24 23:11:40.904940: train_loss -0.4289
+2024-07-24 23:11:40.906553: val_loss -0.3679
+2024-07-24 23:11:40.907786: Pseudo dice [0.638]
+2024-07-24 23:11:40.909061: Epoch time: 326.83 s
+2024-07-24 23:11:41.332813: Yayy! New best EMA pseudo Dice: 0.5661
+2024-07-24 23:11:43.287237: 
+2024-07-24 23:11:43.288800: Epoch 7
+2024-07-24 23:11:43.290071: Current learning rate: 0.00994
+2024-07-24 23:17:04.176129: Validation loss did not improve from -0.42714. Patience: 2/50
+2024-07-24 23:17:04.177557: train_loss -0.4584
+2024-07-24 23:17:04.178894: val_loss -0.411
+2024-07-24 23:17:04.180068: Pseudo dice [0.6672]
+2024-07-24 23:17:04.181226: Epoch time: 320.89 s
+2024-07-24 23:17:04.582086: Yayy! New best EMA pseudo Dice: 0.5762
+2024-07-24 23:17:06.403026: 
+2024-07-24 23:17:06.404602: Epoch 8
+2024-07-24 23:17:06.405831: Current learning rate: 0.00993
+2024-07-24 23:22:37.048075: Validation loss improved from -0.42714 to -0.44203! Patience: 2/50
+2024-07-24 23:22:37.049275: train_loss -0.4635
+2024-07-24 23:22:37.050380: val_loss -0.442
+2024-07-24 23:22:37.051473: Pseudo dice [0.6831]
+2024-07-24 23:22:37.052444: Epoch time: 330.65 s
+2024-07-24 23:22:37.909754: Yayy! New best EMA pseudo Dice: 0.5869
+2024-07-24 23:22:39.836611: 
+2024-07-24 23:22:39.838096: Epoch 9
+2024-07-24 23:22:39.839328: Current learning rate: 0.00992
+2024-07-24 23:28:58.937059: Validation loss did not improve from -0.44203. Patience: 1/50
+2024-07-24 23:28:58.938323: train_loss -0.485
+2024-07-24 23:28:58.939454: val_loss -0.4277
+2024-07-24 23:28:58.940499: Pseudo dice [0.6661]
+2024-07-24 23:28:58.941545: Epoch time: 379.1 s
+2024-07-24 23:28:59.346369: Yayy! New best EMA pseudo Dice: 0.5948
+2024-07-24 23:29:01.131689: 
+2024-07-24 23:29:01.133055: Epoch 10
+2024-07-24 23:29:01.134184: Current learning rate: 0.00991
+2024-07-24 23:35:27.829548: Validation loss did not improve from -0.44203. Patience: 2/50
+2024-07-24 23:35:27.868835: train_loss -0.5018
+2024-07-24 23:35:27.870014: val_loss -0.4328
+2024-07-24 23:35:27.870929: Pseudo dice [0.6748]
+2024-07-24 23:35:27.871833: Epoch time: 386.7 s
+2024-07-24 23:35:28.389350: Yayy! New best EMA pseudo Dice: 0.6028
+2024-07-24 23:35:31.257419: 
+2024-07-24 23:35:31.259841: Epoch 11
+2024-07-24 23:35:31.260890: Current learning rate: 0.0099
+2024-07-24 23:41:37.951673: Validation loss improved from -0.44203 to -0.46654! Patience: 2/50
+2024-07-24 23:41:37.954020: train_loss -0.5188
+2024-07-24 23:41:37.955147: val_loss -0.4665
+2024-07-24 23:41:37.956124: Pseudo dice [0.6993]
+2024-07-24 23:41:37.957063: Epoch time: 366.7 s
+2024-07-24 23:41:38.379685: Yayy! New best EMA pseudo Dice: 0.6125
+2024-07-24 23:41:40.293324: 
+2024-07-24 23:41:40.295803: Epoch 12
+2024-07-24 23:41:40.296861: Current learning rate: 0.00989
+2024-07-24 23:48:07.807488: Validation loss did not improve from -0.46654. Patience: 1/50
+2024-07-24 23:48:07.808822: train_loss -0.5387
+2024-07-24 23:48:07.809900: val_loss -0.4521
+2024-07-24 23:48:07.810831: Pseudo dice [0.6888]
+2024-07-24 23:48:07.811930: Epoch time: 387.52 s
+2024-07-24 23:48:08.240324: Yayy! New best EMA pseudo Dice: 0.6201
+2024-07-24 23:48:10.200120: 
+2024-07-24 23:48:10.201505: Epoch 13
+2024-07-24 23:48:10.202534: Current learning rate: 0.00988
+2024-07-24 23:54:06.670181: Validation loss did not improve from -0.46654. Patience: 2/50
+2024-07-24 23:54:06.671610: train_loss -0.5381
+2024-07-24 23:54:06.714572: val_loss -0.43
+2024-07-24 23:54:06.715662: Pseudo dice [0.6853]
+2024-07-24 23:54:06.717328: Epoch time: 356.47 s
+2024-07-24 23:54:07.161959: Yayy! New best EMA pseudo Dice: 0.6266
+2024-07-24 23:54:09.202925: 
+2024-07-24 23:54:09.204139: Epoch 14
+2024-07-24 23:54:09.205182: Current learning rate: 0.00987
+2024-07-24 23:59:13.727939: Validation loss improved from -0.46654 to -0.48804! Patience: 2/50
+2024-07-24 23:59:13.729261: train_loss -0.5612
+2024-07-24 23:59:13.730402: val_loss -0.488
+2024-07-24 23:59:13.731565: Pseudo dice [0.7084]
+2024-07-24 23:59:13.732685: Epoch time: 304.53 s
+2024-07-24 23:59:14.136224: Yayy! New best EMA pseudo Dice: 0.6348
+2024-07-24 23:59:16.093395: 
+2024-07-24 23:59:16.094954: Epoch 15
+2024-07-24 23:59:16.096222: Current learning rate: 0.00986
+2024-07-25 00:05:34.760769: Validation loss did not improve from -0.48804. Patience: 1/50
+2024-07-25 00:05:34.762398: train_loss -0.568
+2024-07-25 00:05:34.763740: val_loss -0.4761
+2024-07-25 00:05:34.765057: Pseudo dice [0.7002]
+2024-07-25 00:05:34.766298: Epoch time: 378.67 s
+2024-07-25 00:05:35.190187: Yayy! New best EMA pseudo Dice: 0.6414
+2024-07-25 00:05:37.163834: 
+2024-07-25 00:05:37.165406: Epoch 16
+2024-07-25 00:05:37.166805: Current learning rate: 0.00986
+2024-07-25 00:11:13.948526: Validation loss did not improve from -0.48804. Patience: 2/50
+2024-07-25 00:11:13.949951: train_loss -0.5663
+2024-07-25 00:11:13.951569: val_loss -0.4696
+2024-07-25 00:11:13.952870: Pseudo dice [0.7063]
+2024-07-25 00:11:13.953968: Epoch time: 336.79 s
+2024-07-25 00:11:14.385326: Yayy! New best EMA pseudo Dice: 0.6479
+2024-07-25 00:11:16.317853: 
+2024-07-25 00:11:16.319376: Epoch 17
+2024-07-25 00:11:16.320621: Current learning rate: 0.00985
+2024-07-25 00:17:20.637085: Validation loss did not improve from -0.48804. Patience: 3/50
+2024-07-25 00:17:20.638463: train_loss -0.5763
+2024-07-25 00:17:20.639554: val_loss -0.4227
+2024-07-25 00:17:20.640558: Pseudo dice [0.6789]
+2024-07-25 00:17:20.641591: Epoch time: 364.32 s
+2024-07-25 00:17:21.061001: Yayy! New best EMA pseudo Dice: 0.651
+2024-07-25 00:17:22.984434: 
+2024-07-25 00:17:22.985787: Epoch 18
+2024-07-25 00:17:22.986936: Current learning rate: 0.00984
+2024-07-25 00:23:35.716699: Validation loss did not improve from -0.48804. Patience: 4/50
+2024-07-25 00:23:35.718093: train_loss -0.5846
+2024-07-25 00:23:35.719312: val_loss -0.4011
+2024-07-25 00:23:35.720283: Pseudo dice [0.671]
+2024-07-25 00:23:35.721511: Epoch time: 372.73 s
+2024-07-25 00:23:36.118898: Yayy! New best EMA pseudo Dice: 0.653
+2024-07-25 00:23:37.991225: 
+2024-07-25 00:23:37.992512: Epoch 19
+2024-07-25 00:23:37.993502: Current learning rate: 0.00983
+2024-07-25 00:29:49.320632: Validation loss improved from -0.48804 to -0.49619! Patience: 4/50
+2024-07-25 00:29:49.321865: train_loss -0.5966
+2024-07-25 00:29:49.323050: val_loss -0.4962
+2024-07-25 00:29:49.324123: Pseudo dice [0.7077]
+2024-07-25 00:29:49.325120: Epoch time: 371.33 s
+2024-07-25 00:29:49.735513: Yayy! New best EMA pseudo Dice: 0.6584
+2024-07-25 00:29:52.142303: 
+2024-07-25 00:29:52.143867: Epoch 20
+2024-07-25 00:29:52.145493: Current learning rate: 0.00982
+2024-07-25 00:34:56.841900: Validation loss did not improve from -0.49619. Patience: 1/50
+2024-07-25 00:34:56.844054: train_loss -0.5979
+2024-07-25 00:34:56.845212: val_loss -0.448
+2024-07-25 00:34:56.846174: Pseudo dice [0.691]
+2024-07-25 00:34:56.847076: Epoch time: 304.7 s
+2024-07-25 00:34:57.240267: Yayy! New best EMA pseudo Dice: 0.6617
+2024-07-25 00:34:59.213439: 
+2024-07-25 00:34:59.215815: Epoch 21
+2024-07-25 00:34:59.217008: Current learning rate: 0.00981
+2024-07-25 00:39:07.477646: Validation loss did not improve from -0.49619. Patience: 2/50
+2024-07-25 00:39:07.479078: train_loss -0.6088
+2024-07-25 00:39:07.480403: val_loss -0.4551
+2024-07-25 00:39:07.481611: Pseudo dice [0.6929]
+2024-07-25 00:39:07.482825: Epoch time: 248.27 s
+2024-07-25 00:39:07.894231: Yayy! New best EMA pseudo Dice: 0.6648
+2024-07-25 00:39:09.828958: 
+2024-07-25 00:39:09.830482: Epoch 22
+2024-07-25 00:39:09.831666: Current learning rate: 0.0098
+2024-07-25 00:42:52.179015: Validation loss improved from -0.49619 to -0.50923! Patience: 2/50
+2024-07-25 00:42:52.180667: train_loss -0.6057
+2024-07-25 00:42:52.181764: val_loss -0.5092
+2024-07-25 00:42:52.182816: Pseudo dice [0.7104]
+2024-07-25 00:42:52.186268: Epoch time: 222.35 s
+2024-07-25 00:42:52.630319: Yayy! New best EMA pseudo Dice: 0.6694
+2024-07-25 00:42:54.715673: 
+2024-07-25 00:42:54.718035: Epoch 23
+2024-07-25 00:42:54.719350: Current learning rate: 0.00979
+2024-07-25 00:46:40.090914: Validation loss did not improve from -0.50923. Patience: 1/50
+2024-07-25 00:46:40.092315: train_loss -0.6096
+2024-07-25 00:46:40.093629: val_loss -0.4493
+2024-07-25 00:46:40.094798: Pseudo dice [0.6862]
+2024-07-25 00:46:40.095845: Epoch time: 225.38 s
+2024-07-25 00:46:40.510783: Yayy! New best EMA pseudo Dice: 0.6711
+2024-07-25 00:46:42.364585: 
+2024-07-25 00:46:42.366188: Epoch 24
+2024-07-25 00:46:42.367261: Current learning rate: 0.00978
+2024-07-25 00:50:23.730518: Validation loss did not improve from -0.50923. Patience: 2/50
+2024-07-25 00:50:23.731927: train_loss -0.622
+2024-07-25 00:50:23.733096: val_loss -0.4348
+2024-07-25 00:50:23.734299: Pseudo dice [0.6773]
+2024-07-25 00:50:23.735349: Epoch time: 221.37 s
+2024-07-25 00:50:24.233803: Yayy! New best EMA pseudo Dice: 0.6717
+2024-07-25 00:50:26.166546: 
+2024-07-25 00:50:26.168130: Epoch 25
+2024-07-25 00:50:26.169363: Current learning rate: 0.00977
+2024-07-25 00:54:28.606916: Validation loss did not improve from -0.50923. Patience: 3/50
+2024-07-25 00:54:28.608239: train_loss -0.6208
+2024-07-25 00:54:28.609341: val_loss -0.4566
+2024-07-25 00:54:28.610476: Pseudo dice [0.6959]
+2024-07-25 00:54:28.611397: Epoch time: 242.44 s
+2024-07-25 00:54:29.035136: Yayy! New best EMA pseudo Dice: 0.6741
+2024-07-25 00:54:30.872196: 
+2024-07-25 00:54:30.873526: Epoch 26
+2024-07-25 00:54:30.874572: Current learning rate: 0.00977
+2024-07-25 00:58:13.394470: Validation loss did not improve from -0.50923. Patience: 4/50
+2024-07-25 00:58:13.395990: train_loss -0.6327
+2024-07-25 00:58:13.397338: val_loss -0.5003
+2024-07-25 00:58:13.398419: Pseudo dice [0.7263]
+2024-07-25 00:58:13.399777: Epoch time: 222.53 s
+2024-07-25 00:58:13.821651: Yayy! New best EMA pseudo Dice: 0.6793
+2024-07-25 00:58:15.673193: 
+2024-07-25 00:58:15.674968: Epoch 27
+2024-07-25 00:58:15.676405: Current learning rate: 0.00976
+2024-07-25 01:01:48.656116: Validation loss did not improve from -0.50923. Patience: 5/50
+2024-07-25 01:01:48.657628: train_loss -0.6239
+2024-07-25 01:01:48.658896: val_loss -0.4472
+2024-07-25 01:01:48.660087: Pseudo dice [0.6946]
+2024-07-25 01:01:48.661260: Epoch time: 212.99 s
+2024-07-25 01:01:49.121773: Yayy! New best EMA pseudo Dice: 0.6808
+2024-07-25 01:01:51.012639: 
+2024-07-25 01:01:51.015260: Epoch 28
+2024-07-25 01:01:51.016540: Current learning rate: 0.00975
+2024-07-25 01:05:11.171414: Validation loss improved from -0.50923 to -0.54341! Patience: 5/50
+2024-07-25 01:05:11.172742: train_loss -0.6327
+2024-07-25 01:05:11.174060: val_loss -0.5434
+2024-07-25 01:05:11.175113: Pseudo dice [0.7432]
+2024-07-25 01:05:11.176317: Epoch time: 200.16 s
+2024-07-25 01:05:11.609247: Yayy! New best EMA pseudo Dice: 0.6871
+2024-07-25 01:05:13.429713: 
+2024-07-25 01:05:13.431037: Epoch 29
+2024-07-25 01:05:13.432240: Current learning rate: 0.00974
+2024-07-25 01:08:13.579950: Validation loss did not improve from -0.54341. Patience: 1/50
+2024-07-25 01:08:13.581253: train_loss -0.6395
+2024-07-25 01:08:13.582464: val_loss -0.5024
+2024-07-25 01:08:13.583442: Pseudo dice [0.7238]
+2024-07-25 01:08:13.584516: Epoch time: 180.15 s
+2024-07-25 01:08:14.016198: Yayy! New best EMA pseudo Dice: 0.6908
+2024-07-25 01:08:15.826085: 
+2024-07-25 01:08:15.827249: Epoch 30
+2024-07-25 01:08:15.828113: Current learning rate: 0.00973
+2024-07-25 01:11:19.628694: Validation loss did not improve from -0.54341. Patience: 2/50
+2024-07-25 01:11:19.629881: train_loss -0.6412
+2024-07-25 01:11:19.631049: val_loss -0.4556
+2024-07-25 01:11:19.632078: Pseudo dice [0.6897]
+2024-07-25 01:11:19.633067: Epoch time: 183.81 s
+2024-07-25 01:11:22.543067: 
+2024-07-25 01:11:22.544434: Epoch 31
+2024-07-25 01:11:22.545383: Current learning rate: 0.00972
+2024-07-25 01:14:07.862206: Validation loss improved from -0.54341 to -0.54434! Patience: 2/50
+2024-07-25 01:14:07.863612: train_loss -0.6419
+2024-07-25 01:14:07.865146: val_loss -0.5443
+2024-07-25 01:14:07.866449: Pseudo dice [0.7329]
+2024-07-25 01:14:07.867754: Epoch time: 165.32 s
+2024-07-25 01:14:08.362905: Yayy! New best EMA pseudo Dice: 0.6949
+2024-07-25 01:14:10.240240: 
+2024-07-25 01:14:10.241802: Epoch 32
+2024-07-25 01:14:10.243189: Current learning rate: 0.00971
+2024-07-25 01:17:05.530434: Validation loss did not improve from -0.54434. Patience: 1/50
+2024-07-25 01:17:05.531886: train_loss -0.6312
+2024-07-25 01:17:05.533166: val_loss -0.4584
+2024-07-25 01:17:05.534315: Pseudo dice [0.6917]
+2024-07-25 01:17:05.535446: Epoch time: 175.29 s
+2024-07-25 01:17:07.390998: 
+2024-07-25 01:17:07.392507: Epoch 33
+2024-07-25 01:17:07.393751: Current learning rate: 0.0097
+2024-07-25 01:20:25.280244: Validation loss did not improve from -0.54434. Patience: 2/50
+2024-07-25 01:20:25.281711: train_loss -0.6546
+2024-07-25 01:20:25.283155: val_loss -0.5177
+2024-07-25 01:20:25.284880: Pseudo dice [0.7369]
+2024-07-25 01:20:25.286525: Epoch time: 197.89 s
+2024-07-25 01:20:25.735528: Yayy! New best EMA pseudo Dice: 0.6988
+2024-07-25 01:20:27.708941: 
+2024-07-25 01:20:27.712148: Epoch 34
+2024-07-25 01:20:27.713860: Current learning rate: 0.00969
+2024-07-25 01:23:08.371707: Validation loss did not improve from -0.54434. Patience: 3/50
+2024-07-25 01:23:08.373202: train_loss -0.6544
+2024-07-25 01:23:08.374664: val_loss -0.4376
+2024-07-25 01:23:08.376288: Pseudo dice [0.689]
+2024-07-25 01:23:08.377557: Epoch time: 160.67 s
+2024-07-25 01:23:10.472414: 
+2024-07-25 01:23:10.474610: Epoch 35
+2024-07-25 01:23:10.475929: Current learning rate: 0.00968
+2024-07-25 01:25:45.904970: Validation loss did not improve from -0.54434. Patience: 4/50
+2024-07-25 01:25:45.906872: train_loss -0.6541
+2024-07-25 01:25:45.907939: val_loss -0.5376
+2024-07-25 01:25:45.908879: Pseudo dice [0.7312]
+2024-07-25 01:25:45.909867: Epoch time: 155.44 s
+2024-07-25 01:25:46.324110: Yayy! New best EMA pseudo Dice: 0.7012
+2024-07-25 01:25:48.276036: 
+2024-07-25 01:25:48.277478: Epoch 36
+2024-07-25 01:25:48.278699: Current learning rate: 0.00968
+2024-07-25 01:29:25.580667: Validation loss did not improve from -0.54434. Patience: 5/50
+2024-07-25 01:29:25.582110: train_loss -0.6668
+2024-07-25 01:29:25.583341: val_loss -0.5248
+2024-07-25 01:29:25.584566: Pseudo dice [0.726]
+2024-07-25 01:29:25.585811: Epoch time: 217.31 s
+2024-07-25 01:29:26.064657: Yayy! New best EMA pseudo Dice: 0.7036
+2024-07-25 01:29:28.062359: 
+2024-07-25 01:29:28.064018: Epoch 37
+2024-07-25 01:29:28.065340: Current learning rate: 0.00967
+2024-07-25 01:33:13.527412: Validation loss did not improve from -0.54434. Patience: 6/50
+2024-07-25 01:33:13.528837: train_loss -0.6637
+2024-07-25 01:33:13.530185: val_loss -0.5166
+2024-07-25 01:33:13.531522: Pseudo dice [0.7172]
+2024-07-25 01:33:13.532854: Epoch time: 225.47 s
+2024-07-25 01:33:13.957506: Yayy! New best EMA pseudo Dice: 0.705
+2024-07-25 01:33:15.925737: 
+2024-07-25 01:33:15.927560: Epoch 38
+2024-07-25 01:33:15.928792: Current learning rate: 0.00966
+2024-07-25 01:36:47.864662: Validation loss did not improve from -0.54434. Patience: 7/50
+2024-07-25 01:36:47.867400: train_loss -0.6693
+2024-07-25 01:36:47.868829: val_loss -0.5342
+2024-07-25 01:36:47.869934: Pseudo dice [0.7309]
+2024-07-25 01:36:47.871200: Epoch time: 211.94 s
+2024-07-25 01:36:48.610699: Yayy! New best EMA pseudo Dice: 0.7076
+2024-07-25 01:36:50.795820: 
+2024-07-25 01:36:50.798603: Epoch 39
+2024-07-25 01:36:50.799915: Current learning rate: 0.00965
+2024-07-25 01:40:25.262951: Validation loss did not improve from -0.54434. Patience: 8/50
+2024-07-25 01:40:25.264374: train_loss -0.6732
+2024-07-25 01:40:25.265800: val_loss -0.512
+2024-07-25 01:40:25.267186: Pseudo dice [0.7257]
+2024-07-25 01:40:25.268386: Epoch time: 214.47 s
+2024-07-25 01:40:25.695702: Yayy! New best EMA pseudo Dice: 0.7094
+2024-07-25 01:40:27.788414: 
+2024-07-25 01:40:27.789731: Epoch 40
+2024-07-25 01:40:27.790861: Current learning rate: 0.00964
+2024-07-25 01:43:08.314066: Validation loss did not improve from -0.54434. Patience: 9/50
+2024-07-25 01:43:08.315637: train_loss -0.6752
+2024-07-25 01:43:08.316854: val_loss -0.4681
+2024-07-25 01:43:08.319936: Pseudo dice [0.7098]
+2024-07-25 01:43:08.321402: Epoch time: 160.53 s
+2024-07-25 01:43:08.739878: Yayy! New best EMA pseudo Dice: 0.7094
+2024-07-25 01:43:10.652562: 
+2024-07-25 01:43:10.654393: Epoch 41
+2024-07-25 01:43:10.655969: Current learning rate: 0.00963
+2024-07-25 01:45:47.035743: Validation loss did not improve from -0.54434. Patience: 10/50
+2024-07-25 01:45:47.039876: train_loss -0.6853
+2024-07-25 01:45:47.041763: val_loss -0.4885
+2024-07-25 01:45:47.043020: Pseudo dice [0.7122]
+2024-07-25 01:45:47.044226: Epoch time: 156.39 s
+2024-07-25 01:45:48.511591: Yayy! New best EMA pseudo Dice: 0.7097
+2024-07-25 01:45:50.291540: 
+2024-07-25 01:45:50.293295: Epoch 42
+2024-07-25 01:45:50.294365: Current learning rate: 0.00962
+2024-07-25 01:48:21.629059: Validation loss did not improve from -0.54434. Patience: 11/50
+2024-07-25 01:48:21.631263: train_loss -0.6862
+2024-07-25 01:48:21.632781: val_loss -0.521
+2024-07-25 01:48:21.634012: Pseudo dice [0.7368]
+2024-07-25 01:48:21.635418: Epoch time: 151.34 s
+2024-07-25 01:48:22.052272: Yayy! New best EMA pseudo Dice: 0.7124
+2024-07-25 01:48:23.892380: 
+2024-07-25 01:48:23.894333: Epoch 43
+2024-07-25 01:48:23.895982: Current learning rate: 0.00961
+2024-07-25 01:50:55.376619: Validation loss did not improve from -0.54434. Patience: 12/50
+2024-07-25 01:50:55.378022: train_loss -0.6878
+2024-07-25 01:50:55.379524: val_loss -0.5272
+2024-07-25 01:50:55.380835: Pseudo dice [0.7374]
+2024-07-25 01:50:55.381944: Epoch time: 151.49 s
+2024-07-25 01:50:55.815804: Yayy! New best EMA pseudo Dice: 0.7149
+2024-07-25 01:50:57.661519: 
+2024-07-25 01:50:57.663603: Epoch 44
+2024-07-25 01:50:57.664864: Current learning rate: 0.0096
+2024-07-25 01:53:30.174721: Validation loss did not improve from -0.54434. Patience: 13/50
+2024-07-25 01:53:30.176129: train_loss -0.6834
+2024-07-25 01:53:30.177548: val_loss -0.4041
+2024-07-25 01:53:30.178696: Pseudo dice [0.6723]
+2024-07-25 01:53:30.179878: Epoch time: 152.52 s
+2024-07-25 01:53:32.063455: 
+2024-07-25 01:53:32.065242: Epoch 45
+2024-07-25 01:53:32.066230: Current learning rate: 0.00959
+2024-07-25 01:56:04.171027: Validation loss did not improve from -0.54434. Patience: 14/50
+2024-07-25 01:56:04.172421: train_loss -0.6805
+2024-07-25 01:56:04.173843: val_loss -0.5127
+2024-07-25 01:56:04.174822: Pseudo dice [0.7238]
+2024-07-25 01:56:04.175777: Epoch time: 152.11 s
+2024-07-25 01:56:06.022691: 
+2024-07-25 01:56:06.087947: Epoch 46
+2024-07-25 01:56:06.089385: Current learning rate: 0.00959
+2024-07-25 01:58:40.612611: Validation loss did not improve from -0.54434. Patience: 15/50
+2024-07-25 01:58:40.614380: train_loss -0.6832
+2024-07-25 01:58:40.615972: val_loss -0.4875
+2024-07-25 01:58:40.617132: Pseudo dice [0.7086]
+2024-07-25 01:58:40.618267: Epoch time: 154.59 s
+2024-07-25 01:58:42.436559: 
+2024-07-25 01:58:42.438084: Epoch 47
+2024-07-25 01:58:42.439222: Current learning rate: 0.00958
+2024-07-25 02:01:22.429178: Validation loss did not improve from -0.54434. Patience: 16/50
+2024-07-25 02:01:22.430999: train_loss -0.6891
+2024-07-25 02:01:22.432215: val_loss -0.5331
+2024-07-25 02:01:22.433364: Pseudo dice [0.733]
+2024-07-25 02:01:22.434422: Epoch time: 160.0 s
+2024-07-25 02:01:24.277416: 
+2024-07-25 02:01:24.279503: Epoch 48
+2024-07-25 02:01:24.281040: Current learning rate: 0.00957
+2024-07-25 02:04:07.628186: Validation loss did not improve from -0.54434. Patience: 17/50
+2024-07-25 02:04:07.630150: train_loss -0.7008
+2024-07-25 02:04:07.631664: val_loss -0.5379
+2024-07-25 02:04:07.632901: Pseudo dice [0.731]
+2024-07-25 02:04:07.633983: Epoch time: 163.36 s
+2024-07-25 02:04:08.065224: Yayy! New best EMA pseudo Dice: 0.7155
+2024-07-25 02:04:09.916663: 
+2024-07-25 02:04:09.918476: Epoch 49
+2024-07-25 02:04:09.919901: Current learning rate: 0.00956
+2024-07-25 02:06:51.955329: Validation loss did not improve from -0.54434. Patience: 18/50
+2024-07-25 02:06:51.956676: train_loss -0.701
+2024-07-25 02:06:51.957810: val_loss -0.5
+2024-07-25 02:06:51.958917: Pseudo dice [0.7226]
+2024-07-25 02:06:51.960143: Epoch time: 162.04 s
+2024-07-25 02:06:52.359748: Yayy! New best EMA pseudo Dice: 0.7162
+2024-07-25 02:06:54.366608: 
+2024-07-25 02:06:54.368202: Epoch 50
+2024-07-25 02:06:54.369357: Current learning rate: 0.00955
+2024-07-25 02:09:40.907108: Validation loss did not improve from -0.54434. Patience: 19/50
+2024-07-25 02:09:40.909442: train_loss -0.7014
+2024-07-25 02:09:40.915824: val_loss -0.5068
+2024-07-25 02:09:40.917514: Pseudo dice [0.7233]
+2024-07-25 02:09:40.918681: Epoch time: 166.54 s
+2024-07-25 02:09:41.367467: Yayy! New best EMA pseudo Dice: 0.7169
+2024-07-25 02:09:43.273626: 
+2024-07-25 02:09:43.275751: Epoch 51
+2024-07-25 02:09:43.277020: Current learning rate: 0.00954
+2024-07-25 02:12:27.378661: Validation loss did not improve from -0.54434. Patience: 20/50
+2024-07-25 02:12:27.380080: train_loss -0.7024
+2024-07-25 02:12:27.381469: val_loss -0.5051
+2024-07-25 02:12:27.383082: Pseudo dice [0.7233]
+2024-07-25 02:12:27.384488: Epoch time: 164.11 s
+2024-07-25 02:12:27.820580: Yayy! New best EMA pseudo Dice: 0.7175
+2024-07-25 02:12:29.790015: 
+2024-07-25 02:12:29.792150: Epoch 52
+2024-07-25 02:12:29.793706: Current learning rate: 0.00953
+2024-07-25 02:15:10.654512: Validation loss did not improve from -0.54434. Patience: 21/50
+2024-07-25 02:15:10.655919: train_loss -0.6976
+2024-07-25 02:15:10.657170: val_loss -0.5121
+2024-07-25 02:15:10.658309: Pseudo dice [0.7293]
+2024-07-25 02:15:10.659797: Epoch time: 160.87 s
+2024-07-25 02:15:11.179609: Yayy! New best EMA pseudo Dice: 0.7187
+2024-07-25 02:15:13.946732: 
+2024-07-25 02:15:13.948351: Epoch 53
+2024-07-25 02:15:13.949570: Current learning rate: 0.00952
+2024-07-25 02:17:57.405012: Validation loss did not improve from -0.54434. Patience: 22/50
+2024-07-25 02:17:57.407015: train_loss -0.6964
+2024-07-25 02:17:57.408740: val_loss -0.4703
+2024-07-25 02:17:57.410267: Pseudo dice [0.7058]
+2024-07-25 02:17:57.411666: Epoch time: 163.46 s
+2024-07-25 02:17:59.374954: 
+2024-07-25 02:17:59.376868: Epoch 54
+2024-07-25 02:17:59.378070: Current learning rate: 0.00951
+2024-07-25 02:20:45.873238: Validation loss improved from -0.54434 to -0.56286! Patience: 22/50
+2024-07-25 02:20:45.874738: train_loss -0.7002
+2024-07-25 02:20:45.876100: val_loss -0.5629
+2024-07-25 02:20:45.877046: Pseudo dice [0.7544]
+2024-07-25 02:20:45.878039: Epoch time: 166.5 s
+2024-07-25 02:20:46.287783: Yayy! New best EMA pseudo Dice: 0.7211
+2024-07-25 02:20:48.064735: 
+2024-07-25 02:20:48.066498: Epoch 55
+2024-07-25 02:20:48.067728: Current learning rate: 0.0095
+2024-07-25 02:23:35.541691: Validation loss did not improve from -0.56286. Patience: 1/50
+2024-07-25 02:23:35.543243: train_loss -0.7084
+2024-07-25 02:23:35.544720: val_loss -0.5279
+2024-07-25 02:23:35.545815: Pseudo dice [0.737]
+2024-07-25 02:23:35.546918: Epoch time: 167.48 s
+2024-07-25 02:23:35.965743: Yayy! New best EMA pseudo Dice: 0.7227
+2024-07-25 02:23:37.812874: 
+2024-07-25 02:23:37.814318: Epoch 56
+2024-07-25 02:23:37.815510: Current learning rate: 0.00949
+2024-07-25 02:26:25.522179: Validation loss did not improve from -0.56286. Patience: 2/50
+2024-07-25 02:26:25.523732: train_loss -0.7145
+2024-07-25 02:26:25.525158: val_loss -0.5004
+2024-07-25 02:26:25.526300: Pseudo dice [0.7139]
+2024-07-25 02:26:25.527452: Epoch time: 167.71 s
+2024-07-25 02:26:27.338300: 
+2024-07-25 02:26:27.339864: Epoch 57
+2024-07-25 02:26:27.340995: Current learning rate: 0.00949
+2024-07-25 02:29:13.821526: Validation loss did not improve from -0.56286. Patience: 3/50
+2024-07-25 02:29:13.823197: train_loss -0.7091
+2024-07-25 02:29:13.824549: val_loss -0.5077
+2024-07-25 02:29:13.825763: Pseudo dice [0.7285]
+2024-07-25 02:29:13.826693: Epoch time: 166.49 s
+2024-07-25 02:29:15.737623: 
+2024-07-25 02:29:15.739389: Epoch 58
+2024-07-25 02:29:15.740960: Current learning rate: 0.00948
+2024-07-25 02:32:03.085661: Validation loss did not improve from -0.56286. Patience: 4/50
+2024-07-25 02:32:03.087551: train_loss -0.7131
+2024-07-25 02:32:03.088948: val_loss -0.4582
+2024-07-25 02:32:03.090115: Pseudo dice [0.702]
+2024-07-25 02:32:03.095150: Epoch time: 167.35 s
+2024-07-25 02:32:05.092437: 
+2024-07-25 02:32:05.095218: Epoch 59
+2024-07-25 02:32:05.096705: Current learning rate: 0.00947
+2024-07-25 02:34:47.573060: Validation loss did not improve from -0.56286. Patience: 5/50
+2024-07-25 02:34:47.575044: train_loss -0.7123
+2024-07-25 02:34:47.576709: val_loss -0.4977
+2024-07-25 02:34:47.577951: Pseudo dice [0.7227]
+2024-07-25 02:34:47.579187: Epoch time: 162.49 s
+2024-07-25 02:34:49.479800: 
+2024-07-25 02:34:49.481595: Epoch 60
+2024-07-25 02:34:49.482844: Current learning rate: 0.00946
+2024-07-25 02:37:32.993521: Validation loss did not improve from -0.56286. Patience: 6/50
+2024-07-25 02:37:32.995221: train_loss -0.7119
+2024-07-25 02:37:32.996596: val_loss -0.5349
+2024-07-25 02:37:32.997820: Pseudo dice [0.7424]
+2024-07-25 02:37:32.999156: Epoch time: 163.52 s
+2024-07-25 02:37:33.440732: Yayy! New best EMA pseudo Dice: 0.7228
+2024-07-25 02:37:35.363921: 
+2024-07-25 02:37:35.365545: Epoch 61
+2024-07-25 02:37:35.366611: Current learning rate: 0.00945
+2024-07-25 02:40:19.473428: Validation loss did not improve from -0.56286. Patience: 7/50
+2024-07-25 02:40:19.474755: train_loss -0.7154
+2024-07-25 02:40:19.475980: val_loss -0.4961
+2024-07-25 02:40:19.477042: Pseudo dice [0.7137]
+2024-07-25 02:40:19.478005: Epoch time: 164.11 s
+2024-07-25 02:40:21.465298: 
+2024-07-25 02:40:21.468622: Epoch 62
+2024-07-25 02:40:21.469983: Current learning rate: 0.00944
+2024-07-25 02:43:08.206523: Validation loss did not improve from -0.56286. Patience: 8/50
+2024-07-25 02:43:08.209412: train_loss -0.7215
+2024-07-25 02:43:08.210938: val_loss -0.5332
+2024-07-25 02:43:08.212182: Pseudo dice [0.7381]
+2024-07-25 02:43:08.213257: Epoch time: 166.75 s
+2024-07-25 02:43:08.620522: Yayy! New best EMA pseudo Dice: 0.7235
+2024-07-25 02:43:10.447262: 
+2024-07-25 02:43:10.449353: Epoch 63
+2024-07-25 02:43:10.450545: Current learning rate: 0.00943
+2024-07-25 02:45:14.115748: Validation loss did not improve from -0.56286. Patience: 9/50
+2024-07-25 02:45:14.118432: train_loss -0.7186
+2024-07-25 02:45:14.119602: val_loss -0.5366
+2024-07-25 02:45:14.120786: Pseudo dice [0.7378]
+2024-07-25 02:45:14.122010: Epoch time: 123.67 s
+2024-07-25 02:45:14.529891: Yayy! New best EMA pseudo Dice: 0.725
+2024-07-25 02:45:17.603513: 
+2024-07-25 02:45:17.605387: Epoch 64
+2024-07-25 02:45:17.606628: Current learning rate: 0.00942
+2024-07-25 02:47:06.174133: Validation loss did not improve from -0.56286. Patience: 10/50
+2024-07-25 02:47:06.175379: train_loss -0.7203
+2024-07-25 02:47:06.176468: val_loss -0.5168
+2024-07-25 02:47:06.177568: Pseudo dice [0.73]
+2024-07-25 02:47:06.178788: Epoch time: 108.57 s
+2024-07-25 02:47:06.591321: Yayy! New best EMA pseudo Dice: 0.7255
+2024-07-25 02:47:08.471107: 
+2024-07-25 02:47:08.472967: Epoch 65
+2024-07-25 02:47:08.474384: Current learning rate: 0.00941
+2024-07-25 02:48:38.443328: Validation loss did not improve from -0.56286. Patience: 11/50
+2024-07-25 02:48:38.444689: train_loss -0.7224
+2024-07-25 02:48:38.446111: val_loss -0.5342
+2024-07-25 02:48:38.447353: Pseudo dice [0.7381]
+2024-07-25 02:48:38.448494: Epoch time: 89.98 s
+2024-07-25 02:48:38.869174: Yayy! New best EMA pseudo Dice: 0.7267
+2024-07-25 02:48:40.786859: 
+2024-07-25 02:48:40.788879: Epoch 66
+2024-07-25 02:48:40.790272: Current learning rate: 0.0094
+2024-07-25 02:50:10.713900: Validation loss did not improve from -0.56286. Patience: 12/50
+2024-07-25 02:50:10.715697: train_loss -0.7303
+2024-07-25 02:50:10.717244: val_loss -0.502
+2024-07-25 02:50:10.718413: Pseudo dice [0.7334]
+2024-07-25 02:50:10.719597: Epoch time: 89.93 s
+2024-07-25 02:50:11.130763: Yayy! New best EMA pseudo Dice: 0.7274
+2024-07-25 02:50:12.840002: 
+2024-07-25 02:50:12.841707: Epoch 67
+2024-07-25 02:50:12.842832: Current learning rate: 0.00939
+2024-07-25 02:51:43.017998: Validation loss did not improve from -0.56286. Patience: 13/50
+2024-07-25 02:51:43.019134: train_loss -0.726
+2024-07-25 02:51:43.020400: val_loss -0.5518
+2024-07-25 02:51:43.021481: Pseudo dice [0.7492]
+2024-07-25 02:51:43.022468: Epoch time: 90.18 s
+2024-07-25 02:51:43.419370: Yayy! New best EMA pseudo Dice: 0.7296
+2024-07-25 02:51:45.227497: 
+2024-07-25 02:51:45.228929: Epoch 68
+2024-07-25 02:51:45.229910: Current learning rate: 0.00939
+2024-07-25 02:53:15.233765: Validation loss did not improve from -0.56286. Patience: 14/50
+2024-07-25 02:53:15.235369: train_loss -0.7324
+2024-07-25 02:53:15.236457: val_loss -0.5381
+2024-07-25 02:53:15.237399: Pseudo dice [0.7379]
+2024-07-25 02:53:15.238529: Epoch time: 90.01 s
+2024-07-25 02:53:15.670983: Yayy! New best EMA pseudo Dice: 0.7304
+2024-07-25 02:53:17.432127: 
+2024-07-25 02:53:17.433513: Epoch 69
+2024-07-25 02:53:17.434520: Current learning rate: 0.00938
+2024-07-25 02:54:47.392872: Validation loss improved from -0.56286 to -0.56573! Patience: 14/50
+2024-07-25 02:54:47.394288: train_loss -0.733
+2024-07-25 02:54:47.395581: val_loss -0.5657
+2024-07-25 02:54:47.396764: Pseudo dice [0.7588]
+2024-07-25 02:54:47.397732: Epoch time: 89.96 s
+2024-07-25 02:54:47.802777: Yayy! New best EMA pseudo Dice: 0.7333
+2024-07-25 02:54:49.562743: 
+2024-07-25 02:54:49.564230: Epoch 70
+2024-07-25 02:54:49.565295: Current learning rate: 0.00937
+2024-07-25 02:56:19.469537: Validation loss did not improve from -0.56573. Patience: 1/50
+2024-07-25 02:56:19.470781: train_loss -0.7346
+2024-07-25 02:56:19.471697: val_loss -0.5562
+2024-07-25 02:56:19.472691: Pseudo dice [0.747]
+2024-07-25 02:56:19.473674: Epoch time: 89.91 s
+2024-07-25 02:56:19.870090: Yayy! New best EMA pseudo Dice: 0.7346
+2024-07-25 02:56:21.676675: 
+2024-07-25 02:56:21.677959: Epoch 71
+2024-07-25 02:56:21.679182: Current learning rate: 0.00936
+2024-07-25 02:57:51.590482: Validation loss did not improve from -0.56573. Patience: 2/50
+2024-07-25 02:57:51.591773: train_loss -0.7365
+2024-07-25 02:57:51.593076: val_loss -0.5568
+2024-07-25 02:57:51.594178: Pseudo dice [0.745]
+2024-07-25 02:57:51.595207: Epoch time: 89.92 s
+2024-07-25 02:57:52.004014: Yayy! New best EMA pseudo Dice: 0.7357
+2024-07-25 02:57:53.755619: 
+2024-07-25 02:57:53.757429: Epoch 72
+2024-07-25 02:57:53.758693: Current learning rate: 0.00935
+2024-07-25 02:59:23.332374: Validation loss did not improve from -0.56573. Patience: 3/50
+2024-07-25 02:59:23.333774: train_loss -0.7409
+2024-07-25 02:59:23.334937: val_loss -0.5559
+2024-07-25 02:59:23.335973: Pseudo dice [0.7472]
+2024-07-25 02:59:23.337058: Epoch time: 89.58 s
+2024-07-25 02:59:23.740034: Yayy! New best EMA pseudo Dice: 0.7368
+2024-07-25 02:59:25.491672: 
+2024-07-25 02:59:25.493144: Epoch 73
+2024-07-25 02:59:25.494028: Current learning rate: 0.00934
+2024-07-25 03:00:55.131401: Validation loss did not improve from -0.56573. Patience: 4/50
+2024-07-25 03:00:55.132663: train_loss -0.7395
+2024-07-25 03:00:55.133986: val_loss -0.5152
+2024-07-25 03:00:55.134915: Pseudo dice [0.7348]
+2024-07-25 03:00:55.135879: Epoch time: 89.64 s
+2024-07-25 03:00:56.916641: 
+2024-07-25 03:00:56.918137: Epoch 74
+2024-07-25 03:00:56.919239: Current learning rate: 0.00933
+2024-07-25 03:02:26.524403: Validation loss improved from -0.56573 to -0.56904! Patience: 4/50
+2024-07-25 03:02:26.525738: train_loss -0.7376
+2024-07-25 03:02:26.526868: val_loss -0.569
+2024-07-25 03:02:26.527961: Pseudo dice [0.7555]
+2024-07-25 03:02:26.529101: Epoch time: 89.61 s
+2024-07-25 03:02:26.927300: Yayy! New best EMA pseudo Dice: 0.7385
+2024-07-25 03:02:29.357108: 
+2024-07-25 03:02:29.358565: Epoch 75
+2024-07-25 03:02:29.359687: Current learning rate: 0.00932
+2024-07-25 03:03:58.937341: Validation loss did not improve from -0.56904. Patience: 1/50
+2024-07-25 03:03:58.938540: train_loss -0.743
+2024-07-25 03:03:58.939650: val_loss -0.5344
+2024-07-25 03:03:58.940500: Pseudo dice [0.7398]
+2024-07-25 03:03:58.941399: Epoch time: 89.58 s
+2024-07-25 03:03:59.343044: Yayy! New best EMA pseudo Dice: 0.7386
+2024-07-25 03:04:01.156455: 
+2024-07-25 03:04:01.157638: Epoch 76
+2024-07-25 03:04:01.158504: Current learning rate: 0.00931
+2024-07-25 03:05:30.875741: Validation loss did not improve from -0.56904. Patience: 2/50
+2024-07-25 03:05:30.877142: train_loss -0.7425
+2024-07-25 03:05:30.878551: val_loss -0.5183
+2024-07-25 03:05:30.879555: Pseudo dice [0.7313]
+2024-07-25 03:05:30.884383: Epoch time: 89.72 s
+2024-07-25 03:05:32.611647: 
+2024-07-25 03:05:32.613249: Epoch 77
+2024-07-25 03:05:32.614464: Current learning rate: 0.0093
+2024-07-25 03:07:02.352052: Validation loss did not improve from -0.56904. Patience: 3/50
+2024-07-25 03:07:02.353357: train_loss -0.749
+2024-07-25 03:07:02.354812: val_loss -0.564
+2024-07-25 03:07:02.355754: Pseudo dice [0.7632]
+2024-07-25 03:07:02.356804: Epoch time: 89.74 s
+2024-07-25 03:07:02.766776: Yayy! New best EMA pseudo Dice: 0.7404
+2024-07-25 03:07:04.557362: 
+2024-07-25 03:07:04.559385: Epoch 78
+2024-07-25 03:07:04.560677: Current learning rate: 0.0093
+2024-07-25 03:08:34.295958: Validation loss did not improve from -0.56904. Patience: 4/50
+2024-07-25 03:08:34.297119: train_loss -0.7431
+2024-07-25 03:08:34.298417: val_loss -0.5317
+2024-07-25 03:08:34.299516: Pseudo dice [0.7452]
+2024-07-25 03:08:34.300640: Epoch time: 89.74 s
+2024-07-25 03:08:34.691581: Yayy! New best EMA pseudo Dice: 0.7409
+2024-07-25 03:08:36.486521: 
+2024-07-25 03:08:36.488165: Epoch 79
+2024-07-25 03:08:36.489403: Current learning rate: 0.00929
+2024-07-25 03:10:06.056425: Validation loss did not improve from -0.56904. Patience: 5/50
+2024-07-25 03:10:06.057694: train_loss -0.7464
+2024-07-25 03:10:06.058697: val_loss -0.5635
+2024-07-25 03:10:06.059692: Pseudo dice [0.7549]
+2024-07-25 03:10:06.060778: Epoch time: 89.57 s
+2024-07-25 03:10:06.476466: Yayy! New best EMA pseudo Dice: 0.7423
+2024-07-25 03:10:08.219241: 
+2024-07-25 03:10:08.220634: Epoch 80
+2024-07-25 03:10:08.221753: Current learning rate: 0.00928
+2024-07-25 03:11:37.966355: Validation loss did not improve from -0.56904. Patience: 6/50
+2024-07-25 03:11:37.967690: train_loss -0.7435
+2024-07-25 03:11:37.969040: val_loss -0.5219
+2024-07-25 03:11:37.969964: Pseudo dice [0.735]
+2024-07-25 03:11:37.971062: Epoch time: 89.75 s
+2024-07-25 03:11:39.737998: 
+2024-07-25 03:11:39.739501: Epoch 81
+2024-07-25 03:11:39.740399: Current learning rate: 0.00927
+2024-07-25 03:13:09.575392: Validation loss did not improve from -0.56904. Patience: 7/50
+2024-07-25 03:13:09.577101: train_loss -0.7495
+2024-07-25 03:13:09.578296: val_loss -0.5505
+2024-07-25 03:13:09.579382: Pseudo dice [0.7555]
+2024-07-25 03:13:09.580420: Epoch time: 89.84 s
+2024-07-25 03:13:09.987230: Yayy! New best EMA pseudo Dice: 0.743
+2024-07-25 03:13:11.709860: 
+2024-07-25 03:13:11.711433: Epoch 82
+2024-07-25 03:13:11.712539: Current learning rate: 0.00926
+2024-07-25 03:14:41.582726: Validation loss did not improve from -0.56904. Patience: 8/50
+2024-07-25 03:14:41.584106: train_loss -0.7525
+2024-07-25 03:14:41.585522: val_loss -0.5414
+2024-07-25 03:14:41.586654: Pseudo dice [0.7357]
+2024-07-25 03:14:41.587858: Epoch time: 89.88 s
+2024-07-25 03:14:43.313929: 
+2024-07-25 03:14:43.315441: Epoch 83
+2024-07-25 03:14:43.316448: Current learning rate: 0.00925
+2024-07-25 03:16:13.311279: Validation loss did not improve from -0.56904. Patience: 9/50
+2024-07-25 03:16:13.312666: train_loss -0.7521
+2024-07-25 03:16:13.314146: val_loss -0.5514
+2024-07-25 03:16:13.315295: Pseudo dice [0.7481]
+2024-07-25 03:16:13.316544: Epoch time: 90.0 s
+2024-07-25 03:16:14.978435: 
+2024-07-25 03:16:14.980049: Epoch 84
+2024-07-25 03:16:14.981266: Current learning rate: 0.00924
+2024-07-25 03:17:44.928533: Validation loss did not improve from -0.56904. Patience: 10/50
+2024-07-25 03:17:44.930305: train_loss -0.7511
+2024-07-25 03:17:44.931554: val_loss -0.5452
+2024-07-25 03:17:44.932866: Pseudo dice [0.7501]
+2024-07-25 03:17:44.933990: Epoch time: 89.95 s
+2024-07-25 03:17:45.346409: Yayy! New best EMA pseudo Dice: 0.7436
+2024-07-25 03:17:47.062204: 
+2024-07-25 03:17:47.064194: Epoch 85
+2024-07-25 03:17:47.065265: Current learning rate: 0.00923
+2024-07-25 03:19:16.656859: Validation loss did not improve from -0.56904. Patience: 11/50
+2024-07-25 03:19:16.658371: train_loss -0.7525
+2024-07-25 03:19:16.659786: val_loss -0.456
+2024-07-25 03:19:16.660896: Pseudo dice [0.7067]
+2024-07-25 03:19:16.662059: Epoch time: 89.6 s
+2024-07-25 03:19:18.414338: 
+2024-07-25 03:19:18.415956: Epoch 86
+2024-07-25 03:19:18.417282: Current learning rate: 0.00922
+2024-07-25 03:20:48.460739: Validation loss did not improve from -0.56904. Patience: 12/50
+2024-07-25 03:20:48.461921: train_loss -0.7526
+2024-07-25 03:20:48.463006: val_loss -0.5181
+2024-07-25 03:20:48.463968: Pseudo dice [0.7372]
+2024-07-25 03:20:48.465116: Epoch time: 90.05 s
+2024-07-25 03:20:50.218753: 
+2024-07-25 03:20:50.220101: Epoch 87
+2024-07-25 03:20:50.221042: Current learning rate: 0.00921
+2024-07-25 03:22:19.800238: Validation loss did not improve from -0.56904. Patience: 13/50
+2024-07-25 03:22:19.801491: train_loss -0.7542
+2024-07-25 03:22:19.802741: val_loss -0.4791
+2024-07-25 03:22:19.803926: Pseudo dice [0.7134]
+2024-07-25 03:22:19.805054: Epoch time: 89.58 s
+2024-07-25 03:22:21.511487: 
+2024-07-25 03:22:21.513347: Epoch 88
+2024-07-25 03:22:21.514655: Current learning rate: 0.0092
+2024-07-25 03:23:51.060587: Validation loss did not improve from -0.56904. Patience: 14/50
+2024-07-25 03:23:51.061837: train_loss -0.7508
+2024-07-25 03:23:51.062963: val_loss -0.5012
+2024-07-25 03:23:51.063792: Pseudo dice [0.7264]
+2024-07-25 03:23:51.064692: Epoch time: 89.55 s
+2024-07-25 03:23:52.698114: 
+2024-07-25 03:23:52.699805: Epoch 89
+2024-07-25 03:23:52.700965: Current learning rate: 0.0092
+2024-07-25 03:25:22.096155: Validation loss did not improve from -0.56904. Patience: 15/50
+2024-07-25 03:25:22.097623: train_loss -0.7565
+2024-07-25 03:25:22.099223: val_loss -0.5328
+2024-07-25 03:25:22.100383: Pseudo dice [0.74]
+2024-07-25 03:25:22.101454: Epoch time: 89.4 s
+2024-07-25 03:25:23.854409: 
+2024-07-25 03:25:23.856376: Epoch 90
+2024-07-25 03:25:23.857365: Current learning rate: 0.00919
+2024-07-25 03:26:53.217472: Validation loss did not improve from -0.56904. Patience: 16/50
+2024-07-25 03:26:53.218827: train_loss -0.7583
+2024-07-25 03:26:53.220046: val_loss -0.5332
+2024-07-25 03:26:53.221175: Pseudo dice [0.7375]
+2024-07-25 03:26:53.222270: Epoch time: 89.37 s
+2024-07-25 03:26:54.907484: 
+2024-07-25 03:26:54.909316: Epoch 91
+2024-07-25 03:26:54.910276: Current learning rate: 0.00918
+2024-07-25 03:28:24.178517: Validation loss did not improve from -0.56904. Patience: 17/50
+2024-07-25 03:28:24.179890: train_loss -0.7624
+2024-07-25 03:28:24.181278: val_loss -0.5601
+2024-07-25 03:28:24.182286: Pseudo dice [0.7527]
+2024-07-25 03:28:24.183187: Epoch time: 89.27 s
+2024-07-25 03:28:25.832055: 
+2024-07-25 03:28:25.833826: Epoch 92
+2024-07-25 03:28:25.834963: Current learning rate: 0.00917
+2024-07-25 03:29:55.106800: Validation loss did not improve from -0.56904. Patience: 18/50
+2024-07-25 03:29:55.108208: train_loss -0.7591
+2024-07-25 03:29:55.109272: val_loss -0.5292
+2024-07-25 03:29:55.110327: Pseudo dice [0.7361]
+2024-07-25 03:29:55.111567: Epoch time: 89.28 s
+2024-07-25 03:29:56.752746: 
+2024-07-25 03:29:56.754815: Epoch 93
+2024-07-25 03:29:56.756128: Current learning rate: 0.00916
+2024-07-25 03:31:26.241999: Validation loss did not improve from -0.56904. Patience: 19/50
+2024-07-25 03:31:26.243553: train_loss -0.7612
+2024-07-25 03:31:26.244905: val_loss -0.5142
+2024-07-25 03:31:26.246018: Pseudo dice [0.7347]
+2024-07-25 03:31:26.247169: Epoch time: 89.49 s
+2024-07-25 03:31:27.950038: 
+2024-07-25 03:31:27.951751: Epoch 94
+2024-07-25 03:31:27.952799: Current learning rate: 0.00915
+2024-07-25 03:32:57.278790: Validation loss did not improve from -0.56904. Patience: 20/50
+2024-07-25 03:32:57.280213: train_loss -0.7621
+2024-07-25 03:32:57.281586: val_loss -0.5405
+2024-07-25 03:32:57.282905: Pseudo dice [0.7452]
+2024-07-25 03:32:57.283928: Epoch time: 89.33 s
+2024-07-25 03:32:58.914100: 
+2024-07-25 03:32:58.915600: Epoch 95
+2024-07-25 03:32:58.917054: Current learning rate: 0.00914
+2024-07-25 03:34:28.390267: Validation loss did not improve from -0.56904. Patience: 21/50
+2024-07-25 03:34:28.392094: train_loss -0.7622
+2024-07-25 03:34:28.393381: val_loss -0.5191
+2024-07-25 03:34:28.394629: Pseudo dice [0.7348]
+2024-07-25 03:34:28.395769: Epoch time: 89.48 s
+2024-07-25 03:34:30.077924: 
+2024-07-25 03:34:30.079450: Epoch 96
+2024-07-25 03:34:30.080593: Current learning rate: 0.00913
+2024-07-25 03:35:59.493508: Validation loss did not improve from -0.56904. Patience: 22/50
+2024-07-25 03:35:59.494789: train_loss -0.7649
+2024-07-25 03:35:59.496073: val_loss -0.5062
+2024-07-25 03:35:59.497344: Pseudo dice [0.7273]
+2024-07-25 03:35:59.498537: Epoch time: 89.42 s
+2024-07-25 03:36:01.143938: 
+2024-07-25 03:36:01.145911: Epoch 97
+2024-07-25 03:36:01.147455: Current learning rate: 0.00912
+2024-07-25 03:37:30.535337: Validation loss did not improve from -0.56904. Patience: 23/50
+2024-07-25 03:37:30.536828: train_loss -0.7687
+2024-07-25 03:37:30.537986: val_loss -0.5174
+2024-07-25 03:37:30.538937: Pseudo dice [0.7352]
+2024-07-25 03:37:30.539896: Epoch time: 89.39 s
+2024-07-25 03:37:32.627048: 
+2024-07-25 03:37:32.629204: Epoch 98
+2024-07-25 03:37:32.630730: Current learning rate: 0.00911
+2024-07-25 03:39:02.025629: Validation loss did not improve from -0.56904. Patience: 24/50
+2024-07-25 03:39:02.027071: train_loss -0.7662
+2024-07-25 03:39:02.028308: val_loss -0.5391
+2024-07-25 03:39:02.029350: Pseudo dice [0.7415]
+2024-07-25 03:39:02.030463: Epoch time: 89.4 s
+2024-07-25 03:39:03.786861: 
+2024-07-25 03:39:03.788774: Epoch 99
+2024-07-25 03:39:03.790307: Current learning rate: 0.0091
+2024-07-25 03:40:33.281970: Validation loss did not improve from -0.56904. Patience: 25/50
+2024-07-25 03:40:33.283187: train_loss -0.7627
+2024-07-25 03:40:33.284456: val_loss -0.5115
+2024-07-25 03:40:33.285392: Pseudo dice [0.7323]
+2024-07-25 03:40:33.286390: Epoch time: 89.5 s
+2024-07-25 03:40:34.927134: 
+2024-07-25 03:40:34.928588: Epoch 100
+2024-07-25 03:40:34.929641: Current learning rate: 0.0091
+2024-07-25 03:42:04.088275: Validation loss did not improve from -0.56904. Patience: 26/50
+2024-07-25 03:42:04.089527: train_loss -0.7687
+2024-07-25 03:42:04.090852: val_loss -0.5136
+2024-07-25 03:42:04.091824: Pseudo dice [0.7338]
+2024-07-25 03:42:04.092731: Epoch time: 89.16 s
+2024-07-25 03:42:05.824373: 
+2024-07-25 03:42:05.825911: Epoch 101
+2024-07-25 03:42:05.826828: Current learning rate: 0.00909
+2024-07-25 03:43:35.012237: Validation loss did not improve from -0.56904. Patience: 27/50
+2024-07-25 03:43:35.013572: train_loss -0.7701
+2024-07-25 03:43:35.014733: val_loss -0.5362
+2024-07-25 03:43:35.015710: Pseudo dice [0.7436]
+2024-07-25 03:43:35.016831: Epoch time: 89.19 s
+2024-07-25 03:43:36.656721: 
+2024-07-25 03:43:36.658508: Epoch 102
+2024-07-25 03:43:36.659564: Current learning rate: 0.00908
+2024-07-25 03:45:05.949483: Validation loss did not improve from -0.56904. Patience: 28/50
+2024-07-25 03:45:05.950768: train_loss -0.7695
+2024-07-25 03:45:05.952127: val_loss -0.5508
+2024-07-25 03:45:05.953171: Pseudo dice [0.7449]
+2024-07-25 03:45:05.954163: Epoch time: 89.3 s
+2024-07-25 03:45:07.659127: 
+2024-07-25 03:45:07.660578: Epoch 103
+2024-07-25 03:45:07.661609: Current learning rate: 0.00907
+2024-07-25 03:46:36.915007: Validation loss did not improve from -0.56904. Patience: 29/50
+2024-07-25 03:46:36.916521: train_loss -0.7716
+2024-07-25 03:46:36.917651: val_loss -0.5004
+2024-07-25 03:46:36.918566: Pseudo dice [0.7328]
+2024-07-25 03:46:36.920038: Epoch time: 89.26 s
+2024-07-25 03:46:38.523252: 
+2024-07-25 03:46:38.525235: Epoch 104
+2024-07-25 03:46:38.526857: Current learning rate: 0.00906
+2024-07-25 03:48:07.703261: Validation loss did not improve from -0.56904. Patience: 30/50
+2024-07-25 03:48:07.704542: train_loss -0.7731
+2024-07-25 03:48:07.705649: val_loss -0.4984
+2024-07-25 03:48:07.706629: Pseudo dice [0.7274]
+2024-07-25 03:48:07.707564: Epoch time: 89.18 s
+2024-07-25 03:48:09.383967: 
+2024-07-25 03:48:09.385761: Epoch 105
+2024-07-25 03:48:09.387453: Current learning rate: 0.00905
+2024-07-25 03:49:38.569090: Validation loss did not improve from -0.56904. Patience: 31/50
+2024-07-25 03:49:38.571246: train_loss -0.7754
+2024-07-25 03:49:38.572627: val_loss -0.5507
+2024-07-25 03:49:38.573723: Pseudo dice [0.7474]
+2024-07-25 03:49:38.574961: Epoch time: 89.19 s
+2024-07-25 03:49:40.168250: 
+2024-07-25 03:49:40.171007: Epoch 106
+2024-07-25 03:49:40.172073: Current learning rate: 0.00904
+2024-07-25 03:51:09.375050: Validation loss did not improve from -0.56904. Patience: 32/50
+2024-07-25 03:51:09.376565: train_loss -0.7764
+2024-07-25 03:51:09.377764: val_loss -0.5402
+2024-07-25 03:51:09.378805: Pseudo dice [0.743]
+2024-07-25 03:51:09.379811: Epoch time: 89.21 s
+2024-07-25 03:51:10.942916: 
+2024-07-25 03:51:10.945004: Epoch 107
+2024-07-25 03:51:10.946506: Current learning rate: 0.00903
+2024-07-25 03:52:40.324138: Validation loss did not improve from -0.56904. Patience: 33/50
+2024-07-25 03:52:40.325533: train_loss -0.77
+2024-07-25 03:52:40.326623: val_loss -0.4919
+2024-07-25 03:52:40.327559: Pseudo dice [0.7208]
+2024-07-25 03:52:40.328605: Epoch time: 89.38 s
+2024-07-25 03:52:41.926224: 
+2024-07-25 03:52:41.927950: Epoch 108
+2024-07-25 03:52:41.929042: Current learning rate: 0.00902
+2024-07-25 03:54:11.001347: Validation loss did not improve from -0.56904. Patience: 34/50
+2024-07-25 03:54:11.002527: train_loss -0.7648
+2024-07-25 03:54:11.003668: val_loss -0.4951
+2024-07-25 03:54:11.004575: Pseudo dice [0.7285]
+2024-07-25 03:54:11.005406: Epoch time: 89.08 s
+2024-07-25 03:54:12.565829: 
+2024-07-25 03:54:12.567266: Epoch 109
+2024-07-25 03:54:12.568172: Current learning rate: 0.00901
+2024-07-25 03:55:41.690429: Validation loss did not improve from -0.56904. Patience: 35/50
+2024-07-25 03:55:41.691724: train_loss -0.7689
+2024-07-25 03:55:41.692929: val_loss -0.5623
+2024-07-25 03:55:41.693944: Pseudo dice [0.7572]
+2024-07-25 03:55:41.695196: Epoch time: 89.13 s
+2024-07-25 03:55:43.659923: 
+2024-07-25 03:55:43.661753: Epoch 110
+2024-07-25 03:55:43.663121: Current learning rate: 0.009
+2024-07-25 03:57:12.661123: Validation loss did not improve from -0.56904. Patience: 36/50
+2024-07-25 03:57:12.663027: train_loss -0.7783
+2024-07-25 03:57:12.665154: val_loss -0.5527
+2024-07-25 03:57:12.667045: Pseudo dice [0.7545]
+2024-07-25 03:57:12.668305: Epoch time: 89.0 s
+2024-07-25 03:57:14.198661: 
+2024-07-25 03:57:14.200187: Epoch 111
+2024-07-25 03:57:14.201155: Current learning rate: 0.009
+2024-07-25 03:58:43.259451: Validation loss did not improve from -0.56904. Patience: 37/50
+2024-07-25 03:58:43.261103: train_loss -0.7754
+2024-07-25 03:58:43.262549: val_loss -0.4941
+2024-07-25 03:58:43.263750: Pseudo dice [0.7252]
+2024-07-25 03:58:43.264950: Epoch time: 89.06 s
+2024-07-25 03:58:44.848128: 
+2024-07-25 03:58:44.850713: Epoch 112
+2024-07-25 03:58:44.852481: Current learning rate: 0.00899
+2024-07-25 04:00:13.811074: Validation loss did not improve from -0.56904. Patience: 38/50
+2024-07-25 04:00:13.812430: train_loss -0.7773
+2024-07-25 04:00:13.813589: val_loss -0.5507
+2024-07-25 04:00:13.814654: Pseudo dice [0.7505]
+2024-07-25 04:00:13.815551: Epoch time: 88.97 s
+2024-07-25 04:00:15.349097: 
+2024-07-25 04:00:15.351015: Epoch 113
+2024-07-25 04:00:15.352801: Current learning rate: 0.00898
+2024-07-25 04:01:44.286487: Validation loss did not improve from -0.56904. Patience: 39/50
+2024-07-25 04:01:44.287654: train_loss -0.774
+2024-07-25 04:01:44.288881: val_loss -0.5196
+2024-07-25 04:01:44.289710: Pseudo dice [0.7295]
+2024-07-25 04:01:44.290653: Epoch time: 88.94 s
+2024-07-25 04:01:45.878537: 
+2024-07-25 04:01:45.880434: Epoch 114
+2024-07-25 04:01:45.882073: Current learning rate: 0.00897
+2024-07-25 04:03:14.722054: Validation loss did not improve from -0.56904. Patience: 40/50
+2024-07-25 04:03:14.724228: train_loss -0.7778
+2024-07-25 04:03:14.725447: val_loss -0.5183
+2024-07-25 04:03:14.726332: Pseudo dice [0.7272]
+2024-07-25 04:03:14.727225: Epoch time: 88.85 s
+2024-07-25 04:03:16.304730: 
+2024-07-25 04:03:16.306221: Epoch 115
+2024-07-25 04:03:16.307596: Current learning rate: 0.00896
+2024-07-25 04:04:45.243463: Validation loss did not improve from -0.56904. Patience: 41/50
+2024-07-25 04:04:45.244943: train_loss -0.7811
+2024-07-25 04:04:45.246325: val_loss -0.5077
+2024-07-25 04:04:45.247288: Pseudo dice [0.7334]
+2024-07-25 04:04:45.248371: Epoch time: 88.94 s
+2024-07-25 04:04:46.793613: 
+2024-07-25 04:04:46.795943: Epoch 116
+2024-07-25 04:04:46.796940: Current learning rate: 0.00895
+2024-07-25 04:06:15.996093: Validation loss did not improve from -0.56904. Patience: 42/50
+2024-07-25 04:06:15.997837: train_loss -0.7846
+2024-07-25 04:06:15.999844: val_loss -0.5554
+2024-07-25 04:06:16.001216: Pseudo dice [0.7508]
+2024-07-25 04:06:16.002261: Epoch time: 89.21 s
+2024-07-25 04:06:17.621840: 
+2024-07-25 04:06:17.623547: Epoch 117
+2024-07-25 04:06:17.624897: Current learning rate: 0.00894
+2024-07-25 04:07:46.817795: Validation loss did not improve from -0.56904. Patience: 43/50
+2024-07-25 04:07:46.819011: train_loss -0.7836
+2024-07-25 04:07:46.820079: val_loss -0.5567
+2024-07-25 04:07:46.821071: Pseudo dice [0.7507]
+2024-07-25 04:07:46.822130: Epoch time: 89.2 s
+2024-07-25 04:07:48.417923: 
+2024-07-25 04:07:48.419564: Epoch 118
+2024-07-25 04:07:48.420454: Current learning rate: 0.00893
+2024-07-25 04:09:17.730323: Validation loss did not improve from -0.56904. Patience: 44/50
+2024-07-25 04:09:17.731709: train_loss -0.7758
+2024-07-25 04:09:17.732858: val_loss -0.3863
+2024-07-25 04:09:17.733977: Pseudo dice [0.6728]
+2024-07-25 04:09:17.735619: Epoch time: 89.31 s
+2024-07-25 04:09:19.310438: 
+2024-07-25 04:09:19.312752: Epoch 119
+2024-07-25 04:09:19.314313: Current learning rate: 0.00892
+2024-07-25 04:10:48.699110: Validation loss did not improve from -0.56904. Patience: 45/50
+2024-07-25 04:10:48.700871: train_loss -0.7518
+2024-07-25 04:10:48.702383: val_loss -0.494
+2024-07-25 04:10:48.703596: Pseudo dice [0.7154]
+2024-07-25 04:10:48.704680: Epoch time: 89.39 s
+2024-07-25 04:10:50.303068: 
+2024-07-25 04:10:50.305354: Epoch 120
+2024-07-25 04:10:50.306726: Current learning rate: 0.00891
+2024-07-25 04:12:19.297051: Validation loss did not improve from -0.56904. Patience: 46/50
+2024-07-25 04:12:19.298516: train_loss -0.7682
+2024-07-25 04:12:19.299865: val_loss -0.5424
+2024-07-25 04:12:19.301010: Pseudo dice [0.739]
+2024-07-25 04:12:19.301861: Epoch time: 89.0 s
+2024-07-25 04:12:21.279070: 
+2024-07-25 04:12:21.280960: Epoch 121
+2024-07-25 04:12:21.281966: Current learning rate: 0.0089
+2024-07-25 04:13:50.212821: Validation loss did not improve from -0.56904. Patience: 47/50
+2024-07-25 04:13:50.214175: train_loss -0.7766
+2024-07-25 04:13:50.215539: val_loss -0.5011
+2024-07-25 04:13:50.216837: Pseudo dice [0.723]
+2024-07-25 04:13:50.218193: Epoch time: 88.94 s
+2024-07-25 04:13:51.819923: 
+2024-07-25 04:13:51.821899: Epoch 122
+2024-07-25 04:13:51.823204: Current learning rate: 0.00889
+2024-07-25 04:15:20.945603: Validation loss did not improve from -0.56904. Patience: 48/50
+2024-07-25 04:15:20.947004: train_loss -0.7801
+2024-07-25 04:15:20.948366: val_loss -0.5526
+2024-07-25 04:15:20.949826: Pseudo dice [0.7532]
+2024-07-25 04:15:20.951219: Epoch time: 89.13 s
+2024-07-25 04:15:22.475304: 
+2024-07-25 04:15:22.477174: Epoch 123
+2024-07-25 04:15:22.478701: Current learning rate: 0.00889
+2024-07-25 04:16:51.283083: Validation loss did not improve from -0.56904. Patience: 49/50
+2024-07-25 04:16:51.285005: train_loss -0.779
+2024-07-25 04:16:51.286755: val_loss -0.5091
+2024-07-25 04:16:51.287750: Pseudo dice [0.739]
+2024-07-25 04:16:51.289018: Epoch time: 88.81 s
+2024-07-25 04:16:52.885305: 
+2024-07-25 04:16:52.887187: Epoch 124
+2024-07-25 04:16:52.888069: Current learning rate: 0.00888
+2024-07-25 04:18:21.933476: Validation loss did not improve from -0.56904. Patience: 50/50
+2024-07-25 04:18:21.935297: train_loss -0.7823
+2024-07-25 04:18:21.936470: val_loss -0.5393
+2024-07-25 04:18:21.937785: Pseudo dice [0.7486]
+2024-07-25 04:18:21.939029: Epoch time: 89.05 s
+2024-07-25 04:18:23.523764: Patience reached. Stopping training.
+2024-07-25 04:18:23.908271: Training done.
+2024-07-25 04:18:24.111169: Using splits from existing split file: /home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_preprocessed/Dataset302_Calcium_OCTv2/splits_final_4.json
+2024-07-25 04:18:24.114233: The split file contains 3 splits.
+2024-07-25 04:18:24.115367: Desired fold for training: 2
+2024-07-25 04:18:24.116451: This split has 3 training and 1 validation cases.
+2024-07-25 04:18:24.117808: predicting 704-003
+2024-07-25 04:18:24.141544: 704-003, shape torch.Size([1, 375, 498, 498]), rank 0
+2024-07-25 04:20:23.544590: Validation complete
+2024-07-25 04:20:23.545473: Mean Validation Dice:  0.7043481645321172
+wandb: 
+wandb: Run history:
+wandb:            ema_fg_dice ▁▂▃▄▄▅▅▆▆▆▇▇▇▇▇▇▇▇▇▇▇███████████████████
+wandb:   epoch_end_timestamps ▁▁▂▂▂▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇██████
+wandb: epoch_start_timestamps ▁▁▂▂▂▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▆▇▇▇▇▇▇▇▇▇▇██████
+wandb:                    lrs ███▇▇▇▇▇▇▆▆▆▆▆▆▅▅▅▅▅▄▄▄▄▄▄▃▃▃▃▃▂▂▂▂▂▂▁▁▁
+wandb:           mean_fg_dice ▁▄▅▅▆▆▇▇▆█▇▆▇▇▆▇▇█▇█▇▇█▇▇█▇▇▇▇▇██▇▇▇▇█▇▇
+wandb:           train_losses █▅▅▄▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:             val_losses █▅▅▃▃▃▂▂▃▁▁▃▂▂▄▂▂▁▂▂▂▂▁▂▂▁▁▃▂▂▂▁▂▂▂▂▂▁▁▂
+wandb: 
+wandb: Run summary:
+wandb:            ema_fg_dice 0.73524
+wandb:   epoch_end_timestamps 1721895501.93513
+wandb: epoch_start_timestamps 1721895412.8839
+wandb:                    lrs 0.00888
+wandb:           mean_fg_dice 0.74864
+wandb:           train_losses -0.78225
+wandb:             val_losses -0.53928
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset302_Calcium_OCTv2/nnUNetTrainerScaleAnalysis4__nnUNetPlans__3d_32x160x128_b10/fold_2/wandb/offline-run-20240724_222759-o4w6x5x7
+wandb: Find logs at: /home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset302_Calcium_OCTv2/nnUNetTrainerScaleAnalysis4__nnUNetPlans__3d_32x160x128_b10/fold_2/wandb/offline-run-20240724_222759-o4w6x5x7/logs
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fab95357a00>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /api/4504800232407040/envelope/
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fab95213af0>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /api/4504800232407040/envelope/
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fab952b66d0>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /api/4504800232407040/envelope/
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fab51f5fd30>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /api/4504800232407040/envelope/
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fab514118b0>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /api/4504800232407040/envelope/
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fabc8eb3970>: Failed to establish a new connection: [Errno 101] Network is unreachable')': /api/4504800232407040/envelope/
+FOLD 2 CONFIG 3d_32x160x128_b10 TRAINER nnUNetTrainerScaleAnalysis4
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+There are 2 cases in the source folder
+I am process 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 2 cases that I would like to predict
+
+Predicting 101-045:
+perform_everything_on_device: True
+  0%|          | 0/966 [00:00<?, ?it/s]  0%|          | 1/966 [00:00<13:06,  1.23it/s]  0%|          | 3/966 [00:00<04:27,  3.61it/s]  0%|          | 4/966 [00:01<03:33,  4.51it/s]  1%|          | 5/966 [00:01<02:59,  5.35it/s]  1%|          | 6/966 [00:01<02:38,  6.07it/s]  1%|          | 7/966 [00:01<02:23,  6.66it/s]  1%|          | 8/966 [00:01<02:13,  7.16it/s]  1%|          | 9/966 [00:01<02:06,  7.54it/s]  1%|          | 10/966 [00:01<02:02,  7.82it/s]  1%|          | 11/966 [00:01<01:58,  8.04it/s]  1%|          | 12/966 [00:02<01:56,  8.20it/s]  1%|▏         | 13/966 [00:02<01:54,  8.30it/s]  1%|▏         | 14/966 [00:02<01:53,  8.38it/s]  2%|▏         | 15/966 [00:02<01:52,  8.45it/s]  2%|▏         | 16/966 [00:02<01:51,  8.51it/s]  2%|▏         | 17/966 [00:02<01:51,  8.54it/s]  2%|▏         | 18/966 [00:02<01:50,  8.56it/s]  2%|▏         | 19/966 [00:02<01:50,  8.55it/s]  2%|▏         | 20/966 [00:02<01:50,  8.57it/s]  2%|▏         | 21/966 [00:03<01:50,  8.54it/s]  2%|▏         | 22/966 [00:03<01:50,  8.54it/s]  2%|▏         | 23/966 [00:03<01:50,  8.51it/s]  2%|▏         | 24/966 [00:03<01:50,  8.51it/s]  3%|▎         | 25/966 [00:03<01:50,  8.52it/s]  3%|▎         | 26/966 [00:03<01:50,  8.53it/s]  3%|▎         | 27/966 [00:03<01:49,  8.55it/s]  3%|▎         | 28/966 [00:03<01:49,  8.55it/s]  3%|▎         | 29/966 [00:04<01:49,  8.54it/s]  3%|▎         | 30/966 [00:04<01:49,  8.57it/s]  3%|▎         | 31/966 [00:04<01:49,  8.56it/s]  3%|▎         | 32/966 [00:04<01:49,  8.56it/s]  3%|▎         | 33/966 [00:04<01:48,  8.57it/s]  4%|▎         | 34/966 [00:04<01:48,  8.59it/s]  4%|▎         | 35/966 [00:04<01:48,  8.60it/s]  4%|▎         | 36/966 [00:04<01:48,  8.58it/s]  4%|▍         | 37/966 [00:04<01:48,  8.57it/s]  4%|▍         | 38/966 [00:05<01:48,  8.56it/s]  4%|▍         | 39/966 [00:05<01:48,  8.57it/s]  4%|▍         | 40/966 [00:05<01:48,  8.57it/s]  4%|▍         | 41/966 [00:05<01:48,  8.56it/s]  4%|▍         | 42/966 [00:05<01:47,  8.57it/s]  4%|▍         | 43/966 [00:05<01:47,  8.60it/s]  5%|▍         | 44/966 [00:05<01:46,  8.62it/s]  5%|▍         | 45/966 [00:05<01:47,  8.61it/s]  5%|▍         | 46/966 [00:06<01:46,  8.61it/s]  5%|▍         | 47/966 [00:06<01:47,  8.59it/s]  5%|▍         | 48/966 [00:06<01:47,  8.57it/s]  5%|▌         | 49/966 [00:06<01:47,  8.56it/s]  5%|▌         | 50/966 [00:06<01:47,  8.56it/s]  5%|▌         | 51/966 [00:06<01:46,  8.56it/s]  5%|▌         | 52/966 [00:06<01:46,  8.55it/s]  5%|▌         | 53/966 [00:06<01:46,  8.55it/s]  6%|▌         | 54/966 [00:06<01:46,  8.54it/s]  6%|▌         | 55/966 [00:07<01:46,  8.55it/s]  6%|▌         | 56/966 [00:07<01:46,  8.55it/s]  6%|▌         | 57/966 [00:07<01:46,  8.54it/s]  6%|▌         | 58/966 [00:07<01:45,  8.57it/s]  6%|▌         | 59/966 [00:07<01:45,  8.57it/s]  6%|▌         | 60/966 [00:07<01:45,  8.56it/s]  6%|▋         | 61/966 [00:07<01:45,  8.55it/s]  6%|▋         | 62/966 [00:07<01:45,  8.56it/s]  7%|▋         | 63/966 [00:07<01:45,  8.57it/s]  7%|▋         | 64/966 [00:08<01:45,  8.56it/s]  7%|▋         | 65/966 [00:08<01:45,  8.56it/s]  7%|▋         | 66/966 [00:08<01:45,  8.56it/s]  7%|▋         | 67/966 [00:08<01:44,  8.57it/s]  7%|▋         | 68/966 [00:08<01:45,  8.54it/s]  7%|▋         | 69/966 [00:08<01:44,  8.55it/s]  7%|▋         | 70/966 [00:08<01:44,  8.55it/s]  7%|▋         | 71/966 [00:08<01:44,  8.56it/s]  7%|▋         | 72/966 [00:09<01:44,  8.57it/s]  8%|▊         | 73/966 [00:09<01:44,  8.58it/s]  8%|▊         | 74/966 [00:09<01:44,  8.56it/s]  8%|▊         | 75/966 [00:09<01:44,  8.56it/s]  8%|▊         | 76/966 [00:09<01:43,  8.56it/s]  8%|▊         | 77/966 [00:09<01:43,  8.56it/s]  8%|▊         | 78/966 [00:09<01:43,  8.56it/s]  8%|▊         | 79/966 [00:09<01:43,  8.56it/s]  8%|▊         | 80/966 [00:09<01:43,  8.56it/s]  8%|▊         | 81/966 [00:10<01:43,  8.58it/s]  8%|▊         | 82/966 [00:10<01:43,  8.57it/s]  9%|▊         | 83/966 [00:10<01:42,  8.57it/s]  9%|▊         | 84/966 [00:10<01:42,  8.59it/s]  9%|▉         | 85/966 [00:10<01:42,  8.60it/s]  9%|▉         | 86/966 [00:10<01:42,  8.61it/s]  9%|▉         | 87/966 [00:10<01:42,  8.61it/s]  9%|▉         | 88/966 [00:10<01:42,  8.59it/s]  9%|▉         | 89/966 [00:11<01:42,  8.59it/s]  9%|▉         | 90/966 [00:11<01:42,  8.58it/s]  9%|▉         | 91/966 [00:11<01:41,  8.59it/s] 10%|▉         | 92/966 [00:11<01:41,  8.59it/s] 10%|▉         | 93/966 [00:11<01:41,  8.58it/s] 10%|▉         | 94/966 [00:11<01:41,  8.59it/s] 10%|▉         | 95/966 [00:11<01:41,  8.58it/s] 10%|▉         | 96/966 [00:11<01:41,  8.58it/s] 10%|█         | 97/966 [00:11<01:41,  8.59it/s] 10%|█         | 98/966 [00:12<01:41,  8.58it/s] 10%|█         | 99/966 [00:12<01:40,  8.59it/s] 10%|█         | 100/966 [00:12<01:40,  8.58it/s] 10%|█         | 101/966 [00:12<01:40,  8.59it/s] 11%|█         | 102/966 [00:12<01:40,  8.58it/s] 11%|█         | 103/966 [00:12<01:40,  8.55it/s] 11%|█         | 104/966 [00:12<01:40,  8.56it/s] 11%|█         | 105/966 [00:12<01:40,  8.56it/s] 11%|█         | 106/966 [00:13<01:40,  8.56it/s] 11%|█         | 107/966 [00:13<01:40,  8.57it/s] 11%|█         | 108/966 [00:13<01:40,  8.55it/s] 11%|█▏        | 109/966 [00:13<01:40,  8.55it/s] 11%|█▏        | 110/966 [00:13<01:40,  8.55it/s] 11%|█▏        | 111/966 [00:13<01:40,  8.54it/s] 12%|█▏        | 112/966 [00:13<01:39,  8.55it/s] 12%|█▏        | 113/966 [00:13<01:39,  8.54it/s] 12%|█▏        | 114/966 [00:13<01:39,  8.57it/s] 12%|█▏        | 115/966 [00:14<01:39,  8.58it/s] 12%|█▏        | 116/966 [00:14<01:39,  8.57it/s] 12%|█▏        | 117/966 [00:14<01:39,  8.57it/s] 12%|█▏        | 118/966 [00:14<01:38,  8.57it/s] 12%|█▏        | 119/966 [00:14<01:38,  8.57it/s] 12%|█▏        | 120/966 [00:14<01:38,  8.56it/s] 13%|█▎        | 121/966 [00:14<01:38,  8.56it/s] 13%|█▎        | 122/966 [00:14<01:38,  8.57it/s] 13%|█▎        | 123/966 [00:15<01:38,  8.56it/s] 13%|█▎        | 124/966 [00:15<01:38,  8.58it/s] 13%|█▎        | 125/966 [00:15<01:38,  8.57it/s] 13%|█▎        | 126/966 [00:15<01:38,  8.56it/s] 13%|█▎        | 127/966 [00:15<01:37,  8.60it/s] 13%|█▎        | 128/966 [00:15<01:37,  8.60it/s] 13%|█▎        | 129/966 [00:15<01:37,  8.61it/s] 13%|█▎        | 130/966 [00:15<01:37,  8.60it/s] 14%|█▎        | 131/966 [00:15<01:37,  8.59it/s] 14%|█▎        | 132/966 [00:16<01:37,  8.57it/s] 14%|█▍        | 133/966 [00:16<01:37,  8.57it/s] 14%|█▍        | 134/966 [00:16<01:36,  8.59it/s] 14%|█▍        | 135/966 [00:16<01:36,  8.57it/s] 14%|█▍        | 136/966 [00:16<01:36,  8.56it/s] 14%|█▍        | 137/966 [00:16<01:36,  8.56it/s] 14%|█▍        | 138/966 [00:16<01:36,  8.56it/s] 14%|█▍        | 139/966 [00:16<01:36,  8.53it/s] 14%|█▍        | 140/966 [00:16<01:36,  8.54it/s] 15%|█▍        | 141/966 [00:17<01:36,  8.55it/s] 15%|█▍        | 142/966 [00:17<01:36,  8.56it/s] 15%|█▍        | 143/966 [00:17<01:36,  8.55it/s] 15%|█▍        | 144/966 [00:17<01:35,  8.57it/s] 15%|█▌        | 145/966 [00:17<01:35,  8.56it/s] 15%|█▌        | 146/966 [00:17<01:35,  8.55it/s] 15%|█▌        | 147/966 [00:17<01:35,  8.53it/s] 15%|█▌        | 148/966 [00:17<01:35,  8.52it/s] 15%|█▌        | 149/966 [00:18<01:35,  8.52it/s] 16%|█▌        | 150/966 [00:18<01:35,  8.55it/s] 16%|█▌        | 151/966 [00:18<01:35,  8.55it/s] 16%|█▌        | 152/966 [00:18<01:35,  8.56it/s] 16%|█▌        | 153/966 [00:18<01:35,  8.55it/s] 16%|█▌        | 154/966 [00:18<01:34,  8.55it/s] 16%|█▌        | 155/966 [00:18<01:34,  8.55it/s] 16%|█▌        | 156/966 [00:18<01:34,  8.58it/s] 16%|█▋        | 157/966 [00:18<01:34,  8.58it/s] 16%|█▋        | 158/966 [00:19<01:34,  8.56it/s] 16%|█▋        | 159/966 [00:19<01:34,  8.53it/s] 17%|█▋        | 160/966 [00:19<01:34,  8.53it/s] 17%|█▋        | 161/966 [00:19<01:34,  8.54it/s] 17%|█▋        | 162/966 [00:19<01:34,  8.52it/s] 17%|█▋        | 163/966 [00:19<01:33,  8.54it/s] 17%|█▋        | 164/966 [00:19<01:33,  8.56it/s] 17%|█▋        | 165/966 [00:19<01:33,  8.58it/s] 17%|█▋        | 166/966 [00:20<01:33,  8.60it/s] 17%|█▋        | 167/966 [00:20<01:32,  8.60it/s] 17%|█▋        | 168/966 [00:20<01:32,  8.60it/s] 17%|█▋        | 169/966 [00:20<01:32,  8.62it/s] 18%|█▊        | 170/966 [00:20<01:32,  8.61it/s] 18%|█▊        | 171/966 [00:20<01:32,  8.62it/s] 18%|█▊        | 172/966 [00:20<01:32,  8.61it/s] 18%|█▊        | 173/966 [00:20<01:32,  8.59it/s] 18%|█▊        | 174/966 [00:20<01:32,  8.59it/s] 18%|█▊        | 175/966 [00:21<01:32,  8.59it/s] 18%|█▊        | 176/966 [00:21<01:31,  8.60it/s] 18%|█▊        | 177/966 [00:21<01:31,  8.59it/s] 18%|█▊        | 178/966 [00:21<01:31,  8.58it/s] 19%|█▊        | 179/966 [00:21<01:31,  8.59it/s] 19%|█▊        | 180/966 [00:21<01:31,  8.59it/s] 19%|█▊        | 181/966 [00:21<01:31,  8.55it/s] 19%|█▉        | 182/966 [00:21<01:31,  8.55it/s] 19%|█▉        | 183/966 [00:22<01:31,  8.55it/s] 19%|█▉        | 184/966 [00:22<01:31,  8.50it/s] 19%|█▉        | 185/966 [00:22<01:31,  8.52it/s] 19%|█▉        | 186/966 [00:22<01:31,  8.54it/s] 19%|█▉        | 187/966 [00:22<01:31,  8.54it/s] 19%|█▉        | 188/966 [00:22<01:30,  8.56it/s] 20%|█▉        | 189/966 [00:22<01:30,  8.57it/s] 20%|█▉        | 190/966 [00:22<01:30,  8.56it/s] 20%|█▉        | 191/966 [00:22<01:30,  8.53it/s] 20%|█▉        | 192/966 [00:23<01:30,  8.54it/s] 20%|█▉        | 193/966 [00:23<01:30,  8.55it/s] 20%|██        | 194/966 [00:23<01:30,  8.55it/s] 20%|██        | 195/966 [00:23<01:30,  8.55it/s] 20%|██        | 196/966 [00:23<01:30,  8.54it/s] 20%|██        | 197/966 [00:23<01:30,  8.53it/s] 20%|██        | 198/966 [00:23<01:29,  8.56it/s] 21%|██        | 199/966 [00:23<01:29,  8.57it/s] 21%|██        | 200/966 [00:23<01:29,  8.55it/s] 21%|██        | 201/966 [00:24<01:29,  8.56it/s] 21%|██        | 202/966 [00:24<01:29,  8.57it/s] 21%|██        | 203/966 [00:24<01:29,  8.57it/s] 21%|██        | 204/966 [00:24<01:28,  8.57it/s] 21%|██        | 205/966 [00:24<01:28,  8.57it/s] 21%|██▏       | 206/966 [00:24<01:28,  8.58it/s] 21%|██▏       | 207/966 [00:24<01:28,  8.57it/s] 22%|██▏       | 208/966 [00:24<01:28,  8.56it/s] 22%|██▏       | 209/966 [00:25<01:28,  8.58it/s] 22%|██▏       | 210/966 [00:25<01:28,  8.58it/s] 22%|██▏       | 211/966 [00:25<01:27,  8.58it/s] 22%|██▏       | 212/966 [00:25<01:27,  8.59it/s] 22%|██▏       | 213/966 [00:25<01:27,  8.58it/s] 22%|██▏       | 214/966 [00:25<01:27,  8.58it/s] 22%|██▏       | 215/966 [00:25<01:27,  8.58it/s] 22%|██▏       | 216/966 [00:25<01:27,  8.57it/s] 22%|██▏       | 217/966 [00:25<01:27,  8.59it/s] 23%|██▎       | 218/966 [00:26<01:26,  8.60it/s] 23%|██▎       | 219/966 [00:26<01:27,  8.57it/s] 23%|██▎       | 220/966 [00:26<01:26,  8.58it/s] 23%|██▎       | 221/966 [00:26<01:26,  8.58it/s] 23%|██▎       | 222/966 [00:26<01:26,  8.56it/s] 23%|██▎       | 223/966 [00:26<01:26,  8.55it/s] 23%|██▎       | 224/966 [00:26<01:26,  8.54it/s] 23%|██▎       | 225/966 [00:26<01:26,  8.54it/s] 23%|██▎       | 226/966 [00:27<01:26,  8.55it/s] 23%|██▎       | 227/966 [00:27<01:26,  8.55it/s] 24%|██▎       | 228/966 [00:27<01:26,  8.54it/s] 24%|██▎       | 229/966 [00:27<01:26,  8.51it/s] 24%|██▍       | 230/966 [00:27<01:26,  8.48it/s] 24%|██▍       | 231/966 [00:27<01:26,  8.49it/s] 24%|██▍       | 232/966 [00:27<01:26,  8.50it/s] 24%|██▍       | 233/966 [00:27<01:26,  8.52it/s] 24%|██▍       | 234/966 [00:27<01:25,  8.52it/s] 24%|██▍       | 235/966 [00:28<01:25,  8.52it/s] 24%|██▍       | 236/966 [00:28<01:25,  8.53it/s] 25%|██▍       | 237/966 [00:28<01:25,  8.54it/s] 25%|██▍       | 238/966 [00:28<01:25,  8.53it/s] 25%|██▍       | 239/966 [00:28<01:25,  8.52it/s] 25%|██▍       | 240/966 [00:28<01:24,  8.54it/s] 25%|██▍       | 241/966 [00:28<01:24,  8.54it/s] 25%|██▌       | 242/966 [00:28<01:24,  8.56it/s] 25%|██▌       | 243/966 [00:29<01:24,  8.57it/s] 25%|██▌       | 244/966 [00:29<01:24,  8.56it/s] 25%|██▌       | 245/966 [00:29<01:24,  8.54it/s] 25%|██▌       | 246/966 [00:29<01:24,  8.55it/s] 26%|██▌       | 247/966 [00:29<01:23,  8.58it/s] 26%|██▌       | 248/966 [00:29<01:23,  8.59it/s] 26%|██▌       | 249/966 [00:29<01:23,  8.57it/s] 26%|██▌       | 250/966 [00:29<01:23,  8.57it/s] 26%|██▌       | 251/966 [00:29<01:23,  8.58it/s] 26%|██▌       | 252/966 [00:30<01:23,  8.58it/s] 26%|██▌       | 253/966 [00:30<01:23,  8.58it/s] 26%|██▋       | 254/966 [00:30<01:22,  8.58it/s] 26%|██▋       | 255/966 [00:30<01:23,  8.56it/s] 27%|██▋       | 256/966 [00:30<01:23,  8.55it/s] 27%|██▋       | 257/966 [00:30<01:22,  8.55it/s] 27%|██▋       | 258/966 [00:30<01:22,  8.56it/s] 27%|██▋       | 259/966 [00:30<01:22,  8.56it/s] 27%|██▋       | 260/966 [00:31<01:22,  8.58it/s] 27%|██▋       | 261/966 [00:31<01:22,  8.56it/s] 27%|██▋       | 262/966 [00:31<01:22,  8.56it/s] 27%|██▋       | 263/966 [00:31<01:22,  8.55it/s] 27%|██▋       | 264/966 [00:31<01:22,  8.53it/s] 27%|██▋       | 265/966 [00:31<01:22,  8.54it/s] 28%|██▊       | 266/966 [00:31<01:21,  8.54it/s] 28%|██▊       | 267/966 [00:31<01:21,  8.55it/s] 28%|██▊       | 268/966 [00:31<01:21,  8.53it/s] 28%|██▊       | 269/966 [00:32<01:21,  8.53it/s] 28%|██▊       | 270/966 [00:32<01:21,  8.54it/s] 28%|██▊       | 271/966 [00:32<01:21,  8.53it/s] 28%|██▊       | 272/966 [00:32<01:21,  8.52it/s] 28%|██▊       | 273/966 [00:32<01:21,  8.51it/s] 28%|██▊       | 274/966 [00:32<01:21,  8.50it/s] 28%|██▊       | 275/966 [00:32<01:21,  8.49it/s] 29%|██▊       | 276/966 [00:32<01:21,  8.50it/s] 29%|██▊       | 277/966 [00:33<01:21,  8.48it/s] 29%|██▉       | 278/966 [00:33<01:20,  8.51it/s] 29%|██▉       | 279/966 [00:33<01:20,  8.50it/s] 29%|██▉       | 280/966 [00:33<01:20,  8.50it/s] 29%|██▉       | 281/966 [00:33<01:20,  8.50it/s] 29%|██▉       | 282/966 [00:33<01:20,  8.50it/s] 29%|██▉       | 283/966 [00:33<01:20,  8.50it/s] 29%|██▉       | 284/966 [00:33<01:20,  8.51it/s] 30%|██▉       | 285/966 [00:33<01:19,  8.52it/s] 30%|██▉       | 286/966 [00:34<01:19,  8.53it/s] 30%|██▉       | 287/966 [00:34<01:19,  8.53it/s] 30%|██▉       | 288/966 [00:34<01:19,  8.54it/s] 30%|██▉       | 289/966 [00:34<01:19,  8.55it/s] 30%|███       | 290/966 [00:34<01:19,  8.55it/s] 30%|███       | 291/966 [00:34<01:18,  8.56it/s] 30%|███       | 292/966 [00:34<01:18,  8.53it/s] 30%|███       | 293/966 [00:34<01:19,  8.51it/s] 30%|███       | 294/966 [00:34<01:18,  8.53it/s] 31%|███       | 295/966 [00:35<01:18,  8.54it/s] 31%|███       | 296/966 [00:35<01:18,  8.56it/s] 31%|███       | 297/966 [00:35<01:18,  8.53it/s] 31%|███       | 298/966 [00:35<01:18,  8.53it/s] 31%|███       | 299/966 [00:35<01:18,  8.55it/s] 31%|███       | 300/966 [00:35<01:17,  8.56it/s] 31%|███       | 301/966 [00:35<01:17,  8.56it/s] 31%|███▏      | 302/966 [00:35<01:17,  8.57it/s] 31%|███▏      | 303/966 [00:36<01:17,  8.55it/s] 31%|███▏      | 304/966 [00:36<01:17,  8.55it/s] 32%|███▏      | 305/966 [00:36<01:17,  8.56it/s] 32%|███▏      | 306/966 [00:36<01:17,  8.57it/s] 32%|███▏      | 307/966 [00:36<01:17,  8.54it/s] 32%|███▏      | 308/966 [00:36<01:17,  8.53it/s] 32%|███▏      | 309/966 [00:36<01:17,  8.49it/s] 32%|███▏      | 310/966 [00:36<01:17,  8.48it/s] 32%|███▏      | 311/966 [00:36<01:17,  8.49it/s] 32%|███▏      | 312/966 [00:37<01:17,  8.49it/s] 32%|███▏      | 313/966 [00:37<01:16,  8.53it/s] 33%|███▎      | 314/966 [00:37<01:16,  8.54it/s] 33%|███▎      | 315/966 [00:37<01:16,  8.55it/s] 33%|███▎      | 316/966 [00:37<01:15,  8.56it/s] 33%|███▎      | 317/966 [00:37<01:15,  8.55it/s] 33%|███▎      | 318/966 [00:37<01:15,  8.55it/s] 33%|███▎      | 319/966 [00:37<01:15,  8.54it/s] 33%|███▎      | 320/966 [00:38<01:15,  8.53it/s] 33%|███▎      | 321/966 [00:38<01:15,  8.49it/s] 33%|███▎      | 322/966 [00:38<01:15,  8.49it/s] 33%|███▎      | 323/966 [00:38<01:15,  8.49it/s] 34%|███▎      | 324/966 [00:38<01:15,  8.51it/s] 34%|███▎      | 325/966 [00:38<01:15,  8.52it/s] 34%|███▎      | 326/966 [00:38<01:15,  8.52it/s] 34%|███▍      | 327/966 [00:38<01:15,  8.51it/s] 34%|███▍      | 328/966 [00:38<01:15,  8.50it/s] 34%|███▍      | 329/966 [00:39<01:14,  8.51it/s] 34%|███▍      | 330/966 [00:39<01:14,  8.51it/s] 34%|███▍      | 331/966 [00:39<01:14,  8.53it/s] 34%|███▍      | 332/966 [00:39<01:14,  8.54it/s] 34%|███▍      | 333/966 [00:39<01:13,  8.57it/s] 35%|███▍      | 334/966 [00:39<01:13,  8.56it/s] 35%|███▍      | 335/966 [00:39<01:13,  8.56it/s] 35%|███▍      | 336/966 [00:39<01:13,  8.57it/s] 35%|███▍      | 337/966 [00:40<01:13,  8.57it/s] 35%|███▍      | 338/966 [00:40<01:13,  8.57it/s] 35%|███▌      | 339/966 [00:40<01:13,  8.55it/s] 35%|███▌      | 340/966 [00:40<01:13,  8.54it/s] 35%|███▌      | 341/966 [00:40<01:13,  8.55it/s] 35%|███▌      | 342/966 [00:40<01:13,  8.54it/s] 36%|███▌      | 343/966 [00:40<01:12,  8.54it/s] 36%|███▌      | 344/966 [00:40<01:12,  8.55it/s] 36%|███▌      | 345/966 [00:40<01:12,  8.57it/s] 36%|███▌      | 346/966 [00:41<01:12,  8.58it/s] 36%|███▌      | 347/966 [00:41<01:12,  8.56it/s] 36%|███▌      | 348/966 [00:41<01:12,  8.53it/s] 36%|███▌      | 349/966 [00:41<01:12,  8.52it/s] 36%|███▌      | 350/966 [00:41<01:12,  8.51it/s] 36%|███▋      | 351/966 [00:41<01:12,  8.51it/s] 36%|███▋      | 352/966 [00:41<01:12,  8.53it/s] 37%|███▋      | 353/966 [00:41<01:11,  8.53it/s] 37%|███▋      | 354/966 [00:42<01:11,  8.54it/s] 37%|███▋      | 355/966 [00:42<01:11,  8.56it/s] 37%|███▋      | 356/966 [00:42<01:11,  8.54it/s] 37%|███▋      | 357/966 [00:42<01:11,  8.53it/s] 37%|███▋      | 358/966 [00:42<01:11,  8.54it/s] 37%|███▋      | 359/966 [00:42<01:11,  8.55it/s] 37%|███▋      | 360/966 [00:42<01:10,  8.55it/s] 37%|███▋      | 361/966 [00:42<01:10,  8.53it/s] 37%|███▋      | 362/966 [00:42<01:10,  8.51it/s] 38%|███▊      | 363/966 [00:43<01:10,  8.51it/s] 38%|███▊      | 364/966 [00:43<01:10,  8.50it/s] 38%|███▊      | 365/966 [00:43<01:10,  8.51it/s] 38%|███▊      | 366/966 [00:43<01:10,  8.50it/s] 38%|███▊      | 367/966 [00:43<01:10,  8.50it/s] 38%|███▊      | 368/966 [00:43<01:10,  8.51it/s] 38%|███▊      | 369/966 [00:43<01:10,  8.52it/s] 38%|███▊      | 370/966 [00:43<01:10,  8.51it/s] 38%|███▊      | 371/966 [00:44<01:09,  8.52it/s] 39%|███▊      | 372/966 [00:44<01:09,  8.53it/s] 39%|███▊      | 373/966 [00:44<01:09,  8.53it/s] 39%|███▊      | 374/966 [00:44<01:09,  8.53it/s] 39%|███▉      | 375/966 [00:44<01:09,  8.52it/s] 39%|███▉      | 376/966 [00:44<01:09,  8.51it/s] 39%|███▉      | 377/966 [00:44<01:09,  8.50it/s] 39%|███▉      | 378/966 [00:44<01:09,  8.51it/s] 39%|███▉      | 379/966 [00:44<01:08,  8.52it/s] 39%|███▉      | 380/966 [00:45<01:08,  8.52it/s] 39%|███▉      | 381/966 [00:45<01:08,  8.55it/s] 40%|███▉      | 382/966 [00:45<01:08,  8.56it/s] 40%|███▉      | 383/966 [00:45<01:08,  8.56it/s] 40%|███▉      | 384/966 [00:45<01:07,  8.57it/s] 40%|███▉      | 385/966 [00:45<01:07,  8.57it/s] 40%|███▉      | 386/966 [00:45<01:07,  8.57it/s] 40%|████      | 387/966 [00:45<01:07,  8.55it/s] 40%|████      | 388/966 [00:46<01:07,  8.56it/s] 40%|████      | 389/966 [00:46<01:07,  8.55it/s] 40%|████      | 390/966 [00:46<01:07,  8.55it/s] 40%|████      | 391/966 [00:46<01:07,  8.53it/s] 41%|████      | 392/966 [00:46<01:07,  8.51it/s] 41%|████      | 393/966 [00:46<01:07,  8.51it/s] 41%|████      | 394/966 [00:46<01:07,  8.53it/s] 41%|████      | 395/966 [00:46<01:06,  8.54it/s] 41%|████      | 396/966 [00:46<01:06,  8.52it/s] 41%|████      | 397/966 [00:47<01:06,  8.53it/s] 41%|████      | 398/966 [00:47<01:06,  8.54it/s] 41%|████▏     | 399/966 [00:47<01:06,  8.53it/s] 41%|████▏     | 400/966 [00:47<01:06,  8.54it/s] 42%|████▏     | 401/966 [00:47<01:06,  8.54it/s] 42%|████▏     | 402/966 [00:47<01:05,  8.55it/s] 42%|████▏     | 403/966 [00:47<01:05,  8.55it/s] 42%|████▏     | 404/966 [00:47<01:05,  8.54it/s] 42%|████▏     | 405/966 [00:48<01:05,  8.53it/s] 42%|████▏     | 406/966 [00:48<01:05,  8.53it/s] 42%|████▏     | 407/966 [00:48<01:05,  8.50it/s] 42%|████▏     | 408/966 [00:48<01:05,  8.50it/s] 42%|████▏     | 409/966 [00:48<01:05,  8.52it/s] 42%|████▏     | 410/966 [00:48<01:05,  8.52it/s] 43%|████▎     | 411/966 [00:48<01:05,  8.52it/s] 43%|████▎     | 412/966 [00:48<01:05,  8.51it/s] 43%|████▎     | 413/966 [00:48<01:04,  8.51it/s] 43%|████▎     | 414/966 [00:49<01:04,  8.53it/s] 43%|████▎     | 415/966 [00:49<01:04,  8.55it/s] 43%|████▎     | 416/966 [00:49<01:04,  8.54it/s] 43%|████▎     | 417/966 [00:49<01:04,  8.55it/s] 43%|████▎     | 418/966 [00:49<01:04,  8.55it/s] 43%|████▎     | 419/966 [00:49<01:04,  8.53it/s] 43%|████▎     | 420/966 [00:49<01:03,  8.53it/s] 44%|████▎     | 421/966 [00:49<01:03,  8.53it/s] 44%|████▎     | 422/966 [00:49<01:03,  8.52it/s] 44%|████▍     | 423/966 [00:50<01:03,  8.53it/s] 44%|████▍     | 424/966 [00:50<01:03,  8.54it/s] 44%|████▍     | 425/966 [00:50<01:03,  8.53it/s] 44%|████▍     | 426/966 [00:50<01:03,  8.51it/s] 44%|████▍     | 427/966 [00:50<01:03,  8.50it/s] 44%|████▍     | 428/966 [00:50<01:03,  8.50it/s] 44%|████▍     | 429/966 [00:50<01:03,  8.51it/s] 45%|████▍     | 430/966 [00:50<01:03,  8.49it/s] 45%|████▍     | 431/966 [00:51<01:02,  8.50it/s] 45%|████▍     | 432/966 [00:51<01:02,  8.49it/s] 45%|████▍     | 433/966 [00:51<01:02,  8.50it/s] 45%|████▍     | 434/966 [00:51<01:02,  8.49it/s] 45%|████▌     | 435/966 [00:51<01:02,  8.49it/s] 45%|████▌     | 436/966 [00:51<01:02,  8.49it/s] 45%|████▌     | 437/966 [00:51<01:02,  8.48it/s] 45%|████▌     | 438/966 [00:51<01:02,  8.47it/s] 45%|████▌     | 439/966 [00:51<01:02,  8.47it/s] 46%|████▌     | 440/966 [00:52<01:01,  8.49it/s] 46%|████▌     | 441/966 [00:52<01:01,  8.51it/s] 46%|████▌     | 442/966 [00:52<01:01,  8.51it/s] 46%|████▌     | 443/966 [00:52<01:01,  8.51it/s] 46%|████▌     | 444/966 [00:52<01:01,  8.52it/s] 46%|████▌     | 445/966 [00:52<01:01,  8.52it/s] 46%|████▌     | 446/966 [00:52<01:00,  8.54it/s] 46%|████▋     | 447/966 [00:52<01:00,  8.56it/s] 46%|████▋     | 448/966 [00:53<01:00,  8.56it/s] 46%|████▋     | 449/966 [00:53<01:00,  8.56it/s] 47%|████▋     | 450/966 [00:53<01:00,  8.56it/s] 47%|████▋     | 451/966 [00:53<01:00,  8.55it/s] 47%|████▋     | 452/966 [00:53<01:00,  8.55it/s] 47%|████▋     | 453/966 [00:53<00:59,  8.56it/s] 47%|████▋     | 454/966 [00:53<00:59,  8.57it/s] 47%|████▋     | 455/966 [00:53<00:59,  8.54it/s] 47%|████▋     | 456/966 [00:53<00:59,  8.52it/s] 47%|████▋     | 457/966 [00:54<00:59,  8.54it/s] 47%|████▋     | 458/966 [00:54<00:59,  8.52it/s] 48%|████▊     | 459/966 [00:54<00:59,  8.51it/s] 48%|████▊     | 460/966 [00:54<00:59,  8.52it/s] 48%|████▊     | 461/966 [00:54<00:59,  8.53it/s] 48%|████▊     | 462/966 [00:54<00:59,  8.53it/s] 48%|████▊     | 463/966 [00:54<00:58,  8.54it/s] 48%|████▊     | 464/966 [00:54<00:58,  8.56it/s] 48%|████▊     | 465/966 [00:55<00:58,  8.54it/s] 48%|████▊     | 466/966 [00:55<00:58,  8.55it/s] 48%|████▊     | 467/966 [00:55<00:58,  8.56it/s] 48%|████▊     | 468/966 [00:55<00:58,  8.55it/s] 49%|████▊     | 469/966 [00:55<00:58,  8.55it/s] 49%|████▊     | 470/966 [00:55<00:57,  8.56it/s] 49%|████▉     | 471/966 [00:55<00:57,  8.57it/s] 49%|████▉     | 472/966 [00:55<00:57,  8.57it/s] 49%|████▉     | 473/966 [00:55<00:57,  8.57it/s] 49%|████▉     | 474/966 [00:56<00:57,  8.53it/s] 49%|████▉     | 475/966 [00:56<00:57,  8.51it/s] 49%|████▉     | 476/966 [00:56<00:57,  8.49it/s] 49%|████▉     | 477/966 [00:56<00:57,  8.47it/s] 49%|████▉     | 478/966 [00:56<00:57,  8.47it/s] 50%|████▉     | 479/966 [00:56<00:57,  8.45it/s] 50%|████▉     | 480/966 [00:56<00:57,  8.46it/s] 50%|████▉     | 481/966 [00:56<00:57,  8.48it/s] 50%|████▉     | 482/966 [00:57<00:56,  8.49it/s] 50%|█████     | 483/966 [00:57<00:56,  8.48it/s] 50%|█████     | 484/966 [00:57<00:56,  8.49it/s] 50%|█████     | 485/966 [00:57<00:56,  8.49it/s] 50%|█████     | 486/966 [00:57<00:56,  8.51it/s] 50%|█████     | 487/966 [00:57<00:56,  8.51it/s] 51%|█████     | 488/966 [00:57<00:56,  8.50it/s] 51%|█████     | 489/966 [00:57<00:56,  8.49it/s] 51%|█████     | 490/966 [00:57<00:55,  8.50it/s] 51%|█████     | 491/966 [00:58<00:55,  8.52it/s] 51%|█████     | 492/966 [00:58<00:55,  8.50it/s] 51%|█████     | 493/966 [00:58<00:55,  8.51it/s] 51%|█████     | 494/966 [00:58<00:55,  8.54it/s] 51%|█████     | 495/966 [00:58<00:55,  8.53it/s] 51%|█████▏    | 496/966 [00:58<00:55,  8.54it/s] 51%|█████▏    | 497/966 [00:58<00:54,  8.56it/s] 52%|█████▏    | 498/966 [00:58<00:54,  8.55it/s] 52%|█████▏    | 499/966 [00:59<00:54,  8.55it/s] 52%|█████▏    | 500/966 [00:59<00:54,  8.54it/s] 52%|█████▏    | 501/966 [00:59<00:54,  8.52it/s] 52%|█████▏    | 502/966 [00:59<00:54,  8.54it/s] 52%|█████▏    | 503/966 [00:59<00:54,  8.55it/s] 52%|█████▏    | 504/966 [00:59<00:54,  8.54it/s] 52%|█████▏    | 505/966 [00:59<00:53,  8.55it/s] 52%|█████▏    | 506/966 [00:59<00:53,  8.56it/s] 52%|█████▏    | 507/966 [00:59<00:53,  8.56it/s] 53%|█████▎    | 508/966 [01:00<00:53,  8.55it/s] 53%|█████▎    | 509/966 [01:00<00:53,  8.56it/s] 53%|█████▎    | 510/966 [01:00<00:53,  8.54it/s] 53%|█████▎    | 511/966 [01:00<00:53,  8.52it/s] 53%|█████▎    | 512/966 [01:00<00:53,  8.55it/s] 53%|█████▎    | 513/966 [01:00<00:53,  8.54it/s] 53%|█████▎    | 514/966 [01:00<00:52,  8.53it/s] 53%|█████▎    | 515/966 [01:00<00:52,  8.53it/s] 53%|█████▎    | 516/966 [01:01<00:52,  8.52it/s] 54%|█████▎    | 517/966 [01:01<00:52,  8.51it/s] 54%|█████▎    | 518/966 [01:01<00:52,  8.51it/s] 54%|█████▎    | 519/966 [01:01<00:52,  8.51it/s] 54%|█████▍    | 520/966 [01:01<00:52,  8.51it/s] 54%|█████▍    | 521/966 [01:01<00:52,  8.52it/s] 54%|█████▍    | 522/966 [01:01<00:52,  8.53it/s] 54%|█████▍    | 523/966 [01:01<00:52,  8.51it/s] 54%|█████▍    | 524/966 [01:01<00:51,  8.50it/s] 54%|█████▍    | 525/966 [01:02<00:51,  8.51it/s] 54%|█████▍    | 526/966 [01:02<00:51,  8.50it/s] 55%|█████▍    | 527/966 [01:02<00:51,  8.48it/s] 55%|█████▍    | 528/966 [01:02<00:51,  8.50it/s] 55%|█████▍    | 529/966 [01:02<00:51,  8.47it/s] 55%|█████▍    | 530/966 [01:02<00:51,  8.47it/s] 55%|█████▍    | 531/966 [01:02<00:51,  8.47it/s] 55%|█████▌    | 532/966 [01:02<00:51,  8.47it/s] 55%|█████▌    | 533/966 [01:03<00:51,  8.47it/s] 55%|█████▌    | 534/966 [01:03<00:50,  8.47it/s] 55%|█████▌    | 535/966 [01:03<00:50,  8.48it/s] 55%|█████▌    | 536/966 [01:03<00:50,  8.48it/s] 56%|█████▌    | 537/966 [01:03<00:50,  8.48it/s] 56%|█████▌    | 538/966 [01:03<00:50,  8.46it/s] 56%|█████▌    | 539/966 [01:03<00:50,  8.47it/s] 56%|█████▌    | 540/966 [01:03<00:50,  8.47it/s] 56%|█████▌    | 541/966 [01:03<00:50,  8.47it/s] 56%|█████▌    | 542/966 [01:04<00:50,  8.46it/s] 56%|█████▌    | 543/966 [01:04<00:50,  8.45it/s] 56%|█████▋    | 544/966 [01:04<00:50,  8.44it/s] 56%|█████▋    | 545/966 [01:04<00:49,  8.43it/s] 57%|█████▋    | 546/966 [01:04<00:49,  8.45it/s] 57%|█████▋    | 547/966 [01:04<00:49,  8.47it/s] 57%|█████▋    | 548/966 [01:04<00:49,  8.50it/s] 57%|█████▋    | 549/966 [01:04<00:48,  8.52it/s] 57%|█████▋    | 550/966 [01:05<00:48,  8.55it/s] 57%|█████▋    | 551/966 [01:05<00:48,  8.53it/s] 57%|█████▋    | 552/966 [01:05<00:48,  8.51it/s] 57%|█████▋    | 553/966 [01:05<00:48,  8.51it/s] 57%|█████▋    | 554/966 [01:05<00:48,  8.53it/s] 57%|█████▋    | 555/966 [01:05<00:48,  8.55it/s] 58%|█████▊    | 556/966 [01:05<00:47,  8.54it/s] 58%|█████▊    | 557/966 [01:05<00:47,  8.53it/s] 58%|█████▊    | 558/966 [01:05<00:47,  8.54it/s] 58%|█████▊    | 559/966 [01:06<00:47,  8.54it/s] 58%|█████▊    | 560/966 [01:06<00:47,  8.53it/s] 58%|█████▊    | 561/966 [01:06<00:47,  8.51it/s] 58%|█████▊    | 562/966 [01:06<00:47,  8.50it/s] 58%|█████▊    | 563/966 [01:06<00:47,  8.50it/s] 58%|█████▊    | 564/966 [01:06<00:47,  8.51it/s] 58%|█████▊    | 565/966 [01:06<00:47,  8.53it/s] 59%|█████▊    | 566/966 [01:06<00:46,  8.54it/s] 59%|█████▊    | 567/966 [01:07<00:46,  8.53it/s] 59%|█████▉    | 568/966 [01:07<00:46,  8.54it/s] 59%|█████▉    | 569/966 [01:07<00:46,  8.55it/s] 59%|█████▉    | 570/966 [01:07<00:46,  8.54it/s] 59%|█████▉    | 571/966 [01:07<00:46,  8.55it/s] 59%|█████▉    | 572/966 [01:07<00:46,  8.55it/s] 59%|█████▉    | 573/966 [01:07<00:45,  8.55it/s] 59%|█████▉    | 574/966 [01:07<00:45,  8.56it/s] 60%|█████▉    | 575/966 [01:07<00:45,  8.57it/s] 60%|█████▉    | 576/966 [01:08<00:45,  8.58it/s] 60%|█████▉    | 577/966 [01:08<00:45,  8.54it/s] 60%|█████▉    | 578/966 [01:08<00:45,  8.54it/s] 60%|█████▉    | 579/966 [01:08<00:45,  8.52it/s] 60%|██████    | 580/966 [01:08<00:45,  8.53it/s] 60%|██████    | 581/966 [01:08<00:45,  8.52it/s] 60%|██████    | 582/966 [01:08<00:45,  8.53it/s] 60%|██████    | 583/966 [01:08<00:44,  8.52it/s] 60%|██████    | 584/966 [01:09<00:45,  8.49it/s] 61%|██████    | 585/966 [01:09<00:44,  8.50it/s] 61%|██████    | 586/966 [01:09<00:44,  8.51it/s] 61%|██████    | 587/966 [01:09<00:44,  8.51it/s] 61%|██████    | 588/966 [01:09<00:44,  8.52it/s] 61%|██████    | 589/966 [01:09<00:44,  8.55it/s] 61%|██████    | 590/966 [01:09<00:43,  8.56it/s] 61%|██████    | 591/966 [01:09<00:43,  8.54it/s] 61%|██████▏   | 592/966 [01:09<00:43,  8.53it/s] 61%|██████▏   | 593/966 [01:10<00:43,  8.55it/s] 61%|██████▏   | 594/966 [01:10<00:43,  8.56it/s] 62%|██████▏   | 595/966 [01:10<00:43,  8.55it/s] 62%|██████▏   | 596/966 [01:10<00:43,  8.55it/s] 62%|██████▏   | 597/966 [01:10<00:43,  8.54it/s] 62%|██████▏   | 598/966 [01:10<00:43,  8.53it/s] 62%|██████▏   | 599/966 [01:10<00:42,  8.54it/s] 62%|██████▏   | 600/966 [01:10<00:42,  8.52it/s] 62%|██████▏   | 601/966 [01:11<00:42,  8.51it/s] 62%|██████▏   | 602/966 [01:11<00:42,  8.51it/s] 62%|██████▏   | 603/966 [01:11<00:42,  8.50it/s] 63%|██████▎   | 604/966 [01:11<00:42,  8.52it/s] 63%|██████▎   | 605/966 [01:11<00:42,  8.54it/s] 63%|██████▎   | 606/966 [01:11<00:42,  8.55it/s] 63%|██████▎   | 607/966 [01:11<00:41,  8.55it/s] 63%|██████▎   | 608/966 [01:11<00:41,  8.57it/s] 63%|██████▎   | 609/966 [01:11<00:41,  8.55it/s] 63%|██████▎   | 610/966 [01:12<00:41,  8.53it/s] 63%|██████▎   | 611/966 [01:12<00:41,  8.54it/s] 63%|██████▎   | 612/966 [01:12<00:41,  8.54it/s] 63%|██████▎   | 613/966 [01:12<00:41,  8.52it/s] 64%|██████▎   | 614/966 [01:12<00:41,  8.53it/s] 64%|██████▎   | 615/966 [01:12<00:41,  8.54it/s] 64%|██████▍   | 616/966 [01:12<00:41,  8.53it/s] 64%|██████▍   | 617/966 [01:12<00:41,  8.51it/s] 64%|██████▍   | 618/966 [01:13<00:40,  8.50it/s] 64%|██████▍   | 619/966 [01:13<00:40,  8.51it/s] 64%|██████▍   | 620/966 [01:13<00:40,  8.52it/s] 64%|██████▍   | 621/966 [01:13<00:40,  8.53it/s] 64%|██████▍   | 622/966 [01:13<00:40,  8.51it/s] 64%|██████▍   | 623/966 [01:13<00:40,  8.48it/s] 65%|██████▍   | 624/966 [01:13<00:40,  8.50it/s] 65%|██████▍   | 625/966 [01:13<00:40,  8.52it/s] 65%|██████▍   | 626/966 [01:13<00:39,  8.53it/s] 65%|██████▍   | 627/966 [01:14<00:39,  8.53it/s] 65%|██████▌   | 628/966 [01:14<00:39,  8.50it/s] 65%|██████▌   | 629/966 [01:14<00:39,  8.49it/s] 65%|██████▌   | 630/966 [01:14<00:39,  8.49it/s] 65%|██████▌   | 631/966 [01:14<00:39,  8.52it/s] 65%|██████▌   | 632/966 [01:14<00:39,  8.54it/s] 66%|██████▌   | 633/966 [01:14<00:38,  8.55it/s] 66%|██████▌   | 634/966 [01:14<00:38,  8.54it/s] 66%|██████▌   | 635/966 [01:14<00:38,  8.52it/s] 66%|██████▌   | 636/966 [01:15<00:38,  8.48it/s] 66%|██████▌   | 637/966 [01:15<00:38,  8.48it/s] 66%|██████▌   | 638/966 [01:15<00:38,  8.49it/s] 66%|██████▌   | 639/966 [01:15<00:38,  8.50it/s] 66%|██████▋   | 640/966 [01:15<00:38,  8.48it/s] 66%|██████▋   | 641/966 [01:15<00:38,  8.48it/s] 66%|██████▋   | 642/966 [01:15<00:38,  8.48it/s] 67%|██████▋   | 643/966 [01:15<00:38,  8.48it/s] 67%|██████▋   | 644/966 [01:16<00:37,  8.49it/s] 67%|██████▋   | 645/966 [01:16<00:37,  8.49it/s] 67%|██████▋   | 646/966 [01:16<00:37,  8.49it/s] 67%|██████▋   | 647/966 [01:16<00:37,  8.51it/s] 67%|██████▋   | 648/966 [01:16<00:37,  8.50it/s] 67%|██████▋   | 649/966 [01:16<00:37,  8.50it/s] 67%|██████▋   | 650/966 [01:16<00:37,  8.52it/s] 67%|██████▋   | 651/966 [01:16<00:36,  8.53it/s] 67%|██████▋   | 652/966 [01:16<00:36,  8.53it/s] 68%|██████▊   | 653/966 [01:17<00:36,  8.51it/s] 68%|██████▊   | 654/966 [01:17<00:36,  8.51it/s] 68%|██████▊   | 655/966 [01:17<00:36,  8.53it/s] 68%|██████▊   | 656/966 [01:17<00:36,  8.52it/s] 68%|██████▊   | 657/966 [01:17<00:36,  8.52it/s] 68%|██████▊   | 658/966 [01:17<00:36,  8.52it/s] 68%|██████▊   | 659/966 [01:17<00:36,  8.51it/s] 68%|██████▊   | 660/966 [01:17<00:35,  8.53it/s] 68%|██████▊   | 661/966 [01:18<00:35,  8.53it/s] 69%|██████▊   | 662/966 [01:18<00:35,  8.52it/s] 69%|██████▊   | 663/966 [01:18<00:35,  8.54it/s] 69%|██████▊   | 664/966 [01:18<00:35,  8.54it/s] 69%|██████▉   | 665/966 [01:18<00:35,  8.53it/s] 69%|██████▉   | 666/966 [01:18<00:35,  8.52it/s] 69%|██████▉   | 667/966 [01:18<00:35,  8.53it/s] 69%|██████▉   | 668/966 [01:18<00:34,  8.52it/s] 69%|██████▉   | 669/966 [01:18<00:34,  8.51it/s] 69%|██████▉   | 670/966 [01:19<00:34,  8.49it/s] 69%|██████▉   | 671/966 [01:19<00:34,  8.48it/s] 70%|██████▉   | 672/966 [01:19<00:34,  8.49it/s] 70%|██████▉   | 673/966 [01:19<00:34,  8.51it/s] 70%|██████▉   | 674/966 [01:19<00:34,  8.51it/s] 70%|██████▉   | 675/966 [01:19<00:34,  8.52it/s] 70%|██████▉   | 676/966 [01:19<00:34,  8.51it/s] 70%|███████   | 677/966 [01:19<00:33,  8.51it/s] 70%|███████   | 678/966 [01:20<00:33,  8.51it/s] 70%|███████   | 679/966 [01:20<00:33,  8.53it/s] 70%|███████   | 680/966 [01:20<00:33,  8.53it/s] 70%|███████   | 681/966 [01:20<00:33,  8.53it/s] 71%|███████   | 682/966 [01:20<00:33,  8.52it/s] 71%|███████   | 683/966 [01:20<00:33,  8.52it/s] 71%|███████   | 684/966 [01:20<00:33,  8.52it/s] 71%|███████   | 685/966 [01:20<00:32,  8.53it/s] 71%|███████   | 686/966 [01:20<00:32,  8.54it/s] 71%|███████   | 687/966 [01:21<00:32,  8.55it/s] 71%|███████   | 688/966 [01:21<00:32,  8.54it/s] 71%|███████▏  | 689/966 [01:21<00:32,  8.52it/s] 71%|███████▏  | 690/966 [01:21<00:32,  8.51it/s] 72%|███████▏  | 691/966 [01:21<00:32,  8.49it/s] 72%|███████▏  | 692/966 [01:21<00:32,  8.49it/s] 72%|███████▏  | 693/966 [01:21<00:32,  8.50it/s] 72%|███████▏  | 694/966 [01:21<00:31,  8.50it/s] 72%|███████▏  | 695/966 [01:22<00:31,  8.49it/s] 72%|███████▏  | 696/966 [01:22<00:31,  8.50it/s] 72%|███████▏  | 697/966 [01:22<00:31,  8.51it/s] 72%|███████▏  | 698/966 [01:22<00:31,  8.51it/s] 72%|███████▏  | 699/966 [01:22<00:31,  8.52it/s] 72%|███████▏  | 700/966 [01:22<00:31,  8.53it/s] 73%|███████▎  | 701/966 [01:22<00:31,  8.53it/s] 73%|███████▎  | 702/966 [01:22<00:30,  8.53it/s] 73%|███████▎  | 703/966 [01:22<00:30,  8.52it/s] 73%|███████▎  | 704/966 [01:23<00:30,  8.51it/s] 73%|███████▎  | 705/966 [01:23<00:30,  8.51it/s] 73%|███████▎  | 706/966 [01:23<00:30,  8.51it/s] 73%|███████▎  | 707/966 [01:23<00:30,  8.51it/s] 73%|███████▎  | 708/966 [01:23<00:30,  8.50it/s] 73%|███████▎  | 709/966 [01:23<00:30,  8.50it/s] 73%|███████▎  | 710/966 [01:23<00:30,  8.49it/s] 74%|███████▎  | 711/966 [01:23<00:30,  8.49it/s] 74%|███████▎  | 712/966 [01:24<00:29,  8.48it/s] 74%|███████▍  | 713/966 [01:24<00:29,  8.48it/s] 74%|███████▍  | 714/966 [01:24<00:29,  8.48it/s] 74%|███████▍  | 715/966 [01:24<00:29,  8.49it/s] 74%|███████▍  | 716/966 [01:24<00:29,  8.52it/s] 74%|███████▍  | 717/966 [01:24<00:29,  8.54it/s] 74%|███████▍  | 718/966 [01:24<00:29,  8.54it/s] 74%|███████▍  | 719/966 [01:24<00:28,  8.54it/s] 75%|███████▍  | 720/966 [01:24<00:28,  8.53it/s] 75%|███████▍  | 721/966 [01:25<00:28,  8.55it/s] 75%|███████▍  | 722/966 [01:25<00:28,  8.56it/s] 75%|███████▍  | 723/966 [01:25<00:28,  8.52it/s] 75%|███████▍  | 724/966 [01:25<00:28,  8.49it/s] 75%|███████▌  | 725/966 [01:25<00:28,  8.48it/s] 75%|███████▌  | 726/966 [01:25<00:28,  8.49it/s] 75%|███████▌  | 727/966 [01:25<00:28,  8.49it/s] 75%|███████▌  | 728/966 [01:25<00:28,  8.48it/s] 75%|███████▌  | 729/966 [01:26<00:27,  8.50it/s] 76%|███████▌  | 730/966 [01:26<00:27,  8.49it/s] 76%|███████▌  | 731/966 [01:26<00:27,  8.49it/s] 76%|███████▌  | 732/966 [01:26<00:27,  8.50it/s] 76%|███████▌  | 733/966 [01:26<00:27,  8.50it/s] 76%|███████▌  | 734/966 [01:26<00:27,  8.49it/s] 76%|███████▌  | 735/966 [01:26<00:27,  8.49it/s] 76%|███████▌  | 736/966 [01:26<00:27,  8.49it/s] 76%|███████▋  | 737/966 [01:26<00:26,  8.49it/s] 76%|███████▋  | 738/966 [01:27<00:26,  8.49it/s] 77%|███████▋  | 739/966 [01:27<00:26,  8.50it/s] 77%|███████▋  | 740/966 [01:27<00:26,  8.50it/s] 77%|███████▋  | 741/966 [01:27<00:26,  8.49it/s] 77%|███████▋  | 742/966 [01:27<00:26,  8.49it/s] 77%|███████▋  | 743/966 [01:27<00:26,  8.47it/s] 77%|███████▋  | 744/966 [01:27<00:26,  8.46it/s] 77%|███████▋  | 745/966 [01:27<00:26,  8.49it/s] 77%|███████▋  | 746/966 [01:28<00:25,  8.49it/s] 77%|███████▋  | 747/966 [01:28<00:25,  8.48it/s] 77%|███████▋  | 748/966 [01:28<00:25,  8.50it/s] 78%|███████▊  | 749/966 [01:28<00:25,  8.50it/s] 78%|███████▊  | 750/966 [01:28<00:25,  8.52it/s] 78%|███████▊  | 751/966 [01:28<00:25,  8.52it/s] 78%|███████▊  | 752/966 [01:28<00:25,  8.52it/s] 78%|███████▊  | 753/966 [01:28<00:25,  8.51it/s] 78%|███████▊  | 754/966 [01:28<00:24,  8.52it/s] 78%|███████▊  | 755/966 [01:29<00:24,  8.53it/s] 78%|███████▊  | 756/966 [01:29<00:24,  8.53it/s] 78%|███████▊  | 757/966 [01:29<00:24,  8.53it/s] 78%|███████▊  | 758/966 [01:29<00:24,  8.52it/s] 79%|███████▊  | 759/966 [01:29<00:24,  8.52it/s] 79%|███████▊  | 760/966 [01:29<00:24,  8.51it/s] 79%|███████▉  | 761/966 [01:29<00:24,  8.50it/s] 79%|███████▉  | 762/966 [01:29<00:24,  8.49it/s] 79%|███████▉  | 763/966 [01:30<00:23,  8.49it/s] 79%|███████▉  | 764/966 [01:30<00:23,  8.50it/s] 79%|███████▉  | 765/966 [01:30<00:23,  8.52it/s] 79%|███████▉  | 766/966 [01:30<00:23,  8.52it/s] 79%|███████▉  | 767/966 [01:30<00:23,  8.50it/s] 80%|███████▉  | 768/966 [01:30<00:23,  8.51it/s] 80%|███████▉  | 769/966 [01:30<00:23,  8.52it/s] 80%|███████▉  | 770/966 [01:30<00:23,  8.51it/s] 80%|███████▉  | 771/966 [01:30<00:22,  8.52it/s] 80%|███████▉  | 772/966 [01:31<00:22,  8.52it/s] 80%|████████  | 773/966 [01:31<00:22,  8.52it/s] 80%|████████  | 774/966 [01:31<00:22,  8.53it/s] 80%|████████  | 775/966 [01:31<00:22,  8.53it/s] 80%|████████  | 776/966 [01:31<00:22,  8.51it/s] 80%|████████  | 777/966 [01:31<00:22,  8.48it/s] 81%|████████  | 778/966 [01:31<00:22,  8.47it/s] 81%|████████  | 779/966 [01:31<00:22,  8.46it/s] 81%|████████  | 780/966 [01:32<00:21,  8.46it/s] 81%|████████  | 781/966 [01:32<00:21,  8.45it/s] 81%|████████  | 782/966 [01:32<00:21,  8.45it/s] 81%|████████  | 783/966 [01:32<00:21,  8.46it/s] 81%|████████  | 784/966 [01:32<00:21,  8.47it/s] 81%|████████▏ | 785/966 [01:32<00:21,  8.46it/s] 81%|████████▏ | 786/966 [01:32<00:21,  8.47it/s] 81%|████████▏ | 787/966 [01:32<00:21,  8.47it/s] 82%|████████▏ | 788/966 [01:32<00:20,  8.50it/s] 82%|████████▏ | 789/966 [01:33<00:20,  8.52it/s] 82%|████████▏ | 790/966 [01:33<00:20,  8.54it/s] 82%|████████▏ | 791/966 [01:33<00:20,  8.54it/s] 82%|████████▏ | 792/966 [01:33<00:20,  8.54it/s] 82%|████████▏ | 793/966 [01:33<00:20,  8.53it/s] 82%|████████▏ | 794/966 [01:33<00:20,  8.53it/s] 82%|████████▏ | 795/966 [01:33<00:20,  8.54it/s] 82%|████████▏ | 796/966 [01:33<00:19,  8.52it/s] 83%|████████▎ | 797/966 [01:34<00:19,  8.52it/s] 83%|████████▎ | 798/966 [01:34<00:19,  8.52it/s] 83%|████████▎ | 799/966 [01:34<00:19,  8.53it/s] 83%|████████▎ | 800/966 [01:34<00:19,  8.54it/s] 83%|████████▎ | 801/966 [01:34<00:19,  8.54it/s] 83%|████████▎ | 802/966 [01:34<00:19,  8.53it/s] 83%|████████▎ | 803/966 [01:34<00:19,  8.53it/s] 83%|████████▎ | 804/966 [01:34<00:18,  8.53it/s] 83%|████████▎ | 805/966 [01:34<00:18,  8.51it/s] 83%|████████▎ | 806/966 [01:35<00:18,  8.48it/s] 84%|████████▎ | 807/966 [01:35<00:18,  8.48it/s] 84%|████████▎ | 808/966 [01:35<00:18,  8.50it/s] 84%|████████▎ | 809/966 [01:35<00:18,  8.50it/s] 84%|████████▍ | 810/966 [01:35<00:18,  8.51it/s] 84%|████████▍ | 811/966 [01:35<00:18,  8.51it/s] 84%|████████▍ | 812/966 [01:35<00:18,  8.51it/s] 84%|████████▍ | 813/966 [01:35<00:17,  8.51it/s] 84%|████████▍ | 814/966 [01:36<00:17,  8.49it/s] 84%|████████▍ | 815/966 [01:36<00:17,  8.47it/s] 84%|████████▍ | 816/966 [01:36<00:17,  8.45it/s] 85%|████████▍ | 817/966 [01:36<00:17,  8.47it/s] 85%|████████▍ | 818/966 [01:36<00:17,  8.48it/s] 85%|████████▍ | 819/966 [01:36<00:17,  8.48it/s] 85%|████████▍ | 820/966 [01:36<00:17,  8.47it/s] 85%|████████▍ | 821/966 [01:36<00:17,  8.47it/s] 85%|████████▌ | 822/966 [01:36<00:16,  8.48it/s] 85%|████████▌ | 823/966 [01:37<00:16,  8.48it/s] 85%|████████▌ | 824/966 [01:37<00:16,  8.47it/s] 85%|████████▌ | 825/966 [01:37<00:16,  8.48it/s] 86%|████████▌ | 826/966 [01:37<00:16,  8.46it/s] 86%|████████▌ | 827/966 [01:37<00:16,  8.48it/s] 86%|████████▌ | 828/966 [01:37<00:16,  8.47it/s] 86%|████████▌ | 829/966 [01:37<00:16,  8.45it/s] 86%|████████▌ | 830/966 [01:37<00:16,  8.49it/s] 86%|████████▌ | 831/966 [01:38<00:15,  8.50it/s] 86%|████████▌ | 832/966 [01:38<00:15,  8.50it/s] 86%|████████▌ | 833/966 [01:38<00:15,  8.50it/s] 86%|████████▋ | 834/966 [01:38<00:15,  8.51it/s] 86%|████████▋ | 835/966 [01:38<00:15,  8.51it/s] 87%|████████▋ | 836/966 [01:38<00:15,  8.50it/s] 87%|████████▋ | 837/966 [01:38<00:15,  8.50it/s] 87%|████████▋ | 838/966 [01:38<00:15,  8.49it/s] 87%|████████▋ | 839/966 [01:38<00:14,  8.48it/s] 87%|████████▋ | 840/966 [01:39<00:14,  8.47it/s] 87%|████████▋ | 841/966 [01:39<00:14,  8.48it/s] 87%|████████▋ | 842/966 [01:39<00:14,  8.48it/s] 87%|████████▋ | 843/966 [01:39<00:14,  8.50it/s] 87%|████████▋ | 844/966 [01:39<00:14,  8.52it/s] 87%|████████▋ | 845/966 [01:39<00:14,  8.51it/s] 88%|████████▊ | 846/966 [01:39<00:14,  8.51it/s] 88%|████████▊ | 847/966 [01:39<00:13,  8.52it/s] 88%|████████▊ | 848/966 [01:40<00:13,  8.54it/s] 88%|████████▊ | 849/966 [01:40<00:13,  8.54it/s] 88%|████████▊ | 850/966 [01:40<00:13,  8.53it/s] 88%|████████▊ | 851/966 [01:40<00:13,  8.52it/s] 88%|████████▊ | 852/966 [01:40<00:13,  8.53it/s] 88%|████████▊ | 853/966 [01:40<00:13,  8.53it/s] 88%|████████▊ | 854/966 [01:40<00:13,  8.52it/s] 89%|████████▊ | 855/966 [01:40<00:13,  8.52it/s] 89%|████████▊ | 856/966 [01:40<00:12,  8.53it/s] 89%|████████▊ | 857/966 [01:41<00:12,  8.52it/s] 89%|████████▉ | 858/966 [01:41<00:12,  8.52it/s] 89%|████████▉ | 859/966 [01:41<00:12,  8.51it/s] 89%|████████▉ | 860/966 [01:41<00:12,  8.51it/s] 89%|████████▉ | 861/966 [01:41<00:12,  8.50it/s] 89%|████████▉ | 862/966 [01:41<00:12,  8.48it/s] 89%|████████▉ | 863/966 [01:41<00:12,  8.48it/s] 89%|████████▉ | 864/966 [01:41<00:12,  8.50it/s] 90%|████████▉ | 865/966 [01:42<00:11,  8.50it/s] 90%|████████▉ | 866/966 [01:42<00:11,  8.49it/s] 90%|████████▉ | 867/966 [01:42<00:11,  8.48it/s] 90%|████████▉ | 868/966 [01:42<00:11,  8.48it/s] 90%|████████▉ | 869/966 [01:42<00:11,  8.49it/s] 90%|█████████ | 870/966 [01:42<00:11,  8.50it/s] 90%|█████████ | 871/966 [01:42<00:11,  8.49it/s] 90%|█████████ | 872/966 [01:42<00:11,  8.51it/s] 90%|█████████ | 873/966 [01:42<00:10,  8.51it/s] 90%|█████████ | 874/966 [01:43<00:10,  8.51it/s] 91%|█████████ | 875/966 [01:43<00:10,  8.48it/s] 91%|█████████ | 876/966 [01:43<00:10,  8.47it/s] 91%|█████████ | 877/966 [01:43<00:10,  8.47it/s] 91%|█████████ | 878/966 [01:43<00:10,  8.49it/s] 91%|█████████ | 879/966 [01:43<00:10,  8.49it/s] 91%|█████████ | 880/966 [01:43<00:10,  8.49it/s] 91%|█████████ | 881/966 [01:43<00:10,  8.49it/s] 91%|█████████▏| 882/966 [01:44<00:09,  8.49it/s] 91%|█████████▏| 883/966 [01:44<00:09,  8.50it/s] 92%|█████████▏| 884/966 [01:44<00:09,  8.51it/s] 92%|█████████▏| 885/966 [01:44<00:09,  8.53it/s] 92%|█████████▏| 886/966 [01:44<00:09,  8.53it/s] 92%|█████████▏| 887/966 [01:44<00:09,  8.55it/s] 92%|█████████▏| 888/966 [01:44<00:09,  8.56it/s] 92%|█████████▏| 889/966 [01:44<00:09,  8.55it/s] 92%|█████████▏| 890/966 [01:44<00:08,  8.55it/s] 92%|█████████▏| 891/966 [01:45<00:08,  8.54it/s] 92%|█████████▏| 892/966 [01:45<00:08,  8.52it/s] 92%|█████████▏| 893/966 [01:45<00:08,  8.51it/s] 93%|█████████▎| 894/966 [01:45<00:08,  8.51it/s] 93%|█████████▎| 895/966 [01:45<00:08,  8.52it/s] 93%|█████████▎| 896/966 [01:45<00:08,  8.51it/s] 93%|█████████▎| 897/966 [01:45<00:08,  8.50it/s] 93%|█████████▎| 898/966 [01:45<00:07,  8.50it/s] 93%|█████████▎| 899/966 [01:46<00:07,  8.50it/s] 93%|█████████▎| 900/966 [01:46<00:07,  8.50it/s] 93%|█████████▎| 901/966 [01:46<00:07,  8.49it/s] 93%|█████████▎| 902/966 [01:46<00:07,  8.49it/s] 93%|█████████▎| 903/966 [01:46<00:07,  8.47it/s] 94%|█████████▎| 904/966 [01:46<00:07,  8.46it/s] 94%|█████████▎| 905/966 [01:46<00:07,  8.48it/s] 94%|█████████▍| 906/966 [01:46<00:07,  8.49it/s] 94%|█████████▍| 907/966 [01:46<00:06,  8.48it/s] 94%|█████████▍| 908/966 [01:47<00:06,  8.49it/s] 94%|█████████▍| 909/966 [01:47<00:06,  8.49it/s] 94%|█████████▍| 910/966 [01:47<00:06,  8.49it/s] 94%|█████████▍| 911/966 [01:47<00:06,  8.51it/s] 94%|█████████▍| 912/966 [01:47<00:06,  8.51it/s] 95%|█████████▍| 913/966 [01:47<00:06,  8.53it/s] 95%|█████████▍| 914/966 [01:47<00:06,  8.56it/s] 95%|█████████▍| 915/966 [01:47<00:05,  8.54it/s] 95%|█████████▍| 916/966 [01:48<00:05,  8.52it/s] 95%|█████████▍| 917/966 [01:48<00:05,  8.52it/s] 95%|█████████▌| 918/966 [01:48<00:05,  8.51it/s] 95%|█████████▌| 919/966 [01:48<00:05,  8.50it/s] 95%|█████████▌| 920/966 [01:48<00:05,  8.51it/s] 95%|█████████▌| 921/966 [01:48<00:05,  8.51it/s] 95%|█████████▌| 922/966 [01:48<00:05,  8.52it/s] 96%|█████████▌| 923/966 [01:48<00:05,  8.54it/s] 96%|█████████▌| 924/966 [01:48<00:04,  8.55it/s] 96%|█████████▌| 925/966 [01:49<00:04,  8.56it/s] 96%|█████████▌| 926/966 [01:49<00:04,  8.57it/s] 96%|█████████▌| 927/966 [01:49<00:04,  8.57it/s] 96%|█████████▌| 928/966 [01:49<00:04,  8.55it/s] 96%|█████████▌| 929/966 [01:49<00:04,  8.51it/s] 96%|█████████▋| 930/966 [01:49<00:04,  8.51it/s] 96%|█████████▋| 931/966 [01:49<00:04,  8.52it/s] 96%|█████████▋| 932/966 [01:49<00:03,  8.53it/s] 97%|█████████▋| 933/966 [01:50<00:03,  8.54it/s] 97%|█████████▋| 934/966 [01:50<00:03,  8.53it/s] 97%|█████████▋| 935/966 [01:50<00:03,  8.52it/s] 97%|█████████▋| 936/966 [01:50<00:03,  8.53it/s] 97%|█████████▋| 937/966 [01:50<00:03,  8.53it/s] 97%|█████████▋| 938/966 [01:50<00:03,  8.53it/s] 97%|█████████▋| 939/966 [01:50<00:03,  8.52it/s] 97%|█████████▋| 940/966 [01:50<00:03,  8.52it/s] 97%|█████████▋| 941/966 [01:50<00:02,  8.50it/s] 98%|█████████▊| 942/966 [01:51<00:02,  8.50it/s] 98%|█████████▊| 943/966 [01:51<00:02,  8.52it/s] 98%|█████████▊| 944/966 [01:51<00:02,  8.52it/s] 98%|█████████▊| 945/966 [01:51<00:02,  8.48it/s] 98%|█████████▊| 946/966 [01:51<00:02,  8.50it/s] 98%|█████████▊| 947/966 [01:51<00:02,  8.50it/s] 98%|█████████▊| 948/966 [01:51<00:02,  8.50it/s] 98%|█████████▊| 949/966 [01:51<00:02,  8.49it/s] 98%|█████████▊| 950/966 [01:52<00:01,  8.50it/s] 98%|█████████▊| 951/966 [01:52<00:01,  8.51it/s] 99%|█████████▊| 952/966 [01:52<00:01,  8.49it/s] 99%|█████████▊| 953/966 [01:52<00:01,  8.50it/s] 99%|█████████▉| 954/966 [01:52<00:01,  8.50it/s] 99%|█████████▉| 955/966 [01:52<00:01,  8.50it/s] 99%|█████████▉| 956/966 [01:52<00:01,  8.51it/s] 99%|█████████▉| 957/966 [01:52<00:01,  8.51it/s] 99%|█████████▉| 958/966 [01:52<00:00,  8.50it/s] 99%|█████████▉| 959/966 [01:53<00:00,  8.51it/s] 99%|█████████▉| 960/966 [01:53<00:00,  8.51it/s] 99%|█████████▉| 961/966 [01:53<00:00,  8.50it/s]100%|█████████▉| 962/966 [01:53<00:00,  8.52it/s]100%|█████████▉| 963/966 [01:53<00:00,  8.51it/s]100%|█████████▉| 964/966 [01:53<00:00,  8.50it/s]100%|█████████▉| 965/966 [01:53<00:00,  8.49it/s]100%|██████████| 966/966 [01:53<00:00,  8.49it/s]100%|██████████| 966/966 [01:53<00:00,  8.48it/s]
+sending off prediction to background worker for resampling and export
+done with 101-045
+
+Predicting 706-005:
+perform_everything_on_device: True
+  0%|          | 0/966 [00:00<?, ?it/s]  0%|          | 2/966 [00:00<01:27, 11.01it/s]  0%|          | 4/966 [00:00<01:42,  9.42it/s]  1%|          | 5/966 [00:00<01:45,  9.14it/s]  1%|          | 6/966 [00:00<01:47,  8.95it/s]  1%|          | 7/966 [00:00<01:48,  8.84it/s]  1%|          | 8/966 [00:00<01:49,  8.75it/s]  1%|          | 9/966 [00:01<01:50,  8.68it/s]  1%|          | 10/966 [00:01<01:50,  8.63it/s]  1%|          | 11/966 [00:01<01:51,  8.59it/s]  1%|          | 12/966 [00:01<01:51,  8.59it/s]  1%|▏         | 13/966 [00:01<01:51,  8.57it/s]  1%|▏         | 14/966 [00:01<01:51,  8.54it/s]  2%|▏         | 15/966 [00:01<01:51,  8.53it/s]  2%|▏         | 16/966 [00:01<01:51,  8.53it/s]  2%|▏         | 17/966 [00:01<01:51,  8.51it/s]  2%|▏         | 18/966 [00:02<01:51,  8.52it/s]  2%|▏         | 19/966 [00:02<01:51,  8.52it/s]  2%|▏         | 20/966 [00:02<01:51,  8.51it/s]  2%|▏         | 21/966 [00:02<01:50,  8.52it/s]  2%|▏         | 22/966 [00:02<01:50,  8.51it/s]  2%|▏         | 23/966 [00:02<01:50,  8.51it/s]  2%|▏         | 24/966 [00:02<01:50,  8.53it/s]  3%|▎         | 25/966 [00:02<01:50,  8.54it/s]  3%|▎         | 26/966 [00:02<01:50,  8.54it/s]  3%|▎         | 27/966 [00:03<01:50,  8.53it/s]  3%|▎         | 28/966 [00:03<01:49,  8.54it/s]  3%|▎         | 29/966 [00:03<01:49,  8.55it/s]  3%|▎         | 30/966 [00:03<01:49,  8.55it/s]  3%|▎         | 31/966 [00:03<01:49,  8.51it/s]  3%|▎         | 32/966 [00:03<01:49,  8.50it/s]  3%|▎         | 33/966 [00:03<01:49,  8.52it/s]  4%|▎         | 34/966 [00:03<01:49,  8.51it/s]  4%|▎         | 35/966 [00:04<01:49,  8.51it/s]  4%|▎         | 36/966 [00:04<01:49,  8.52it/s]  4%|▍         | 37/966 [00:04<01:48,  8.55it/s]  4%|▍         | 38/966 [00:04<01:48,  8.52it/s]  4%|▍         | 39/966 [00:04<01:48,  8.52it/s]  4%|▍         | 40/966 [00:04<01:48,  8.51it/s]  4%|▍         | 41/966 [00:04<01:48,  8.51it/s]  4%|▍         | 42/966 [00:04<01:48,  8.51it/s]  4%|▍         | 43/966 [00:04<01:48,  8.50it/s]  5%|▍         | 44/966 [00:05<01:48,  8.51it/s]  5%|▍         | 45/966 [00:05<01:48,  8.51it/s]  5%|▍         | 46/966 [00:05<01:47,  8.52it/s]  5%|▍         | 47/966 [00:05<01:47,  8.52it/s]  5%|▍         | 48/966 [00:05<01:47,  8.53it/s]  5%|▌         | 49/966 [00:05<01:47,  8.52it/s]  5%|▌         | 50/966 [00:05<01:47,  8.53it/s]  5%|▌         | 51/966 [00:05<01:47,  8.55it/s]  5%|▌         | 52/966 [00:06<01:47,  8.53it/s]  5%|▌         | 53/966 [00:06<01:47,  8.52it/s]  6%|▌         | 54/966 [00:06<01:47,  8.52it/s]  6%|▌         | 55/966 [00:06<01:46,  8.52it/s]  6%|▌         | 56/966 [00:06<01:46,  8.53it/s]  6%|▌         | 57/966 [00:06<01:46,  8.52it/s]  6%|▌         | 58/966 [00:06<01:46,  8.49it/s]  6%|▌         | 59/966 [00:06<01:46,  8.49it/s]  6%|▌         | 60/966 [00:06<01:46,  8.50it/s]  6%|▋         | 61/966 [00:07<01:46,  8.52it/s]  6%|▋         | 62/966 [00:07<01:45,  8.53it/s]  7%|▋         | 63/966 [00:07<01:45,  8.53it/s]  7%|▋         | 64/966 [00:07<01:45,  8.54it/s]  7%|▋         | 65/966 [00:07<01:45,  8.53it/s]  7%|▋         | 66/966 [00:07<01:45,  8.50it/s]  7%|▋         | 67/966 [00:07<01:46,  8.48it/s]  7%|▋         | 68/966 [00:07<01:45,  8.48it/s]  7%|▋         | 69/966 [00:08<01:45,  8.47it/s]  7%|▋         | 70/966 [00:08<01:45,  8.49it/s]  7%|▋         | 71/966 [00:08<01:45,  8.48it/s]  7%|▋         | 72/966 [00:08<01:45,  8.49it/s]  8%|▊         | 73/966 [00:08<01:44,  8.51it/s]  8%|▊         | 74/966 [00:08<01:44,  8.52it/s]  8%|▊         | 75/966 [00:08<01:44,  8.52it/s]  8%|▊         | 76/966 [00:08<01:44,  8.51it/s]  8%|▊         | 77/966 [00:08<01:44,  8.49it/s]  8%|▊         | 78/966 [00:09<01:44,  8.49it/s]  8%|▊         | 79/966 [00:09<01:44,  8.52it/s]  8%|▊         | 80/966 [00:09<01:43,  8.52it/s]  8%|▊         | 81/966 [00:09<01:43,  8.52it/s]  8%|▊         | 82/966 [00:09<01:43,  8.54it/s]  9%|▊         | 83/966 [00:09<01:43,  8.55it/s]  9%|▊         | 84/966 [00:09<01:43,  8.54it/s]  9%|▉         | 85/966 [00:09<01:43,  8.53it/s]  9%|▉         | 86/966 [00:10<01:42,  8.55it/s]  9%|▉         | 87/966 [00:10<01:42,  8.55it/s]  9%|▉         | 88/966 [00:10<01:42,  8.54it/s]  9%|▉         | 89/966 [00:10<01:42,  8.52it/s]  9%|▉         | 90/966 [00:10<01:42,  8.53it/s]  9%|▉         | 91/966 [00:10<01:42,  8.55it/s] 10%|▉         | 92/966 [00:10<01:42,  8.54it/s] 10%|▉         | 93/966 [00:10<01:42,  8.54it/s] 10%|▉         | 94/966 [00:10<01:42,  8.53it/s] 10%|▉         | 95/966 [00:11<01:42,  8.53it/s] 10%|▉         | 96/966 [00:11<01:42,  8.52it/s] 10%|█         | 97/966 [00:11<01:41,  8.52it/s] 10%|█         | 98/966 [00:11<01:41,  8.52it/s] 10%|█         | 99/966 [00:11<01:41,  8.52it/s] 10%|█         | 100/966 [00:11<01:41,  8.51it/s] 10%|█         | 101/966 [00:11<01:41,  8.51it/s] 11%|█         | 102/966 [00:11<01:41,  8.51it/s] 11%|█         | 103/966 [00:12<01:41,  8.50it/s] 11%|█         | 104/966 [00:12<01:41,  8.51it/s] 11%|█         | 105/966 [00:12<01:41,  8.52it/s] 11%|█         | 106/966 [00:12<01:40,  8.52it/s] 11%|█         | 107/966 [00:12<01:40,  8.50it/s] 11%|█         | 108/966 [00:12<01:40,  8.52it/s] 11%|█▏        | 109/966 [00:12<01:40,  8.51it/s] 11%|█▏        | 110/966 [00:12<01:40,  8.50it/s] 11%|█▏        | 111/966 [00:12<01:40,  8.50it/s] 12%|█▏        | 112/966 [00:13<01:40,  8.50it/s] 12%|█▏        | 113/966 [00:13<01:40,  8.47it/s] 12%|█▏        | 114/966 [00:13<01:40,  8.47it/s] 12%|█▏        | 115/966 [00:13<01:40,  8.47it/s] 12%|█▏        | 116/966 [00:13<01:40,  8.47it/s] 12%|█▏        | 117/966 [00:13<01:40,  8.47it/s] 12%|█▏        | 118/966 [00:13<01:39,  8.49it/s] 12%|█▏        | 119/966 [00:13<01:39,  8.49it/s] 12%|█▏        | 120/966 [00:14<01:39,  8.51it/s] 13%|█▎        | 121/966 [00:14<01:39,  8.53it/s] 13%|█▎        | 122/966 [00:14<01:39,  8.52it/s] 13%|█▎        | 123/966 [00:14<01:39,  8.51it/s] 13%|█▎        | 124/966 [00:14<01:38,  8.51it/s] 13%|█▎        | 125/966 [00:14<01:39,  8.48it/s] 13%|█▎        | 126/966 [00:14<01:38,  8.50it/s] 13%|█▎        | 127/966 [00:14<01:38,  8.49it/s] 13%|█▎        | 128/966 [00:14<01:38,  8.49it/s] 13%|█▎        | 129/966 [00:15<01:38,  8.46it/s] 13%|█▎        | 130/966 [00:15<01:38,  8.46it/s] 14%|█▎        | 131/966 [00:15<01:38,  8.46it/s] 14%|█▎        | 132/966 [00:15<01:38,  8.45it/s] 14%|█▍        | 133/966 [00:15<01:38,  8.47it/s] 14%|█▍        | 134/966 [00:15<01:37,  8.50it/s] 14%|█▍        | 135/966 [00:15<01:37,  8.51it/s] 14%|█▍        | 136/966 [00:15<01:37,  8.52it/s] 14%|█▍        | 137/966 [00:16<01:37,  8.52it/s] 14%|█▍        | 138/966 [00:16<01:37,  8.52it/s] 14%|█▍        | 139/966 [00:16<01:37,  8.51it/s] 14%|█▍        | 140/966 [00:16<01:37,  8.49it/s] 15%|█▍        | 141/966 [00:16<01:37,  8.48it/s] 15%|█▍        | 142/966 [00:16<01:36,  8.50it/s] 15%|█▍        | 143/966 [00:16<01:36,  8.51it/s] 15%|█▍        | 144/966 [00:16<01:36,  8.53it/s] 15%|█▌        | 145/966 [00:16<01:36,  8.54it/s] 15%|█▌        | 146/966 [00:17<01:35,  8.55it/s] 15%|█▌        | 147/966 [00:17<01:35,  8.54it/s] 15%|█▌        | 148/966 [00:17<01:35,  8.56it/s] 15%|█▌        | 149/966 [00:17<01:35,  8.53it/s] 16%|█▌        | 150/966 [00:17<01:35,  8.52it/s] 16%|█▌        | 151/966 [00:17<01:35,  8.53it/s] 16%|█▌        | 152/966 [00:17<01:35,  8.51it/s] 16%|█▌        | 153/966 [00:17<01:35,  8.51it/s] 16%|█▌        | 154/966 [00:18<01:35,  8.50it/s] 16%|█▌        | 155/966 [00:18<01:35,  8.50it/s] 16%|█▌        | 156/966 [00:18<01:35,  8.47it/s] 16%|█▋        | 157/966 [00:18<01:35,  8.47it/s] 16%|█▋        | 158/966 [00:18<01:35,  8.49it/s] 16%|█▋        | 159/966 [00:18<01:34,  8.51it/s] 17%|█▋        | 160/966 [00:18<01:34,  8.52it/s] 17%|█▋        | 161/966 [00:18<01:34,  8.54it/s] 17%|█▋        | 162/966 [00:18<01:33,  8.56it/s] 17%|█▋        | 163/966 [00:19<01:33,  8.57it/s] 17%|█▋        | 164/966 [00:19<01:33,  8.57it/s] 17%|█▋        | 165/966 [00:19<01:33,  8.54it/s] 17%|█▋        | 166/966 [00:19<01:33,  8.53it/s] 17%|█▋        | 167/966 [00:19<01:33,  8.52it/s] 17%|█▋        | 168/966 [00:19<01:33,  8.51it/s] 17%|█▋        | 169/966 [00:19<01:33,  8.50it/s] 18%|█▊        | 170/966 [00:19<01:33,  8.49it/s] 18%|█▊        | 171/966 [00:20<01:33,  8.50it/s] 18%|█▊        | 172/966 [00:20<01:33,  8.52it/s] 18%|█▊        | 173/966 [00:20<01:33,  8.52it/s] 18%|█▊        | 174/966 [00:20<01:32,  8.53it/s] 18%|█▊        | 175/966 [00:20<01:32,  8.54it/s] 18%|█▊        | 176/966 [00:20<01:32,  8.54it/s] 18%|█▊        | 177/966 [00:20<01:32,  8.55it/s] 18%|█▊        | 178/966 [00:20<01:32,  8.55it/s] 19%|█▊        | 179/966 [00:20<01:32,  8.51it/s] 19%|█▊        | 180/966 [00:21<01:32,  8.50it/s] 19%|█▊        | 181/966 [00:21<01:32,  8.51it/s] 19%|█▉        | 182/966 [00:21<01:32,  8.50it/s] 19%|█▉        | 183/966 [00:21<01:32,  8.49it/s] 19%|█▉        | 184/966 [00:21<01:32,  8.50it/s] 19%|█▉        | 185/966 [00:21<01:31,  8.49it/s] 19%|█▉        | 186/966 [00:21<01:31,  8.50it/s] 19%|█▉        | 187/966 [00:21<01:31,  8.51it/s] 19%|█▉        | 188/966 [00:22<01:31,  8.52it/s] 20%|█▉        | 189/966 [00:22<01:31,  8.52it/s] 20%|█▉        | 190/966 [00:22<01:31,  8.52it/s] 20%|█▉        | 191/966 [00:22<01:30,  8.52it/s] 20%|█▉        | 192/966 [00:22<01:30,  8.53it/s] 20%|█▉        | 193/966 [00:22<01:30,  8.52it/s] 20%|██        | 194/966 [00:22<01:30,  8.51it/s] 20%|██        | 195/966 [00:22<01:30,  8.50it/s] 20%|██        | 196/966 [00:22<01:30,  8.49it/s] 20%|██        | 197/966 [00:23<01:30,  8.49it/s] 20%|██        | 198/966 [00:23<01:30,  8.48it/s] 21%|██        | 199/966 [00:23<01:30,  8.47it/s] 21%|██        | 200/966 [00:23<01:30,  8.48it/s] 21%|██        | 201/966 [00:23<01:30,  8.48it/s] 21%|██        | 202/966 [00:23<01:29,  8.50it/s] 21%|██        | 203/966 [00:23<01:29,  8.50it/s] 21%|██        | 204/966 [00:23<01:29,  8.51it/s] 21%|██        | 205/966 [00:24<01:29,  8.53it/s] 21%|██▏       | 206/966 [00:24<01:29,  8.52it/s] 21%|██▏       | 207/966 [00:24<01:28,  8.54it/s] 22%|██▏       | 208/966 [00:24<01:28,  8.54it/s] 22%|██▏       | 209/966 [00:24<01:28,  8.53it/s] 22%|██▏       | 210/966 [00:24<01:28,  8.53it/s] 22%|██▏       | 211/966 [00:24<01:28,  8.54it/s] 22%|██▏       | 212/966 [00:24<01:28,  8.54it/s] 22%|██▏       | 213/966 [00:24<01:28,  8.55it/s] 22%|██▏       | 214/966 [00:25<01:28,  8.53it/s] 22%|██▏       | 215/966 [00:25<01:28,  8.51it/s] 22%|██▏       | 216/966 [00:25<01:28,  8.51it/s] 22%|██▏       | 217/966 [00:25<01:27,  8.51it/s] 23%|██▎       | 218/966 [00:25<01:27,  8.52it/s] 23%|██▎       | 219/966 [00:25<01:27,  8.51it/s] 23%|██▎       | 220/966 [00:25<01:27,  8.50it/s] 23%|██▎       | 221/966 [00:25<01:27,  8.49it/s] 23%|██▎       | 222/966 [00:26<01:27,  8.52it/s] 23%|██▎       | 223/966 [00:26<01:27,  8.51it/s] 23%|██▎       | 224/966 [00:26<01:27,  8.52it/s] 23%|██▎       | 225/966 [00:26<01:27,  8.51it/s] 23%|██▎       | 226/966 [00:26<01:27,  8.50it/s] 23%|██▎       | 227/966 [00:26<01:27,  8.47it/s] 24%|██▎       | 228/966 [00:26<01:26,  8.49it/s] 24%|██▎       | 229/966 [00:26<01:26,  8.50it/s] 24%|██▍       | 230/966 [00:26<01:26,  8.49it/s] 24%|██▍       | 231/966 [00:27<01:26,  8.52it/s] 24%|██▍       | 232/966 [00:27<01:26,  8.53it/s] 24%|██▍       | 233/966 [00:27<01:25,  8.54it/s] 24%|██▍       | 234/966 [00:27<01:25,  8.53it/s] 24%|██▍       | 235/966 [00:27<01:25,  8.52it/s] 24%|██▍       | 236/966 [00:27<01:25,  8.51it/s] 25%|██▍       | 237/966 [00:27<01:25,  8.50it/s] 25%|██▍       | 238/966 [00:27<01:25,  8.48it/s] 25%|██▍       | 239/966 [00:28<01:25,  8.47it/s] 25%|██▍       | 240/966 [00:28<01:25,  8.50it/s] 25%|██▍       | 241/966 [00:28<01:25,  8.49it/s] 25%|██▌       | 242/966 [00:28<01:25,  8.50it/s] 25%|██▌       | 243/966 [00:28<01:25,  8.49it/s] 25%|██▌       | 244/966 [00:28<01:25,  8.49it/s] 25%|██▌       | 245/966 [00:28<01:25,  8.47it/s] 25%|██▌       | 246/966 [00:28<01:25,  8.47it/s] 26%|██▌       | 247/966 [00:28<01:24,  8.49it/s] 26%|██▌       | 248/966 [00:29<01:24,  8.52it/s] 26%|██▌       | 249/966 [00:29<01:24,  8.51it/s] 26%|██▌       | 250/966 [00:29<01:24,  8.51it/s] 26%|██▌       | 251/966 [00:29<01:23,  8.52it/s] 26%|██▌       | 252/966 [00:29<01:23,  8.52it/s] 26%|██▌       | 253/966 [00:29<01:23,  8.53it/s] 26%|██▋       | 254/966 [00:29<01:23,  8.53it/s] 26%|██▋       | 255/966 [00:29<01:23,  8.53it/s] 27%|██▋       | 256/966 [00:30<01:23,  8.51it/s] 27%|██▋       | 257/966 [00:30<01:23,  8.50it/s] 27%|██▋       | 258/966 [00:30<01:23,  8.47it/s] 27%|██▋       | 259/966 [00:30<01:23,  8.47it/s] 27%|██▋       | 260/966 [00:30<01:23,  8.49it/s] 27%|██▋       | 261/966 [00:30<01:23,  8.49it/s] 27%|██▋       | 262/966 [00:30<01:22,  8.49it/s] 27%|██▋       | 263/966 [00:30<01:23,  8.47it/s] 27%|██▋       | 264/966 [00:30<01:22,  8.49it/s] 27%|██▋       | 265/966 [00:31<01:22,  8.49it/s] 28%|██▊       | 266/966 [00:31<01:22,  8.48it/s] 28%|██▊       | 267/966 [00:31<01:22,  8.50it/s] 28%|██▊       | 268/966 [00:31<01:22,  8.48it/s] 28%|██▊       | 269/966 [00:31<01:22,  8.49it/s] 28%|██▊       | 270/966 [00:31<01:22,  8.49it/s] 28%|██▊       | 271/966 [00:31<01:21,  8.49it/s] 28%|██▊       | 272/966 [00:31<01:21,  8.49it/s] 28%|██▊       | 273/966 [00:32<01:21,  8.49it/s] 28%|██▊       | 274/966 [00:32<01:21,  8.51it/s] 28%|██▊       | 275/966 [00:32<01:21,  8.50it/s] 29%|██▊       | 276/966 [00:32<01:21,  8.50it/s] 29%|██▊       | 277/966 [00:32<01:20,  8.51it/s] 29%|██▉       | 278/966 [00:32<01:20,  8.53it/s] 29%|██▉       | 279/966 [00:32<01:20,  8.52it/s] 29%|██▉       | 280/966 [00:32<01:20,  8.52it/s] 29%|██▉       | 281/966 [00:32<01:20,  8.52it/s] 29%|██▉       | 282/966 [00:33<01:20,  8.53it/s] 29%|██▉       | 283/966 [00:33<01:20,  8.53it/s] 29%|██▉       | 284/966 [00:33<01:19,  8.53it/s] 30%|██▉       | 285/966 [00:33<01:20,  8.51it/s] 30%|██▉       | 286/966 [00:33<01:19,  8.50it/s] 30%|██▉       | 287/966 [00:33<01:19,  8.51it/s] 30%|██▉       | 288/966 [00:33<01:19,  8.51it/s] 30%|██▉       | 289/966 [00:33<01:19,  8.51it/s] 30%|███       | 290/966 [00:34<01:19,  8.51it/s] 30%|███       | 291/966 [00:34<01:19,  8.51it/s] 30%|███       | 292/966 [00:34<01:19,  8.50it/s] 30%|███       | 293/966 [00:34<01:19,  8.51it/s] 30%|███       | 294/966 [00:34<01:19,  8.50it/s] 31%|███       | 295/966 [00:34<01:18,  8.51it/s] 31%|███       | 296/966 [00:34<01:18,  8.52it/s] 31%|███       | 297/966 [00:34<01:18,  8.50it/s] 31%|███       | 298/966 [00:34<01:18,  8.50it/s] 31%|███       | 299/966 [00:35<01:18,  8.50it/s] 31%|███       | 300/966 [00:35<01:18,  8.51it/s] 31%|███       | 301/966 [00:35<01:18,  8.52it/s] 31%|███▏      | 302/966 [00:35<01:17,  8.52it/s] 31%|███▏      | 303/966 [00:35<01:17,  8.51it/s] 31%|███▏      | 304/966 [00:35<01:17,  8.52it/s] 32%|███▏      | 305/966 [00:35<01:17,  8.50it/s] 32%|███▏      | 306/966 [00:35<01:17,  8.50it/s] 32%|███▏      | 307/966 [00:36<01:17,  8.49it/s] 32%|███▏      | 308/966 [00:36<01:17,  8.50it/s] 32%|███▏      | 309/966 [00:36<01:17,  8.50it/s] 32%|███▏      | 310/966 [00:36<01:17,  8.50it/s] 32%|███▏      | 311/966 [00:36<01:17,  8.50it/s] 32%|███▏      | 312/966 [00:36<01:16,  8.52it/s] 32%|███▏      | 313/966 [00:36<01:16,  8.52it/s] 33%|███▎      | 314/966 [00:36<01:16,  8.51it/s] 33%|███▎      | 315/966 [00:36<01:16,  8.49it/s] 33%|███▎      | 316/966 [00:37<01:16,  8.47it/s] 33%|███▎      | 317/966 [00:37<01:16,  8.47it/s] 33%|███▎      | 318/966 [00:37<01:16,  8.48it/s] 33%|███▎      | 319/966 [00:37<01:16,  8.48it/s] 33%|███▎      | 320/966 [00:37<01:16,  8.46it/s] 33%|███▎      | 321/966 [00:37<01:16,  8.45it/s] 33%|███▎      | 322/966 [00:37<01:16,  8.44it/s] 33%|███▎      | 323/966 [00:37<01:16,  8.42it/s] 34%|███▎      | 324/966 [00:38<01:16,  8.45it/s] 34%|███▎      | 325/966 [00:38<01:15,  8.47it/s] 34%|███▎      | 326/966 [00:38<01:15,  8.49it/s] 34%|███▍      | 327/966 [00:38<01:15,  8.50it/s] 34%|███▍      | 328/966 [00:38<01:15,  8.49it/s] 34%|███▍      | 329/966 [00:38<01:15,  8.49it/s] 34%|███▍      | 330/966 [00:38<01:14,  8.50it/s] 34%|███▍      | 331/966 [00:38<01:14,  8.50it/s] 34%|███▍      | 332/966 [00:38<01:14,  8.53it/s] 34%|███▍      | 333/966 [00:39<01:14,  8.52it/s] 35%|███▍      | 334/966 [00:39<01:14,  8.53it/s] 35%|███▍      | 335/966 [00:39<01:14,  8.53it/s] 35%|███▍      | 336/966 [00:39<01:13,  8.55it/s] 35%|███▍      | 337/966 [00:39<01:13,  8.56it/s] 35%|███▍      | 338/966 [00:39<01:13,  8.57it/s] 35%|███▌      | 339/966 [00:39<01:13,  8.56it/s] 35%|███▌      | 340/966 [00:39<01:13,  8.56it/s] 35%|███▌      | 341/966 [00:40<01:12,  8.57it/s] 35%|███▌      | 342/966 [00:40<01:12,  8.55it/s] 36%|███▌      | 343/966 [00:40<01:12,  8.57it/s] 36%|███▌      | 344/966 [00:40<01:12,  8.55it/s] 36%|███▌      | 345/966 [00:40<01:12,  8.54it/s] 36%|███▌      | 346/966 [00:40<01:12,  8.54it/s] 36%|███▌      | 347/966 [00:40<01:12,  8.55it/s] 36%|███▌      | 348/966 [00:40<01:12,  8.54it/s] 36%|███▌      | 349/966 [00:40<01:12,  8.53it/s] 36%|███▌      | 350/966 [00:41<01:12,  8.51it/s] 36%|███▋      | 351/966 [00:41<01:12,  8.50it/s] 36%|███▋      | 352/966 [00:41<01:12,  8.50it/s] 37%|███▋      | 353/966 [00:41<01:12,  8.51it/s] 37%|███▋      | 354/966 [00:41<01:12,  8.50it/s] 37%|███▋      | 355/966 [00:41<01:11,  8.52it/s] 37%|███▋      | 356/966 [00:41<01:11,  8.51it/s] 37%|███▋      | 357/966 [00:41<01:11,  8.51it/s] 37%|███▋      | 358/966 [00:42<01:11,  8.51it/s] 37%|███▋      | 359/966 [00:42<01:11,  8.51it/s] 37%|███▋      | 360/966 [00:42<01:11,  8.52it/s] 37%|███▋      | 361/966 [00:42<01:10,  8.52it/s] 37%|███▋      | 362/966 [00:42<01:10,  8.51it/s] 38%|███▊      | 363/966 [00:42<01:11,  8.48it/s] 38%|███▊      | 364/966 [00:42<01:11,  8.43it/s] 38%|███▊      | 365/966 [00:42<01:10,  8.47it/s] 38%|███▊      | 366/966 [00:42<01:10,  8.47it/s] 38%|███▊      | 367/966 [00:43<01:10,  8.48it/s] 38%|███▊      | 368/966 [00:43<01:10,  8.48it/s] 38%|███▊      | 369/966 [00:43<01:10,  8.48it/s] 38%|███▊      | 370/966 [00:43<01:10,  8.47it/s] 38%|███▊      | 371/966 [00:43<01:10,  8.46it/s] 39%|███▊      | 372/966 [00:43<01:10,  8.48it/s] 39%|███▊      | 373/966 [00:43<01:09,  8.48it/s] 39%|███▊      | 374/966 [00:43<01:09,  8.49it/s] 39%|███▉      | 375/966 [00:44<01:09,  8.49it/s] 39%|███▉      | 376/966 [00:44<01:09,  8.48it/s] 39%|███▉      | 377/966 [00:44<01:09,  8.46it/s] 39%|███▉      | 378/966 [00:44<01:09,  8.47it/s] 39%|███▉      | 379/966 [00:44<01:09,  8.50it/s] 39%|███▉      | 380/966 [00:44<01:08,  8.51it/s] 39%|███▉      | 381/966 [00:44<01:08,  8.52it/s] 40%|███▉      | 382/966 [00:44<01:08,  8.50it/s] 40%|███▉      | 383/966 [00:44<01:08,  8.51it/s] 40%|███▉      | 384/966 [00:45<01:08,  8.50it/s] 40%|███▉      | 385/966 [00:45<01:08,  8.49it/s] 40%|███▉      | 386/966 [00:45<01:08,  8.51it/s] 40%|████      | 387/966 [00:45<01:08,  8.51it/s] 40%|████      | 388/966 [00:45<01:08,  8.48it/s] 40%|████      | 389/966 [00:45<01:08,  8.47it/s] 40%|████      | 390/966 [00:45<01:07,  8.48it/s] 40%|████      | 391/966 [00:45<01:07,  8.47it/s] 41%|████      | 392/966 [00:46<01:07,  8.47it/s] 41%|████      | 393/966 [00:46<01:07,  8.48it/s] 41%|████      | 394/966 [00:46<01:07,  8.49it/s] 41%|████      | 395/966 [00:46<01:07,  8.50it/s] 41%|████      | 396/966 [00:46<01:07,  8.48it/s] 41%|████      | 397/966 [00:46<01:07,  8.47it/s] 41%|████      | 398/966 [00:46<01:07,  8.47it/s] 41%|████▏     | 399/966 [00:46<01:06,  8.47it/s] 41%|████▏     | 400/966 [00:46<01:06,  8.47it/s] 42%|████▏     | 401/966 [00:47<01:06,  8.47it/s] 42%|████▏     | 402/966 [00:47<01:06,  8.49it/s] 42%|████▏     | 403/966 [00:47<01:06,  8.50it/s] 42%|████▏     | 404/966 [00:47<01:06,  8.51it/s] 42%|████▏     | 405/966 [00:47<01:06,  8.48it/s] 42%|████▏     | 406/966 [00:47<01:05,  8.49it/s] 42%|████▏     | 407/966 [00:47<01:05,  8.48it/s] 42%|████▏     | 408/966 [00:47<01:05,  8.48it/s] 42%|████▏     | 409/966 [00:48<01:05,  8.49it/s] 42%|████▏     | 410/966 [00:48<01:05,  8.49it/s] 43%|████▎     | 411/966 [00:48<01:05,  8.47it/s] 43%|████▎     | 412/966 [00:48<01:05,  8.47it/s] 43%|████▎     | 413/966 [00:48<01:05,  8.47it/s] 43%|████▎     | 414/966 [00:48<01:05,  8.47it/s] 43%|████▎     | 415/966 [00:48<01:04,  8.51it/s] 43%|████▎     | 416/966 [00:48<01:04,  8.49it/s] 43%|████▎     | 417/966 [00:48<01:04,  8.48it/s] 43%|████▎     | 418/966 [00:49<01:04,  8.49it/s] 43%|████▎     | 419/966 [00:49<01:04,  8.50it/s] 43%|████▎     | 420/966 [00:49<01:04,  8.49it/s] 44%|████▎     | 421/966 [00:49<01:04,  8.52it/s] 44%|████▎     | 422/966 [00:49<01:03,  8.51it/s] 44%|████▍     | 423/966 [00:49<01:03,  8.50it/s] 44%|████▍     | 424/966 [00:49<01:03,  8.47it/s] 44%|████▍     | 425/966 [00:49<01:03,  8.46it/s] 44%|████▍     | 426/966 [00:50<01:03,  8.45it/s] 44%|████▍     | 427/966 [00:50<01:03,  8.44it/s] 44%|████▍     | 428/966 [00:50<01:03,  8.47it/s] 44%|████▍     | 429/966 [00:50<01:03,  8.49it/s] 45%|████▍     | 430/966 [00:50<01:03,  8.49it/s] 45%|████▍     | 431/966 [00:50<01:02,  8.50it/s] 45%|████▍     | 432/966 [00:50<01:02,  8.51it/s] 45%|████▍     | 433/966 [00:50<01:02,  8.51it/s] 45%|████▍     | 434/966 [00:50<01:02,  8.48it/s] 45%|████▌     | 435/966 [00:51<01:02,  8.47it/s] 45%|████▌     | 436/966 [00:51<01:02,  8.46it/s] 45%|████▌     | 437/966 [00:51<01:02,  8.45it/s] 45%|████▌     | 438/966 [00:51<01:02,  8.44it/s] 45%|████▌     | 439/966 [00:51<01:02,  8.44it/s] 46%|████▌     | 440/966 [00:51<01:02,  8.45it/s] 46%|████▌     | 441/966 [00:51<01:02,  8.45it/s] 46%|████▌     | 442/966 [00:51<01:02,  8.45it/s] 46%|████▌     | 443/966 [00:52<01:01,  8.45it/s] 46%|████▌     | 444/966 [00:52<01:01,  8.45it/s] 46%|████▌     | 445/966 [00:52<01:01,  8.46it/s] 46%|████▌     | 446/966 [00:52<01:01,  8.47it/s] 46%|████▋     | 447/966 [00:52<01:01,  8.48it/s] 46%|████▋     | 448/966 [00:52<01:01,  8.46it/s] 46%|████▋     | 449/966 [00:52<01:01,  8.45it/s] 47%|████▋     | 450/966 [00:52<01:00,  8.46it/s] 47%|████▋     | 451/966 [00:52<01:01,  8.44it/s] 47%|████▋     | 452/966 [00:53<01:00,  8.44it/s] 47%|████▋     | 453/966 [00:53<01:00,  8.44it/s] 47%|████▋     | 454/966 [00:53<01:00,  8.46it/s] 47%|████▋     | 455/966 [00:53<01:00,  8.46it/s] 47%|████▋     | 456/966 [00:53<01:00,  8.47it/s] 47%|████▋     | 457/966 [00:53<01:00,  8.48it/s] 47%|████▋     | 458/966 [00:53<00:59,  8.49it/s] 48%|████▊     | 459/966 [00:53<00:59,  8.50it/s] 48%|████▊     | 460/966 [00:54<00:59,  8.47it/s] 48%|████▊     | 461/966 [00:54<00:59,  8.48it/s] 48%|████▊     | 462/966 [00:54<00:59,  8.48it/s] 48%|████▊     | 463/966 [00:54<00:59,  8.49it/s] 48%|████▊     | 464/966 [00:54<00:58,  8.52it/s] 48%|████▊     | 465/966 [00:54<00:58,  8.51it/s] 48%|████▊     | 466/966 [00:54<00:58,  8.50it/s] 48%|████▊     | 467/966 [00:54<00:58,  8.50it/s] 48%|████▊     | 468/966 [00:54<00:58,  8.50it/s] 49%|████▊     | 469/966 [00:55<00:58,  8.53it/s] 49%|████▊     | 470/966 [00:55<00:58,  8.55it/s] 49%|████▉     | 471/966 [00:55<00:57,  8.56it/s] 49%|████▉     | 472/966 [00:55<00:57,  8.56it/s] 49%|████▉     | 473/966 [00:55<00:57,  8.56it/s] 49%|████▉     | 474/966 [00:55<00:57,  8.54it/s] 49%|████▉     | 475/966 [00:55<00:57,  8.53it/s] 49%|████▉     | 476/966 [00:55<00:57,  8.52it/s] 49%|████▉     | 477/966 [00:56<00:57,  8.53it/s] 49%|████▉     | 478/966 [00:56<00:57,  8.51it/s] 50%|████▉     | 479/966 [00:56<00:57,  8.48it/s] 50%|████▉     | 480/966 [00:56<00:57,  8.49it/s] 50%|████▉     | 481/966 [00:56<00:57,  8.50it/s] 50%|████▉     | 482/966 [00:56<00:56,  8.51it/s] 50%|█████     | 483/966 [00:56<00:56,  8.51it/s] 50%|█████     | 484/966 [00:56<00:56,  8.49it/s] 50%|█████     | 485/966 [00:56<00:56,  8.48it/s] 50%|█████     | 486/966 [00:57<00:56,  8.48it/s] 50%|█████     | 487/966 [00:57<00:56,  8.50it/s] 51%|█████     | 488/966 [00:57<00:56,  8.50it/s] 51%|█████     | 489/966 [00:57<00:56,  8.51it/s] 51%|█████     | 490/966 [00:57<00:55,  8.51it/s] 51%|█████     | 491/966 [00:57<00:55,  8.51it/s] 51%|█████     | 492/966 [00:57<00:55,  8.53it/s] 51%|█████     | 493/966 [00:57<00:55,  8.54it/s] 51%|█████     | 494/966 [00:58<00:55,  8.54it/s] 51%|█████     | 495/966 [00:58<00:55,  8.52it/s] 51%|█████▏    | 496/966 [00:58<00:55,  8.51it/s] 51%|█████▏    | 497/966 [00:58<00:55,  8.51it/s] 52%|█████▏    | 498/966 [00:58<00:54,  8.51it/s] 52%|█████▏    | 499/966 [00:58<00:54,  8.52it/s] 52%|█████▏    | 500/966 [00:58<00:54,  8.53it/s] 52%|█████▏    | 501/966 [00:58<00:54,  8.54it/s] 52%|█████▏    | 502/966 [00:58<00:54,  8.56it/s] 52%|█████▏    | 503/966 [00:59<00:54,  8.54it/s] 52%|█████▏    | 504/966 [00:59<00:54,  8.52it/s] 52%|█████▏    | 505/966 [00:59<00:53,  8.55it/s] 52%|█████▏    | 506/966 [00:59<00:53,  8.56it/s] 52%|█████▏    | 507/966 [00:59<00:53,  8.53it/s] 53%|█████▎    | 508/966 [00:59<00:53,  8.54it/s] 53%|█████▎    | 509/966 [00:59<00:53,  8.52it/s] 53%|█████▎    | 510/966 [00:59<00:53,  8.52it/s] 53%|█████▎    | 511/966 [01:00<00:53,  8.53it/s] 53%|█████▎    | 512/966 [01:00<00:53,  8.53it/s] 53%|█████▎    | 513/966 [01:00<00:53,  8.52it/s] 53%|█████▎    | 514/966 [01:00<00:53,  8.50it/s] 53%|█████▎    | 515/966 [01:00<00:52,  8.51it/s] 53%|█████▎    | 516/966 [01:00<00:52,  8.51it/s] 54%|█████▎    | 517/966 [01:00<00:52,  8.50it/s] 54%|█████▎    | 518/966 [01:00<00:52,  8.51it/s] 54%|█████▎    | 519/966 [01:00<00:52,  8.52it/s] 54%|█████▍    | 520/966 [01:01<00:52,  8.49it/s] 54%|█████▍    | 521/966 [01:01<00:52,  8.48it/s] 54%|█████▍    | 522/966 [01:01<00:52,  8.50it/s] 54%|█████▍    | 523/966 [01:01<00:52,  8.51it/s] 54%|█████▍    | 524/966 [01:01<00:52,  8.50it/s] 54%|█████▍    | 525/966 [01:01<00:51,  8.49it/s] 54%|█████▍    | 526/966 [01:01<00:51,  8.48it/s] 55%|█████▍    | 527/966 [01:01<00:51,  8.47it/s] 55%|█████▍    | 528/966 [01:02<00:51,  8.47it/s] 55%|█████▍    | 529/966 [01:02<00:51,  8.47it/s] 55%|█████▍    | 530/966 [01:02<00:51,  8.51it/s] 55%|█████▍    | 531/966 [01:02<00:51,  8.52it/s] 55%|█████▌    | 532/966 [01:02<00:51,  8.51it/s] 55%|█████▌    | 533/966 [01:02<00:50,  8.50it/s] 55%|█████▌    | 534/966 [01:02<00:50,  8.48it/s] 55%|█████▌    | 535/966 [01:02<00:50,  8.48it/s] 55%|█████▌    | 536/966 [01:02<00:50,  8.46it/s] 56%|█████▌    | 537/966 [01:03<00:50,  8.45it/s] 56%|█████▌    | 538/966 [01:03<00:50,  8.46it/s] 56%|█████▌    | 539/966 [01:03<00:50,  8.45it/s] 56%|█████▌    | 540/966 [01:03<00:50,  8.45it/s] 56%|█████▌    | 541/966 [01:03<00:50,  8.48it/s] 56%|█████▌    | 542/966 [01:03<00:50,  8.48it/s] 56%|█████▌    | 543/966 [01:03<00:49,  8.49it/s] 56%|█████▋    | 544/966 [01:03<00:49,  8.48it/s] 56%|█████▋    | 545/966 [01:04<00:49,  8.48it/s] 57%|█████▋    | 546/966 [01:04<00:49,  8.48it/s] 57%|█████▋    | 547/966 [01:04<00:49,  8.51it/s] 57%|█████▋    | 548/966 [01:04<00:49,  8.52it/s] 57%|█████▋    | 549/966 [01:04<00:48,  8.52it/s] 57%|█████▋    | 550/966 [01:04<00:48,  8.53it/s] 57%|█████▋    | 551/966 [01:04<00:48,  8.52it/s] 57%|█████▋    | 552/966 [01:04<00:48,  8.52it/s] 57%|█████▋    | 553/966 [01:04<00:48,  8.51it/s] 57%|█████▋    | 554/966 [01:05<00:48,  8.49it/s] 57%|█████▋    | 555/966 [01:05<00:48,  8.48it/s] 58%|█████▊    | 556/966 [01:05<00:48,  8.47it/s] 58%|█████▊    | 557/966 [01:05<00:48,  8.49it/s] 58%|█████▊    | 558/966 [01:05<00:47,  8.51it/s] 58%|█████▊    | 559/966 [01:05<00:47,  8.52it/s] 58%|█████▊    | 560/966 [01:05<00:47,  8.50it/s] 58%|█████▊    | 561/966 [01:05<00:47,  8.50it/s] 58%|█████▊    | 562/966 [01:06<00:47,  8.51it/s] 58%|█████▊    | 563/966 [01:06<00:47,  8.49it/s] 58%|█████▊    | 564/966 [01:06<00:47,  8.48it/s] 58%|█████▊    | 565/966 [01:06<00:47,  8.47it/s] 59%|█████▊    | 566/966 [01:06<00:47,  8.47it/s] 59%|█████▊    | 567/966 [01:06<00:47,  8.46it/s] 59%|█████▉    | 568/966 [01:06<00:46,  8.48it/s] 59%|█████▉    | 569/966 [01:06<00:46,  8.49it/s] 59%|█████▉    | 570/966 [01:06<00:46,  8.50it/s] 59%|█████▉    | 571/966 [01:07<00:46,  8.50it/s] 59%|█████▉    | 572/966 [01:07<00:46,  8.49it/s] 59%|█████▉    | 573/966 [01:07<00:46,  8.48it/s] 59%|█████▉    | 574/966 [01:07<00:46,  8.49it/s] 60%|█████▉    | 575/966 [01:07<00:45,  8.51it/s] 60%|█████▉    | 576/966 [01:07<00:45,  8.52it/s] 60%|█████▉    | 577/966 [01:07<00:45,  8.52it/s] 60%|█████▉    | 578/966 [01:07<00:45,  8.51it/s] 60%|█████▉    | 579/966 [01:08<00:45,  8.52it/s] 60%|██████    | 580/966 [01:08<00:45,  8.53it/s] 60%|██████    | 581/966 [01:08<00:45,  8.52it/s] 60%|██████    | 582/966 [01:08<00:45,  8.51it/s] 60%|██████    | 583/966 [01:08<00:44,  8.51it/s] 60%|██████    | 584/966 [01:08<00:44,  8.52it/s] 61%|██████    | 585/966 [01:08<00:44,  8.52it/s] 61%|██████    | 586/966 [01:08<00:44,  8.52it/s] 61%|██████    | 587/966 [01:08<00:44,  8.52it/s] 61%|██████    | 588/966 [01:09<00:44,  8.53it/s] 61%|██████    | 589/966 [01:09<00:44,  8.52it/s] 61%|██████    | 590/966 [01:09<00:44,  8.54it/s] 61%|██████    | 591/966 [01:09<00:43,  8.53it/s] 61%|██████▏   | 592/966 [01:09<00:43,  8.52it/s] 61%|██████▏   | 593/966 [01:09<00:43,  8.50it/s] 61%|██████▏   | 594/966 [01:09<00:43,  8.47it/s] 62%|██████▏   | 595/966 [01:09<00:43,  8.47it/s] 62%|██████▏   | 596/966 [01:10<00:43,  8.47it/s] 62%|██████▏   | 597/966 [01:10<00:43,  8.45it/s] 62%|██████▏   | 598/966 [01:10<00:43,  8.46it/s] 62%|██████▏   | 599/966 [01:10<00:43,  8.47it/s] 62%|██████▏   | 600/966 [01:10<00:43,  8.48it/s] 62%|██████▏   | 601/966 [01:10<00:42,  8.49it/s] 62%|██████▏   | 602/966 [01:10<00:42,  8.48it/s] 62%|██████▏   | 603/966 [01:10<00:42,  8.50it/s] 63%|██████▎   | 604/966 [01:10<00:42,  8.49it/s] 63%|██████▎   | 605/966 [01:11<00:42,  8.48it/s] 63%|██████▎   | 606/966 [01:11<00:42,  8.46it/s] 63%|██████▎   | 607/966 [01:11<00:42,  8.47it/s] 63%|██████▎   | 608/966 [01:11<00:42,  8.48it/s] 63%|██████▎   | 609/966 [01:11<00:42,  8.48it/s] 63%|██████▎   | 610/966 [01:11<00:41,  8.49it/s] 63%|██████▎   | 611/966 [01:11<00:41,  8.49it/s] 63%|██████▎   | 612/966 [01:11<00:41,  8.48it/s] 63%|██████▎   | 613/966 [01:12<00:41,  8.51it/s] 64%|██████▎   | 614/966 [01:12<00:41,  8.50it/s] 64%|██████▎   | 615/966 [01:12<00:41,  8.50it/s] 64%|██████▍   | 616/966 [01:12<00:41,  8.47it/s] 64%|██████▍   | 617/966 [01:12<00:41,  8.47it/s] 64%|██████▍   | 618/966 [01:12<00:41,  8.47it/s] 64%|██████▍   | 619/966 [01:12<00:40,  8.48it/s] 64%|██████▍   | 620/966 [01:12<00:40,  8.46it/s] 64%|██████▍   | 621/966 [01:12<00:40,  8.47it/s] 64%|██████▍   | 622/966 [01:13<00:40,  8.49it/s] 64%|██████▍   | 623/966 [01:13<00:40,  8.47it/s] 65%|██████▍   | 624/966 [01:13<00:40,  8.49it/s] 65%|██████▍   | 625/966 [01:13<00:40,  8.51it/s] 65%|██████▍   | 626/966 [01:13<00:39,  8.52it/s] 65%|██████▍   | 627/966 [01:13<00:39,  8.53it/s] 65%|██████▌   | 628/966 [01:13<00:39,  8.52it/s] 65%|██████▌   | 629/966 [01:13<00:39,  8.52it/s] 65%|██████▌   | 630/966 [01:14<00:39,  8.51it/s] 65%|██████▌   | 631/966 [01:14<00:39,  8.52it/s] 65%|██████▌   | 632/966 [01:14<00:39,  8.51it/s] 66%|██████▌   | 633/966 [01:14<00:39,  8.52it/s] 66%|██████▌   | 634/966 [01:14<00:39,  8.51it/s] 66%|██████▌   | 635/966 [01:14<00:38,  8.49it/s] 66%|██████▌   | 636/966 [01:14<00:38,  8.47it/s] 66%|██████▌   | 637/966 [01:14<00:38,  8.47it/s] 66%|██████▌   | 638/966 [01:14<00:38,  8.48it/s] 66%|██████▌   | 639/966 [01:15<00:38,  8.47it/s] 66%|██████▋   | 640/966 [01:15<00:38,  8.46it/s] 66%|██████▋   | 641/966 [01:15<00:38,  8.45it/s] 66%|██████▋   | 642/966 [01:15<00:38,  8.45it/s] 67%|██████▋   | 643/966 [01:15<00:38,  8.46it/s] 67%|██████▋   | 644/966 [01:15<00:37,  8.49it/s] 67%|██████▋   | 645/966 [01:15<00:37,  8.50it/s] 67%|██████▋   | 646/966 [01:15<00:37,  8.49it/s] 67%|██████▋   | 647/966 [01:16<00:37,  8.51it/s] 67%|██████▋   | 648/966 [01:16<00:37,  8.51it/s] 67%|██████▋   | 649/966 [01:16<00:37,  8.50it/s] 67%|██████▋   | 650/966 [01:16<00:37,  8.50it/s] 67%|██████▋   | 651/966 [01:16<00:37,  8.50it/s] 67%|██████▋   | 652/966 [01:16<00:37,  8.49it/s] 68%|██████▊   | 653/966 [01:16<00:36,  8.48it/s] 68%|██████▊   | 654/966 [01:16<00:36,  8.49it/s] 68%|██████▊   | 655/966 [01:16<00:36,  8.49it/s] 68%|██████▊   | 656/966 [01:17<00:36,  8.47it/s] 68%|██████▊   | 657/966 [01:17<00:36,  8.45it/s] 68%|██████▊   | 658/966 [01:17<00:36,  8.46it/s] 68%|██████▊   | 659/966 [01:17<00:36,  8.46it/s] 68%|██████▊   | 660/966 [01:17<00:36,  8.48it/s] 68%|██████▊   | 661/966 [01:17<00:35,  8.51it/s] 69%|██████▊   | 662/966 [01:17<00:35,  8.52it/s] 69%|██████▊   | 663/966 [01:17<00:35,  8.53it/s] 69%|██████▊   | 664/966 [01:18<00:35,  8.52it/s] 69%|██████▉   | 665/966 [01:18<00:35,  8.51it/s] 69%|██████▉   | 666/966 [01:18<00:35,  8.51it/s] 69%|██████▉   | 667/966 [01:18<00:35,  8.53it/s] 69%|██████▉   | 668/966 [01:18<00:34,  8.54it/s] 69%|██████▉   | 669/966 [01:18<00:34,  8.54it/s] 69%|██████▉   | 670/966 [01:18<00:34,  8.56it/s] 69%|██████▉   | 671/966 [01:18<00:34,  8.54it/s] 70%|██████▉   | 672/966 [01:18<00:34,  8.52it/s] 70%|██████▉   | 673/966 [01:19<00:34,  8.53it/s] 70%|██████▉   | 674/966 [01:19<00:34,  8.56it/s] 70%|██████▉   | 675/966 [01:19<00:34,  8.54it/s] 70%|██████▉   | 676/966 [01:19<00:33,  8.53it/s] 70%|███████   | 677/966 [01:19<00:33,  8.54it/s] 70%|███████   | 678/966 [01:19<00:33,  8.54it/s] 70%|███████   | 679/966 [01:19<00:33,  8.54it/s] 70%|███████   | 680/966 [01:19<00:33,  8.56it/s] 70%|███████   | 681/966 [01:20<00:33,  8.54it/s] 71%|███████   | 682/966 [01:20<00:33,  8.52it/s] 71%|███████   | 683/966 [01:20<00:33,  8.51it/s] 71%|███████   | 684/966 [01:20<00:33,  8.50it/s] 71%|███████   | 685/966 [01:20<00:33,  8.50it/s] 71%|███████   | 686/966 [01:20<00:32,  8.50it/s] 71%|███████   | 687/966 [01:20<00:32,  8.51it/s] 71%|███████   | 688/966 [01:20<00:32,  8.51it/s] 71%|███████▏  | 689/966 [01:20<00:32,  8.50it/s] 71%|███████▏  | 690/966 [01:21<00:32,  8.52it/s] 72%|███████▏  | 691/966 [01:21<00:32,  8.53it/s] 72%|███████▏  | 692/966 [01:21<00:32,  8.50it/s] 72%|███████▏  | 693/966 [01:21<00:32,  8.49it/s] 72%|███████▏  | 694/966 [01:21<00:32,  8.50it/s] 72%|███████▏  | 695/966 [01:21<00:31,  8.50it/s] 72%|███████▏  | 696/966 [01:21<00:31,  8.50it/s] 72%|███████▏  | 697/966 [01:21<00:31,  8.51it/s] 72%|███████▏  | 698/966 [01:22<00:31,  8.51it/s] 72%|███████▏  | 699/966 [01:22<00:31,  8.52it/s] 72%|███████▏  | 700/966 [01:22<00:31,  8.52it/s] 73%|███████▎  | 701/966 [01:22<00:31,  8.50it/s] 73%|███████▎  | 702/966 [01:22<00:31,  8.51it/s] 73%|███████▎  | 703/966 [01:22<00:30,  8.49it/s] 73%|███████▎  | 704/966 [01:22<00:30,  8.48it/s] 73%|███████▎  | 705/966 [01:22<00:30,  8.48it/s] 73%|███████▎  | 706/966 [01:22<00:30,  8.50it/s] 73%|███████▎  | 707/966 [01:23<00:30,  8.52it/s] 73%|███████▎  | 708/966 [01:23<00:30,  8.53it/s] 73%|███████▎  | 709/966 [01:23<00:30,  8.53it/s] 73%|███████▎  | 710/966 [01:23<00:30,  8.53it/s] 74%|███████▎  | 711/966 [01:23<00:29,  8.53it/s] 74%|███████▎  | 712/966 [01:23<00:29,  8.51it/s] 74%|███████▍  | 713/966 [01:23<00:29,  8.49it/s] 74%|███████▍  | 714/966 [01:23<00:29,  8.49it/s] 74%|███████▍  | 715/966 [01:24<00:29,  8.49it/s] 74%|███████▍  | 716/966 [01:24<00:29,  8.49it/s] 74%|███████▍  | 717/966 [01:24<00:29,  8.49it/s] 74%|███████▍  | 718/966 [01:24<00:29,  8.49it/s] 74%|███████▍  | 719/966 [01:24<00:29,  8.49it/s] 75%|███████▍  | 720/966 [01:24<00:28,  8.49it/s] 75%|███████▍  | 721/966 [01:24<00:28,  8.50it/s] 75%|███████▍  | 722/966 [01:24<00:28,  8.52it/s] 75%|███████▍  | 723/966 [01:24<00:28,  8.54it/s] 75%|███████▍  | 724/966 [01:25<00:28,  8.54it/s] 75%|███████▌  | 725/966 [01:25<00:28,  8.55it/s] 75%|███████▌  | 726/966 [01:25<00:28,  8.53it/s] 75%|███████▌  | 727/966 [01:25<00:28,  8.51it/s] 75%|███████▌  | 728/966 [01:25<00:27,  8.51it/s] 75%|███████▌  | 729/966 [01:25<00:27,  8.52it/s] 76%|███████▌  | 730/966 [01:25<00:27,  8.51it/s] 76%|███████▌  | 731/966 [01:25<00:27,  8.51it/s] 76%|███████▌  | 732/966 [01:26<00:27,  8.52it/s] 76%|███████▌  | 733/966 [01:26<00:27,  8.52it/s] 76%|███████▌  | 734/966 [01:26<00:27,  8.51it/s] 76%|███████▌  | 735/966 [01:26<00:27,  8.51it/s] 76%|███████▌  | 736/966 [01:26<00:27,  8.49it/s] 76%|███████▋  | 737/966 [01:26<00:27,  8.47it/s] 76%|███████▋  | 738/966 [01:26<00:26,  8.48it/s] 77%|███████▋  | 739/966 [01:26<00:26,  8.48it/s] 77%|███████▋  | 740/966 [01:26<00:26,  8.49it/s] 77%|███████▋  | 741/966 [01:27<00:26,  8.49it/s] 77%|███████▋  | 742/966 [01:27<00:26,  8.48it/s] 77%|███████▋  | 743/966 [01:27<00:26,  8.46it/s] 77%|███████▋  | 744/966 [01:27<00:26,  8.45it/s] 77%|███████▋  | 745/966 [01:27<00:26,  8.44it/s] 77%|███████▋  | 746/966 [01:27<00:26,  8.43it/s] 77%|███████▋  | 747/966 [01:27<00:25,  8.44it/s] 77%|███████▋  | 748/966 [01:27<00:25,  8.47it/s] 78%|███████▊  | 749/966 [01:28<00:25,  8.48it/s] 78%|███████▊  | 750/966 [01:28<00:25,  8.49it/s] 78%|███████▊  | 751/966 [01:28<00:25,  8.49it/s] 78%|███████▊  | 752/966 [01:28<00:25,  8.50it/s] 78%|███████▊  | 753/966 [01:28<00:25,  8.50it/s] 78%|███████▊  | 754/966 [01:28<00:24,  8.48it/s] 78%|███████▊  | 755/966 [01:28<00:24,  8.48it/s] 78%|███████▊  | 756/966 [01:28<00:24,  8.48it/s] 78%|███████▊  | 757/966 [01:28<00:24,  8.50it/s] 78%|███████▊  | 758/966 [01:29<00:24,  8.52it/s] 79%|███████▊  | 759/966 [01:29<00:24,  8.52it/s] 79%|███████▊  | 760/966 [01:29<00:24,  8.52it/s] 79%|███████▉  | 761/966 [01:29<00:24,  8.51it/s] 79%|███████▉  | 762/966 [01:29<00:23,  8.51it/s] 79%|███████▉  | 763/966 [01:29<00:23,  8.52it/s] 79%|███████▉  | 764/966 [01:29<00:23,  8.55it/s] 79%|███████▉  | 765/966 [01:29<00:23,  8.55it/s] 79%|███████▉  | 766/966 [01:30<00:23,  8.54it/s] 79%|███████▉  | 767/966 [01:30<00:23,  8.53it/s] 80%|███████▉  | 768/966 [01:30<00:23,  8.52it/s] 80%|███████▉  | 769/966 [01:30<00:23,  8.54it/s] 80%|███████▉  | 770/966 [01:30<00:23,  8.51it/s] 80%|███████▉  | 771/966 [01:30<00:22,  8.50it/s] 80%|███████▉  | 772/966 [01:30<00:22,  8.50it/s] 80%|████████  | 773/966 [01:30<00:22,  8.49it/s] 80%|████████  | 774/966 [01:30<00:22,  8.50it/s] 80%|████████  | 775/966 [01:31<00:22,  8.51it/s] 80%|████████  | 776/966 [01:31<00:22,  8.51it/s] 80%|████████  | 777/966 [01:31<00:22,  8.51it/s] 81%|████████  | 778/966 [01:31<00:22,  8.50it/s] 81%|████████  | 779/966 [01:31<00:21,  8.52it/s] 81%|████████  | 780/966 [01:31<00:21,  8.52it/s] 81%|████████  | 781/966 [01:31<00:21,  8.52it/s] 81%|████████  | 782/966 [01:31<00:21,  8.53it/s] 81%|████████  | 783/966 [01:32<00:21,  8.52it/s] 81%|████████  | 784/966 [01:32<00:21,  8.49it/s] 81%|████████▏ | 785/966 [01:32<00:21,  8.49it/s] 81%|████████▏ | 786/966 [01:32<00:21,  8.50it/s] 81%|████████▏ | 787/966 [01:32<00:21,  8.50it/s] 82%|████████▏ | 788/966 [01:32<00:20,  8.53it/s] 82%|████████▏ | 789/966 [01:32<00:20,  8.52it/s] 82%|████████▏ | 790/966 [01:32<00:20,  8.52it/s] 82%|████████▏ | 791/966 [01:32<00:20,  8.51it/s] 82%|████████▏ | 792/966 [01:33<00:20,  8.52it/s] 82%|████████▏ | 793/966 [01:33<00:20,  8.53it/s] 82%|████████▏ | 794/966 [01:33<00:20,  8.54it/s] 82%|████████▏ | 795/966 [01:33<00:20,  8.52it/s] 82%|████████▏ | 796/966 [01:33<00:20,  8.50it/s] 83%|████████▎ | 797/966 [01:33<00:19,  8.48it/s] 83%|████████▎ | 798/966 [01:33<00:19,  8.46it/s] 83%|████████▎ | 799/966 [01:33<00:19,  8.45it/s] 83%|████████▎ | 800/966 [01:34<00:19,  8.45it/s] 83%|████████▎ | 801/966 [01:34<00:19,  8.46it/s] 83%|████████▎ | 802/966 [01:34<00:19,  8.48it/s] 83%|████████▎ | 803/966 [01:34<00:19,  8.47it/s] 83%|████████▎ | 804/966 [01:34<00:19,  8.46it/s] 83%|████████▎ | 805/966 [01:34<00:18,  8.48it/s] 83%|████████▎ | 806/966 [01:34<00:18,  8.48it/s] 84%|████████▎ | 807/966 [01:34<00:18,  8.47it/s] 84%|████████▎ | 808/966 [01:34<00:18,  8.47it/s] 84%|████████▎ | 809/966 [01:35<00:18,  8.46it/s] 84%|████████▍ | 810/966 [01:35<00:18,  8.46it/s] 84%|████████▍ | 811/966 [01:35<00:18,  8.47it/s] 84%|████████▍ | 812/966 [01:35<00:18,  8.47it/s] 84%|████████▍ | 813/966 [01:35<00:18,  8.46it/s] 84%|████████▍ | 814/966 [01:35<00:17,  8.46it/s] 84%|████████▍ | 815/966 [01:35<00:17,  8.49it/s] 84%|████████▍ | 816/966 [01:35<00:17,  8.51it/s] 85%|████████▍ | 817/966 [01:36<00:17,  8.51it/s] 85%|████████▍ | 818/966 [01:36<00:17,  8.54it/s] 85%|████████▍ | 819/966 [01:36<00:17,  8.53it/s] 85%|████████▍ | 820/966 [01:36<00:17,  8.51it/s] 85%|████████▍ | 821/966 [01:36<00:17,  8.52it/s] 85%|████████▌ | 822/966 [01:36<00:16,  8.51it/s] 85%|████████▌ | 823/966 [01:36<00:16,  8.50it/s] 85%|████████▌ | 824/966 [01:36<00:16,  8.50it/s] 85%|████████▌ | 825/966 [01:36<00:16,  8.47it/s] 86%|████████▌ | 826/966 [01:37<00:16,  8.47it/s] 86%|████████▌ | 827/966 [01:37<00:16,  8.49it/s] 86%|████████▌ | 828/966 [01:37<00:16,  8.50it/s] 86%|████████▌ | 829/966 [01:37<00:16,  8.50it/s] 86%|████████▌ | 830/966 [01:37<00:15,  8.52it/s] 86%|████████▌ | 831/966 [01:37<00:15,  8.53it/s] 86%|████████▌ | 832/966 [01:37<00:15,  8.52it/s] 86%|████████▌ | 833/966 [01:37<00:15,  8.50it/s] 86%|████████▋ | 834/966 [01:38<00:15,  8.48it/s] 86%|████████▋ | 835/966 [01:38<00:15,  8.50it/s] 87%|████████▋ | 836/966 [01:38<00:15,  8.51it/s] 87%|████████▋ | 837/966 [01:38<00:15,  8.52it/s] 87%|████████▋ | 838/966 [01:38<00:15,  8.50it/s] 87%|████████▋ | 839/966 [01:38<00:14,  8.51it/s] 87%|████████▋ | 840/966 [01:38<00:14,  8.50it/s] 87%|████████▋ | 841/966 [01:38<00:14,  8.53it/s] 87%|████████▋ | 842/966 [01:38<00:14,  8.54it/s] 87%|████████▋ | 843/966 [01:39<00:14,  8.53it/s] 87%|████████▋ | 844/966 [01:39<00:14,  8.51it/s] 87%|████████▋ | 845/966 [01:39<00:14,  8.51it/s] 88%|████████▊ | 846/966 [01:39<00:14,  8.51it/s] 88%|████████▊ | 847/966 [01:39<00:13,  8.51it/s] 88%|████████▊ | 848/966 [01:39<00:13,  8.52it/s] 88%|████████▊ | 849/966 [01:39<00:13,  8.51it/s] 88%|████████▊ | 850/966 [01:39<00:13,  8.50it/s] 88%|████████▊ | 851/966 [01:40<00:13,  8.51it/s] 88%|████████▊ | 852/966 [01:40<00:13,  8.52it/s] 88%|████████▊ | 853/966 [01:40<00:13,  8.51it/s] 88%|████████▊ | 854/966 [01:40<00:13,  8.48it/s] 89%|████████▊ | 855/966 [01:40<00:13,  8.48it/s] 89%|████████▊ | 856/966 [01:40<00:12,  8.48it/s] 89%|████████▊ | 857/966 [01:40<00:12,  8.50it/s] 89%|████████▉ | 858/966 [01:40<00:12,  8.51it/s] 89%|████████▉ | 859/966 [01:40<00:12,  8.50it/s] 89%|████████▉ | 860/966 [01:41<00:12,  8.51it/s] 89%|████████▉ | 861/966 [01:41<00:12,  8.51it/s] 89%|████████▉ | 862/966 [01:41<00:12,  8.51it/s] 89%|████████▉ | 863/966 [01:41<00:12,  8.52it/s] 89%|████████▉ | 864/966 [01:41<00:11,  8.52it/s] 90%|████████▉ | 865/966 [01:41<00:11,  8.52it/s] 90%|████████▉ | 866/966 [01:41<00:11,  8.51it/s] 90%|████████▉ | 867/966 [01:41<00:11,  8.50it/s] 90%|████████▉ | 868/966 [01:42<00:11,  8.51it/s] 90%|████████▉ | 869/966 [01:42<00:11,  8.49it/s] 90%|█████████ | 870/966 [01:42<00:11,  8.50it/s] 90%|█████████ | 871/966 [01:42<00:11,  8.51it/s] 90%|█████████ | 872/966 [01:42<00:11,  8.52it/s] 90%|█████████ | 873/966 [01:42<00:10,  8.53it/s] 90%|█████████ | 874/966 [01:42<00:10,  8.54it/s] 91%|█████████ | 875/966 [01:42<00:10,  8.53it/s] 91%|█████████ | 876/966 [01:42<00:10,  8.52it/s] 91%|█████████ | 877/966 [01:43<00:10,  8.53it/s] 91%|█████████ | 878/966 [01:43<00:10,  8.54it/s] 91%|█████████ | 879/966 [01:43<00:10,  8.53it/s] 91%|█████████ | 880/966 [01:43<00:10,  8.53it/s] 91%|█████████ | 881/966 [01:43<00:09,  8.51it/s] 91%|█████████▏| 882/966 [01:43<00:09,  8.52it/s] 91%|█████████▏| 883/966 [01:43<00:09,  8.53it/s] 92%|█████████▏| 884/966 [01:43<00:09,  8.54it/s] 92%|█████████▏| 885/966 [01:44<00:09,  8.52it/s] 92%|█████████▏| 886/966 [01:44<00:09,  8.51it/s] 92%|█████████▏| 887/966 [01:44<00:09,  8.49it/s] 92%|█████████▏| 888/966 [01:44<00:09,  8.49it/s] 92%|█████████▏| 889/966 [01:44<00:09,  8.49it/s] 92%|█████████▏| 890/966 [01:44<00:08,  8.52it/s] 92%|█████████▏| 891/966 [01:44<00:08,  8.52it/s] 92%|█████████▏| 892/966 [01:44<00:08,  8.53it/s] 92%|█████████▏| 893/966 [01:44<00:08,  8.54it/s] 93%|█████████▎| 894/966 [01:45<00:08,  8.55it/s] 93%|█████████▎| 895/966 [01:45<00:08,  8.54it/s] 93%|█████████▎| 896/966 [01:45<00:08,  8.53it/s] 93%|█████████▎| 897/966 [01:45<00:08,  8.52it/s] 93%|█████████▎| 898/966 [01:45<00:07,  8.52it/s] 93%|█████████▎| 899/966 [01:45<00:07,  8.51it/s] 93%|█████████▎| 900/966 [01:45<00:07,  8.52it/s] 93%|█████████▎| 901/966 [01:45<00:07,  8.51it/s] 93%|█████████▎| 902/966 [01:46<00:07,  8.50it/s] 93%|█████████▎| 903/966 [01:46<00:07,  8.50it/s] 94%|█████████▎| 904/966 [01:46<00:07,  8.47it/s] 94%|█████████▎| 905/966 [01:46<00:07,  8.46it/s] 94%|█████████▍| 906/966 [01:46<00:07,  8.47it/s] 94%|█████████▍| 907/966 [01:46<00:06,  8.47it/s] 94%|█████████▍| 908/966 [01:46<00:06,  8.46it/s] 94%|█████████▍| 909/966 [01:46<00:06,  8.47it/s] 94%|█████████▍| 910/966 [01:46<00:06,  8.46it/s] 94%|█████████▍| 911/966 [01:47<00:06,  8.46it/s] 94%|█████████▍| 912/966 [01:47<00:06,  8.48it/s] 95%|█████████▍| 913/966 [01:47<00:06,  8.50it/s] 95%|█████████▍| 914/966 [01:47<00:06,  8.50it/s] 95%|█████████▍| 915/966 [01:47<00:06,  8.49it/s] 95%|█████████▍| 916/966 [01:47<00:05,  8.50it/s] 95%|█████████▍| 917/966 [01:47<00:05,  8.50it/s] 95%|█████████▌| 918/966 [01:47<00:05,  8.51it/s] 95%|█████████▌| 919/966 [01:48<00:05,  8.52it/s] 95%|█████████▌| 920/966 [01:48<00:05,  8.54it/s] 95%|█████████▌| 921/966 [01:48<00:05,  8.54it/s] 95%|█████████▌| 922/966 [01:48<00:05,  8.53it/s] 96%|█████████▌| 923/966 [01:48<00:05,  8.50it/s] 96%|█████████▌| 924/966 [01:48<00:04,  8.49it/s] 96%|█████████▌| 925/966 [01:48<00:04,  8.49it/s] 96%|█████████▌| 926/966 [01:48<00:04,  8.50it/s] 96%|█████████▌| 927/966 [01:48<00:04,  8.51it/s] 96%|█████████▌| 928/966 [01:49<00:04,  8.49it/s] 96%|█████████▌| 929/966 [01:49<00:04,  8.50it/s] 96%|█████████▋| 930/966 [01:49<00:04,  8.52it/s] 96%|█████████▋| 931/966 [01:49<00:04,  8.55it/s] 96%|█████████▋| 932/966 [01:49<00:03,  8.55it/s] 97%|█████████▋| 933/966 [01:49<00:03,  8.57it/s] 97%|█████████▋| 934/966 [01:49<00:03,  8.57it/s] 97%|█████████▋| 935/966 [01:49<00:03,  8.57it/s] 97%|█████████▋| 936/966 [01:50<00:03,  8.53it/s] 97%|█████████▋| 937/966 [01:50<00:03,  8.52it/s] 97%|█████████▋| 938/966 [01:50<00:03,  8.51it/s] 97%|█████████▋| 939/966 [01:50<00:03,  8.51it/s] 97%|█████████▋| 940/966 [01:50<00:03,  8.49it/s] 97%|█████████▋| 941/966 [01:50<00:02,  8.48it/s] 98%|█████████▊| 942/966 [01:50<00:02,  8.46it/s] 98%|█████████▊| 943/966 [01:50<00:02,  8.47it/s] 98%|█████████▊| 944/966 [01:50<00:02,  8.48it/s] 98%|█████████▊| 945/966 [01:51<00:02,  8.48it/s] 98%|█████████▊| 946/966 [01:51<00:02,  8.48it/s] 98%|█████████▊| 947/966 [01:51<00:02,  8.47it/s] 98%|█████████▊| 948/966 [01:51<00:02,  8.46it/s] 98%|█████████▊| 949/966 [01:51<00:02,  8.47it/s] 98%|█████████▊| 950/966 [01:51<00:01,  8.47it/s] 98%|█████████▊| 951/966 [01:51<00:01,  8.46it/s] 99%|█████████▊| 952/966 [01:51<00:01,  8.46it/s] 99%|█████████▊| 953/966 [01:52<00:01,  8.48it/s] 99%|█████████▉| 954/966 [01:52<00:01,  8.50it/s] 99%|█████████▉| 955/966 [01:52<00:01,  8.50it/s] 99%|█████████▉| 956/966 [01:52<00:01,  8.52it/s] 99%|█████████▉| 957/966 [01:52<00:01,  8.51it/s] 99%|█████████▉| 958/966 [01:52<00:00,  8.50it/s] 99%|█████████▉| 959/966 [01:52<00:00,  8.50it/s] 99%|█████████▉| 960/966 [01:52<00:00,  8.49it/s] 99%|█████████▉| 961/966 [01:52<00:00,  8.49it/s]100%|█████████▉| 962/966 [01:53<00:00,  8.49it/s]100%|█████████▉| 963/966 [01:53<00:00,  8.49it/s]100%|█████████▉| 964/966 [01:53<00:00,  8.47it/s]100%|█████████▉| 965/966 [01:53<00:00,  8.47it/s]100%|██████████| 966/966 [01:53<00:00,  8.48it/s]100%|██████████| 966/966 [01:53<00:00,  8.51it/s]
+sending off prediction to background worker for resampling and export
+done with 706-005
+Completed FOLD 2 CONFIG 3d_32x160x128_b10 TRAINER nnUNetTrainerScaleAnalysis4

@@ -33,7 +33,7 @@ class nnUNetTrainerScaleAnalysis4(nnUNetTrainer):
             tr_keys = case_identifiers
             val_keys = tr_keys
         else:
-            splits_file = join(self.preprocessed_dataset_folder_base, "splits_final_66.json")
+            splits_file = join(self.preprocessed_dataset_folder_base, "splits_final_4.json")
 
             if not isfile(splits_file):
                 raise ValueError("splits_final_66.json does not exist. You need to create it.")
