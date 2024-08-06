@@ -26,7 +26,7 @@ INPUT_DIR=$nnUNet_raw/Dataset302_Calcium_OCTv2/imagesTs
 OUTPUT_DIR=$nnUNet_results/Dataset302_Calcium_OCTv2/${TRAINER}__nnUNetPlans__${CONFIG}/fold_${FOLD}_no_pretraining_final_check_test
 LABEL_DIR=$nnUNet_raw/Dataset302_Calcium_OCTv2/labelsTs
 
-nnUNetv2_predict -i $INPUT_DIR -o $OUTPUT_DIR -f $FOLD -c $CONFIG -device cuda -d $DATASET_ID -tr $TRAINER -chk checkpoint_best.pth
+nnUNetv2_predict -i $INPUT_DIR -o $OUTPUT_DIR -f $FOLD -c $CONFIG -device cuda -d $DATASET_ID -tr $TRAINER -chk checkpoint_best.pth --save_probabilities
 nnUNetv2_evaluate_simple $LABEL_DIR $OUTPUT_DIR -l 1
 
 echo "Renaming $TRAINING_OUTPUT_DIR to $TRAINING_OUTPUT_DIR"_no_pretraining_final_check""
