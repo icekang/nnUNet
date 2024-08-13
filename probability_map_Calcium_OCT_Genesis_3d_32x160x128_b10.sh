@@ -11,23 +11,22 @@ export nnUNet_results="/home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_
 # export nnUNet_def_n_proc=1
 export OPENBLAS_NUM_THREADS=1
 
-FOLD=1
 
 CONFIG=3d_32x160x128_b10
 DATASET_ID=302
 
 INPUT_DIR=$nnUNet_raw/Dataset302_Calcium_OCTv2/imagesTs
 LABEL_DIR=$nnUNet_raw/Dataset302_Calcium_OCTv2/labelsTs
-
-for TRAINER in nnUNetTrainer nnUNetTrainerScaleAnalysis2 nnUNetTrainerScaleAnalysis4;
+TRAINER=nnUNetTrainer
+for FOLD in 0 1 2;
 do
     TRAINING_OUTPUT_DIR=$nnUNet_results/Dataset302_Calcium_OCTv2/${TRAINER}__nnUNetPlans__${CONFIG}/fold_${FOLD}
-    OUTPUT_DIR=$nnUNet_results/Dataset302_Calcium_OCTv2/${TRAINER}__nnUNetPlans__${CONFIG}/fold_${FOLD}_finetuned_no_pretrained_test
+    OUTPUT_DIR=$nnUNet_results/Dataset302_Calcium_OCTv2/${TRAINER}__nnUNetPlans__${CONFIG}/fold_${FOLD}_finetuned_with_Genesis_test
 
     echo "Begin predicting FOLD $FOLD CONFIG $CONFIG TRAINER $TRAINER from scratch"
-    mv $TRAINING_OUTPUT_DIR"_no_pretrained" $TRAINING_OUTPUT_DIR
+    mv $TRAINING_OUTPUT_DIR"_finetuned_with_Genesis" $TRAINING_OUTPUT_DIR
     nnUNetv2_predict -i $INPUT_DIR -o $OUTPUT_DIR -f $FOLD -c $CONFIG -device cuda -d $DATASET_ID -tr $TRAINER -chk checkpoint_best.pth --save_probabilities
-    mv $TRAINING_OUTPUT_DIR $TRAINING_OUTPUT_DIR"_no_pretrained"
+    mv $TRAINING_OUTPUT_DIR $TRAINING_OUTPUT_DIR"_finetuned_with_Genesis"
     echo "Completed FOLD $FOLD CONFIG $CONFIG TRAINER $TRAINER from scratch"
 
 
