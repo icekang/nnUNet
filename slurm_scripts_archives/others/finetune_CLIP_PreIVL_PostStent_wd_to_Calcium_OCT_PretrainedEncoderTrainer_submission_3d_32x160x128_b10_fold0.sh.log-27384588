@@ -1,0 +1,66 @@
+/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/python
+wandb: Tracking run with wandb version 0.16.6
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+
+############################
+INFO: You are using the old nnU-Net default plans. We have updated our recommendations. Please consider using those instead! Read more here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md
+############################
+
+Using device: cuda:0
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+2024-11-15 05:18:43.512967: Using torch.compile...
+/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:28: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn("The verbose parameter is deprecated. Please use get_last_lr() "
+Encoder lr: 0.0
+Traceback (most recent call last):
+  File "/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/nnUNetv2_train", line 8, in <module>
+    sys.exit(run_training_entry())
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/run/run_training.py", line 275, in run_training_entry
+    run_training(args.dataset_name_or_id, args.configuration, args.fold, args.tr, args.p, args.pretrained_weights,
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/run/run_training.py", line 204, in run_training
+    maybe_load_checkpoint(nnunet_trainer, continue_training, only_run_validation, pretrained_weights)
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/run/run_training.py", line 94, in maybe_load_checkpoint
+    nnunet_trainer.initialize()
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py", line 230, in initialize
+    self.optimizer, self.lr_scheduler = self.configure_optimizers()
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/training/nnUNetTrainer/nnUNetTrainer4PretrainedEncoder.py", line 14, in configure_optimizers
+    lr_scheduler = PolyLRSchedulerParamGroupSpecific(optimizer, self.initial_lr, self.num_epochs)
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/training/lr_scheduler/polylr.py", line 29, in __init__
+    super().__init__(optimizer, current_step if current_step is not None else -1, False)
+  File "/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 85, in __init__
+    self._initial_step()
+  File "/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 91, in _initial_step
+    self.step()
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/training/lr_scheduler/polylr.py", line 39, in step
+    if 'encoder' in param_group['name'] and current_step < self.max_steps // 2:
+KeyError: 'name'
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset302_Calcium_OCTv2/nnUNetTrainer4PretrainedEncoder__nnUNetPlans__3d_32x160x128_b10/fold_0/wandb/offline-run-20241115_051832-0gdcqkzn
+wandb: Find logs at: /home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset302_Calcium_OCTv2/nnUNetTrainer4PretrainedEncoder__nnUNetPlans__3d_32x160x128_b10/fold_0/wandb/offline-run-20241115_051832-0gdcqkzn/logs
+FOLD 0 CONFIG 3d_32x160x128_b10 TRAINER nnUNetTrainer4PretrainedEncoder
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+Traceback (most recent call last):
+  File "/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/nnUNetv2_predict", line 8, in <module>
+    sys.exit(predict_entry_point())
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/predict_from_raw_data.py", line 861, in predict_entry_point
+    predictor.initialize_from_trained_model_folder(
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/predict_from_raw_data.py", line 84, in initialize_from_trained_model_folder
+    checkpoint = torch.load(join(model_training_output_dir, f'fold_{f}', checkpoint_name),
+  File "/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/serialization.py", line 997, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/serialization.py", line 444, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/gridsan/nchutisilp/.local/lib/python3.9/site-packages/torch/serialization.py", line 425, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/home/gridsan/nchutisilp/datasets/nnUNet_Datasets/nnUNet_results/Dataset302_Calcium_OCTv2/nnUNetTrainer4PretrainedEncoder__nnUNetPlans__3d_32x160x128_b10/fold_0/checkpoint_best.pth'

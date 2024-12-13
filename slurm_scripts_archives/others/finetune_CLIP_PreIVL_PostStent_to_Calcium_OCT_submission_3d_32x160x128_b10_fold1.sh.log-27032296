@@ -1,0 +1,38 @@
+/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/python
+FOLD 1 CONFIG 3d_32x160x128_b10 TRAINER nnUNetTrainer
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+There are 2 cases in the source folder
+I am process 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 2 cases that I would like to predict
+Traceback (most recent call last):
+  File "/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/nnUNetv2_predict", line 8, in <module>
+    sys.exit(predict_entry_point())
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/predict_from_raw_data.py", line 866, in predict_entry_point
+    predictor.predict_from_files(args.i, args.o, save_probabilities=args.save_probabilities,
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/predict_from_raw_data.py", line 258, in predict_from_files
+    return self.predict_from_data_iterator(data_iterator, save_probabilities, num_processes_segmentation_export)
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/predict_from_raw_data.py", line 351, in predict_from_data_iterator
+    for preprocessed in data_iterator:
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/data_iterators.py", line 117, in preprocessing_iterator_fromfiles
+    [i.pin_memory() for i in item.values() if isinstance(i, torch.Tensor)]
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/inference/data_iterators.py", line 117, in <listcomp>
+    [i.pin_memory() for i in item.values() if isinstance(i, torch.Tensor)]
+RuntimeError: CUDA error: no CUDA-capable device is detected
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Device-side assertions were explicitly omitted for this error check; the error probably arose while initializing the DSA handlers.
+Traceback (most recent call last):
+  File "/home/gridsan/nchutisilp/.conda/envs/nnunet/bin/nnUNetv2_evaluate_simple", line 8, in <module>
+    sys.exit(evaluate_simple_entry_point())
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/evaluation/evaluate_predictions.py", line 250, in evaluate_simple_entry_point
+    compute_metrics_on_folder_simple(args.gt_folder, args.pred_folder, args.l, args.o, args.np, args.il, chill=args.chill)
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/evaluation/evaluate_predictions.py", line 212, in compute_metrics_on_folder_simple
+    compute_metrics_on_folder(folder_ref, folder_pred, output_file, rw, file_ending,
+  File "/home/gridsan/nchutisilp/projects/nnUNet/nnunetv2/evaluation/evaluate_predictions.py", line 138, in compute_metrics_on_folder
+    assert all(present), "Not all files in folder_ref exist in folder_pred"
+AssertionError: Not all files in folder_ref exist in folder_pred
