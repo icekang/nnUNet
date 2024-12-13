@@ -9,7 +9,6 @@ from datetime import datetime
 from time import time, sleep
 from typing import Union, Tuple, List
 
-import wandb
 from typing import Tuple, Union, List
 
 import numpy as np
@@ -179,7 +178,7 @@ class nnUNetTrainer(object):
                              (timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute,
                               timestamp.second))
         self.logger = nnUNetLogger()
-        self.initialize_wandb(fold=fold)
+        # self.initialize_wandb(fold=fold)
 
         ### placeholders
         self.dataloader_train = self.dataloader_val = None  # see on_train_start
@@ -242,14 +241,14 @@ class nnUNetTrainer(object):
             raise RuntimeError("You have called self.initialize even though the trainer was already initialized. "
                                "That should not happen.")
 
-    def initialize_wandb(self, fold: int):
-        wandb_project_name = f"{self.plans_manager.dataset_name}__{self.configuration_name}"
-        wandb_run_name = f"fold_{fold}"
-        wandb.init(
-            project=wandb_project_name,
-            name=wandb_run_name,
-            dir=self.output_folder,
-        )
+    # def initialize_wandb(self, fold: int):
+    #     wandb_project_name = f"{self.plans_manager.dataset_name}__{self.configuration_name}"
+    #     wandb_run_name = f"fold_{fold}"
+    #     wandb.init(
+    #         project=wandb_project_name,
+    #         name=wandb_run_name,
+    #         dir=self.output_folder,
+    #     )
 
     def _do_i_compile(self):
         # new default: compile is enabled!
@@ -313,7 +312,6 @@ class nnUNetTrainer(object):
             dct['torch_version'] = torch_version
             dct['cudnn_version'] = cudnn_version
             save_json(dct, join(self.output_folder, "debug.json"))
-            wandb.config.update(dct)
 
     @staticmethod
     def build_network_architecture(architecture_class_name: str,
