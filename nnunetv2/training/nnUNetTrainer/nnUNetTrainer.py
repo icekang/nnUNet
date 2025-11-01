@@ -151,7 +151,7 @@ class nnUNetTrainer(object):
         self.oversample_foreground_percent = 0.33
         self.num_iterations_per_epoch = 250
         self.num_val_iterations_per_epoch = 50
-        self.num_epochs = 1000
+        self.num_epochs = 150
         self.current_epoch = 0
         self.enable_deep_supervision = True
         self.patience = 50
@@ -1388,9 +1388,9 @@ class nnUNetTrainer(object):
         self.on_train_start()
 
         for epoch in range(self.current_epoch, self.num_epochs):
-            if self.patience_counter >= self.patience:
-                self.print_to_log_file(f"Patience reached. Stopping training.")
-                break
+            # if self.patience_counter >= self.patience:
+            #     self.print_to_log_file(f"Patience reached. Stopping training.")
+            #     break
             self.on_epoch_start()
 
             self.on_train_epoch_start()

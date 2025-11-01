@@ -2,8 +2,8 @@
 
 # Job Flags
 #SBATCH -p mit_normal
-#SBATCH -c 1
-#SBATCH --mem=20G
+#SBATCH -c 2
+#SBATCH --mem=90G
 #SBATCH --output=slurm-nnUNet-%x-%j.out
 
 # Activating the conda environment

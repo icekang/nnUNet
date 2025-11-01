@@ -1,0 +1,1638 @@
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/bin/python
+Starting training with CONFIG=3d_32x160x128_b10, DATASET_ID=307, TRAINER=nnUNetTrainerScaleAnalysis60
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py:169: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.grad_scaler = GradScaler() if self.device.type == 'cuda' else None
+
+############################
+INFO: You are using the old nnU-Net default plans. We have updated our recommendations. Please consider using those instead! Read more here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md
+############################
+
+Using device: cuda:0
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+2025-10-13 19:26:04.265355: Using torch.compile...
+################### Loading pretrained weights from file  /nfs/erelab001/shared/Computational_Group/Naravich/datasets/nnUNet_Datasets/../ModelGenesisOutputs/ModelGenesisNNUNetPretrainingV2_noNorm_correct_orientation/Converted_nnUNet_Genesis_OCT_Best.pt ###################
+Below is the list of overlapping blocks in pretrained model and nnUNet architecture:
+encoder.stages.0.0.convs.0.conv.weight shape torch.Size([32, 1, 3, 3, 3])
+encoder.stages.0.0.convs.0.conv.bias shape torch.Size([32])
+encoder.stages.0.0.convs.0.norm.weight shape torch.Size([32])
+encoder.stages.0.0.convs.0.norm.bias shape torch.Size([32])
+encoder.stages.0.0.convs.0.all_modules.0.weight shape torch.Size([32, 1, 3, 3, 3])
+encoder.stages.0.0.convs.0.all_modules.0.bias shape torch.Size([32])
+encoder.stages.0.0.convs.0.all_modules.1.weight shape torch.Size([32])
+encoder.stages.0.0.convs.0.all_modules.1.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.conv.weight shape torch.Size([32, 32, 3, 3, 3])
+encoder.stages.0.0.convs.1.conv.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.norm.weight shape torch.Size([32])
+encoder.stages.0.0.convs.1.norm.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.all_modules.0.weight shape torch.Size([32, 32, 3, 3, 3])
+encoder.stages.0.0.convs.1.all_modules.0.bias shape torch.Size([32])
+encoder.stages.0.0.convs.1.all_modules.1.weight shape torch.Size([32])
+encoder.stages.0.0.convs.1.all_modules.1.bias shape torch.Size([32])
+encoder.stages.1.0.convs.0.conv.weight shape torch.Size([64, 32, 3, 3, 3])
+encoder.stages.1.0.convs.0.conv.bias shape torch.Size([64])
+encoder.stages.1.0.convs.0.norm.weight shape torch.Size([64])
+encoder.stages.1.0.convs.0.norm.bias shape torch.Size([64])
+encoder.stages.1.0.convs.0.all_modules.0.weight shape torch.Size([64, 32, 3, 3, 3])
+encoder.stages.1.0.convs.0.all_modules.0.bias shape torch.Size([64])
+encoder.stages.1.0.convs.0.all_modules.1.weight shape torch.Size([64])
+encoder.stages.1.0.convs.0.all_modules.1.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.conv.weight shape torch.Size([64, 64, 3, 3, 3])
+encoder.stages.1.0.convs.1.conv.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.norm.weight shape torch.Size([64])
+encoder.stages.1.0.convs.1.norm.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.all_modules.0.weight shape torch.Size([64, 64, 3, 3, 3])
+encoder.stages.1.0.convs.1.all_modules.0.bias shape torch.Size([64])
+encoder.stages.1.0.convs.1.all_modules.1.weight shape torch.Size([64])
+encoder.stages.1.0.convs.1.all_modules.1.bias shape torch.Size([64])
+encoder.stages.2.0.convs.0.conv.weight shape torch.Size([128, 64, 3, 3, 3])
+encoder.stages.2.0.convs.0.conv.bias shape torch.Size([128])
+encoder.stages.2.0.convs.0.norm.weight shape torch.Size([128])
+encoder.stages.2.0.convs.0.norm.bias shape torch.Size([128])
+encoder.stages.2.0.convs.0.all_modules.0.weight shape torch.Size([128, 64, 3, 3, 3])
+encoder.stages.2.0.convs.0.all_modules.0.bias shape torch.Size([128])
+encoder.stages.2.0.convs.0.all_modules.1.weight shape torch.Size([128])
+encoder.stages.2.0.convs.0.all_modules.1.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.conv.weight shape torch.Size([128, 128, 3, 3, 3])
+encoder.stages.2.0.convs.1.conv.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.norm.weight shape torch.Size([128])
+encoder.stages.2.0.convs.1.norm.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.all_modules.0.weight shape torch.Size([128, 128, 3, 3, 3])
+encoder.stages.2.0.convs.1.all_modules.0.bias shape torch.Size([128])
+encoder.stages.2.0.convs.1.all_modules.1.weight shape torch.Size([128])
+encoder.stages.2.0.convs.1.all_modules.1.bias shape torch.Size([128])
+encoder.stages.3.0.convs.0.conv.weight shape torch.Size([256, 128, 3, 3, 3])
+encoder.stages.3.0.convs.0.conv.bias shape torch.Size([256])
+encoder.stages.3.0.convs.0.norm.weight shape torch.Size([256])
+encoder.stages.3.0.convs.0.norm.bias shape torch.Size([256])
+encoder.stages.3.0.convs.0.all_modules.0.weight shape torch.Size([256, 128, 3, 3, 3])
+encoder.stages.3.0.convs.0.all_modules.0.bias shape torch.Size([256])
+encoder.stages.3.0.convs.0.all_modules.1.weight shape torch.Size([256])
+encoder.stages.3.0.convs.0.all_modules.1.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.conv.weight shape torch.Size([256, 256, 3, 3, 3])
+encoder.stages.3.0.convs.1.conv.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.norm.weight shape torch.Size([256])
+encoder.stages.3.0.convs.1.norm.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.all_modules.0.weight shape torch.Size([256, 256, 3, 3, 3])
+encoder.stages.3.0.convs.1.all_modules.0.bias shape torch.Size([256])
+encoder.stages.3.0.convs.1.all_modules.1.weight shape torch.Size([256])
+encoder.stages.3.0.convs.1.all_modules.1.bias shape torch.Size([256])
+encoder.stages.4.0.convs.0.conv.weight shape torch.Size([320, 256, 3, 3, 3])
+encoder.stages.4.0.convs.0.conv.bias shape torch.Size([320])
+encoder.stages.4.0.convs.0.norm.weight shape torch.Size([320])
+encoder.stages.4.0.convs.0.norm.bias shape torch.Size([320])
+encoder.stages.4.0.convs.0.all_modules.0.weight shape torch.Size([320, 256, 3, 3, 3])
+encoder.stages.4.0.convs.0.all_modules.0.bias shape torch.Size([320])
+encoder.stages.4.0.convs.0.all_modules.1.weight shape torch.Size([320])
+encoder.stages.4.0.convs.0.all_modules.1.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.4.0.convs.1.conv.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.norm.weight shape torch.Size([320])
+encoder.stages.4.0.convs.1.norm.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.4.0.convs.1.all_modules.0.bias shape torch.Size([320])
+encoder.stages.4.0.convs.1.all_modules.1.weight shape torch.Size([320])
+encoder.stages.4.0.convs.1.all_modules.1.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.0.conv.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.norm.weight shape torch.Size([320])
+encoder.stages.5.0.convs.0.norm.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.0.all_modules.0.bias shape torch.Size([320])
+encoder.stages.5.0.convs.0.all_modules.1.weight shape torch.Size([320])
+encoder.stages.5.0.convs.0.all_modules.1.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.1.conv.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.norm.weight shape torch.Size([320])
+encoder.stages.5.0.convs.1.norm.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+encoder.stages.5.0.convs.1.all_modules.0.bias shape torch.Size([320])
+encoder.stages.5.0.convs.1.all_modules.1.weight shape torch.Size([320])
+encoder.stages.5.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.0.0.convs.0.conv.weight shape torch.Size([32, 1, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.0.conv.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.norm.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.norm.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.all_modules.0.weight shape torch.Size([32, 1, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.0.all_modules.0.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.all_modules.1.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.0.all_modules.1.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.conv.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.1.conv.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.norm.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.norm.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.all_modules.0.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.encoder.stages.0.0.convs.1.all_modules.0.bias shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.all_modules.1.weight shape torch.Size([32])
+decoder.encoder.stages.0.0.convs.1.all_modules.1.bias shape torch.Size([32])
+decoder.encoder.stages.1.0.convs.0.conv.weight shape torch.Size([64, 32, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.0.conv.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.norm.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.norm.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.all_modules.0.weight shape torch.Size([64, 32, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.0.all_modules.0.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.all_modules.1.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.0.all_modules.1.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.conv.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.1.conv.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.norm.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.norm.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.all_modules.0.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.encoder.stages.1.0.convs.1.all_modules.0.bias shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.all_modules.1.weight shape torch.Size([64])
+decoder.encoder.stages.1.0.convs.1.all_modules.1.bias shape torch.Size([64])
+decoder.encoder.stages.2.0.convs.0.conv.weight shape torch.Size([128, 64, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.0.conv.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.norm.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.norm.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.all_modules.0.weight shape torch.Size([128, 64, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.0.all_modules.0.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.all_modules.1.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.0.all_modules.1.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.conv.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.1.conv.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.norm.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.norm.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.all_modules.0.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.encoder.stages.2.0.convs.1.all_modules.0.bias shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.all_modules.1.weight shape torch.Size([128])
+decoder.encoder.stages.2.0.convs.1.all_modules.1.bias shape torch.Size([128])
+decoder.encoder.stages.3.0.convs.0.conv.weight shape torch.Size([256, 128, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.0.conv.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.norm.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.norm.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.all_modules.0.weight shape torch.Size([256, 128, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.0.all_modules.0.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.all_modules.1.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.0.all_modules.1.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.conv.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.1.conv.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.norm.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.norm.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.all_modules.0.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.encoder.stages.3.0.convs.1.all_modules.0.bias shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.all_modules.1.weight shape torch.Size([256])
+decoder.encoder.stages.3.0.convs.1.all_modules.1.bias shape torch.Size([256])
+decoder.encoder.stages.4.0.convs.0.conv.weight shape torch.Size([320, 256, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.0.conv.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.norm.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.norm.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.all_modules.0.weight shape torch.Size([320, 256, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.0.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.0.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.1.conv.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.norm.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.norm.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.4.0.convs.1.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.4.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.0.conv.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.norm.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.norm.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.0.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.0.all_modules.1.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.1.conv.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.norm.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.norm.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.encoder.stages.5.0.convs.1.all_modules.0.bias shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.all_modules.1.weight shape torch.Size([320])
+decoder.encoder.stages.5.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.stages.0.convs.0.conv.weight shape torch.Size([320, 640, 3, 3, 3])
+decoder.stages.0.convs.0.conv.bias shape torch.Size([320])
+decoder.stages.0.convs.0.norm.weight shape torch.Size([320])
+decoder.stages.0.convs.0.norm.bias shape torch.Size([320])
+decoder.stages.0.convs.0.all_modules.0.weight shape torch.Size([320, 640, 3, 3, 3])
+decoder.stages.0.convs.0.all_modules.0.bias shape torch.Size([320])
+decoder.stages.0.convs.0.all_modules.1.weight shape torch.Size([320])
+decoder.stages.0.convs.0.all_modules.1.bias shape torch.Size([320])
+decoder.stages.0.convs.1.conv.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.stages.0.convs.1.conv.bias shape torch.Size([320])
+decoder.stages.0.convs.1.norm.weight shape torch.Size([320])
+decoder.stages.0.convs.1.norm.bias shape torch.Size([320])
+decoder.stages.0.convs.1.all_modules.0.weight shape torch.Size([320, 320, 3, 3, 3])
+decoder.stages.0.convs.1.all_modules.0.bias shape torch.Size([320])
+decoder.stages.0.convs.1.all_modules.1.weight shape torch.Size([320])
+decoder.stages.0.convs.1.all_modules.1.bias shape torch.Size([320])
+decoder.stages.1.convs.0.conv.weight shape torch.Size([256, 512, 3, 3, 3])
+decoder.stages.1.convs.0.conv.bias shape torch.Size([256])
+decoder.stages.1.convs.0.norm.weight shape torch.Size([256])
+decoder.stages.1.convs.0.norm.bias shape torch.Size([256])
+decoder.stages.1.convs.0.all_modules.0.weight shape torch.Size([256, 512, 3, 3, 3])
+decoder.stages.1.convs.0.all_modules.0.bias shape torch.Size([256])
+decoder.stages.1.convs.0.all_modules.1.weight shape torch.Size([256])
+decoder.stages.1.convs.0.all_modules.1.bias shape torch.Size([256])
+decoder.stages.1.convs.1.conv.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.stages.1.convs.1.conv.bias shape torch.Size([256])
+decoder.stages.1.convs.1.norm.weight shape torch.Size([256])
+decoder.stages.1.convs.1.norm.bias shape torch.Size([256])
+decoder.stages.1.convs.1.all_modules.0.weight shape torch.Size([256, 256, 3, 3, 3])
+decoder.stages.1.convs.1.all_modules.0.bias shape torch.Size([256])
+decoder.stages.1.convs.1.all_modules.1.weight shape torch.Size([256])
+decoder.stages.1.convs.1.all_modules.1.bias shape torch.Size([256])
+decoder.stages.2.convs.0.conv.weight shape torch.Size([128, 256, 3, 3, 3])
+decoder.stages.2.convs.0.conv.bias shape torch.Size([128])
+decoder.stages.2.convs.0.norm.weight shape torch.Size([128])
+decoder.stages.2.convs.0.norm.bias shape torch.Size([128])
+decoder.stages.2.convs.0.all_modules.0.weight shape torch.Size([128, 256, 3, 3, 3])
+decoder.stages.2.convs.0.all_modules.0.bias shape torch.Size([128])
+decoder.stages.2.convs.0.all_modules.1.weight shape torch.Size([128])
+decoder.stages.2.convs.0.all_modules.1.bias shape torch.Size([128])
+decoder.stages.2.convs.1.conv.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.stages.2.convs.1.conv.bias shape torch.Size([128])
+decoder.stages.2.convs.1.norm.weight shape torch.Size([128])
+decoder.stages.2.convs.1.norm.bias shape torch.Size([128])
+decoder.stages.2.convs.1.all_modules.0.weight shape torch.Size([128, 128, 3, 3, 3])
+decoder.stages.2.convs.1.all_modules.0.bias shape torch.Size([128])
+decoder.stages.2.convs.1.all_modules.1.weight shape torch.Size([128])
+decoder.stages.2.convs.1.all_modules.1.bias shape torch.Size([128])
+decoder.stages.3.convs.0.conv.weight shape torch.Size([64, 128, 3, 3, 3])
+decoder.stages.3.convs.0.conv.bias shape torch.Size([64])
+decoder.stages.3.convs.0.norm.weight shape torch.Size([64])
+decoder.stages.3.convs.0.norm.bias shape torch.Size([64])
+decoder.stages.3.convs.0.all_modules.0.weight shape torch.Size([64, 128, 3, 3, 3])
+decoder.stages.3.convs.0.all_modules.0.bias shape torch.Size([64])
+decoder.stages.3.convs.0.all_modules.1.weight shape torch.Size([64])
+decoder.stages.3.convs.0.all_modules.1.bias shape torch.Size([64])
+decoder.stages.3.convs.1.conv.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.stages.3.convs.1.conv.bias shape torch.Size([64])
+decoder.stages.3.convs.1.norm.weight shape torch.Size([64])
+decoder.stages.3.convs.1.norm.bias shape torch.Size([64])
+decoder.stages.3.convs.1.all_modules.0.weight shape torch.Size([64, 64, 3, 3, 3])
+decoder.stages.3.convs.1.all_modules.0.bias shape torch.Size([64])
+decoder.stages.3.convs.1.all_modules.1.weight shape torch.Size([64])
+decoder.stages.3.convs.1.all_modules.1.bias shape torch.Size([64])
+decoder.stages.4.convs.0.conv.weight shape torch.Size([32, 64, 3, 3, 3])
+decoder.stages.4.convs.0.conv.bias shape torch.Size([32])
+decoder.stages.4.convs.0.norm.weight shape torch.Size([32])
+decoder.stages.4.convs.0.norm.bias shape torch.Size([32])
+decoder.stages.4.convs.0.all_modules.0.weight shape torch.Size([32, 64, 3, 3, 3])
+decoder.stages.4.convs.0.all_modules.0.bias shape torch.Size([32])
+decoder.stages.4.convs.0.all_modules.1.weight shape torch.Size([32])
+decoder.stages.4.convs.0.all_modules.1.bias shape torch.Size([32])
+decoder.stages.4.convs.1.conv.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.stages.4.convs.1.conv.bias shape torch.Size([32])
+decoder.stages.4.convs.1.norm.weight shape torch.Size([32])
+decoder.stages.4.convs.1.norm.bias shape torch.Size([32])
+decoder.stages.4.convs.1.all_modules.0.weight shape torch.Size([32, 32, 3, 3, 3])
+decoder.stages.4.convs.1.all_modules.0.bias shape torch.Size([32])
+decoder.stages.4.convs.1.all_modules.1.weight shape torch.Size([32])
+decoder.stages.4.convs.1.all_modules.1.bias shape torch.Size([32])
+decoder.transpconvs.0.weight shape torch.Size([320, 320, 1, 2, 2])
+decoder.transpconvs.0.bias shape torch.Size([320])
+decoder.transpconvs.1.weight shape torch.Size([320, 256, 2, 2, 2])
+decoder.transpconvs.1.bias shape torch.Size([256])
+decoder.transpconvs.2.weight shape torch.Size([256, 128, 2, 2, 2])
+decoder.transpconvs.2.bias shape torch.Size([128])
+decoder.transpconvs.3.weight shape torch.Size([128, 64, 2, 2, 2])
+decoder.transpconvs.3.bias shape torch.Size([64])
+decoder.transpconvs.4.weight shape torch.Size([64, 32, 2, 2, 2])
+decoder.transpconvs.4.bias shape torch.Size([32])
+################### Done ###################
+2025-10-13 19:26:05.992003: do_dummy_2d_data_aug: True
+2025-10-13 19:26:05.992488: Using splits from existing split file: /nfs/erelab001/shared/Computational_Group/Naravich/datasets/nnUNet_Datasets/nnUNet_preprocessed/Dataset307_Sohee_Calcium_OCT_CrossValidation/splits_final_60.json
+2025-10-13 19:26:06.005496: The split file contains 5 splits.
+2025-10-13 19:26:06.005643: Desired fold for training: 0
+2025-10-13 19:26:06.005814: This split has 4 training and 4 validation cases.
+using pin_memory on device 0
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/fft_conv_pytorch/fft_conv.py:139: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:306.)
+  output = output[crop_slices].contiguous()
+using pin_memory on device 0
+
+This is the configuration used by this training:
+Configuration name: 3d_32x160x128_b10
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 10, 'patch_size': [32, 160, 128], 'median_image_size_in_voxels': [375.0, 498.0, 498.0], 'spacing': [1.0, 1.0, 1.0], 'normalization_schemes': ['ZScoreNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': [32, 64, 128, 256, 320, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [1, 2, 2]], 'n_conv_per_stage': [2, 2, 2, 2, 2, 2], 'n_conv_per_stage_decoder': [2, 2, 2, 2, 2], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}, 'deep_supervision': True}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': True, 'inherits_from': '3d_fullres'} 
+
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset307_Sohee_Calcium_OCT_CrossValidation', 'plans_name': 'nnUNetPlans', 'original_median_spacing_after_transp': [1.0, 1.0, 1.0], 'original_median_shape_after_transp': [375, 498, 498], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'ExperimentPlanner', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 0.4977976381778717, 'mean': 0.13507525622844696, 'median': 0.09599608182907104, 'min': 0.0, 'percentile_00_5': 0.014754901640117168, 'percentile_99_5': 0.4977976381778717, 'std': 0.12025152146816254}}} 
+
+2025-10-13 19:26:11.446676: unpacking dataset...
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/torch/_inductor/lowering.py:7095: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/torch/_inductor/lowering.py:7095: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/torch/_inductor/lowering.py:7095: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/nfs/erelab001/shared/Computational_Group/Naravich/nnUNet/.venv/lib/python3.12/site-packages/torch/_inductor/lowering.py:7095: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+2025-10-13 19:26:15.886977: unpacking done...
+2025-10-13 19:26:15.903756: Unable to plot network architecture: nnUNet_compile is enabled!
+2025-10-13 19:26:15.911004: 
+2025-10-13 19:26:15.911215: Epoch 0
+2025-10-13 19:26:15.911420: Current learning rate: 0.01
+2025-10-13 19:27:35.184917: Validation loss improved from 1000.00000 to -0.25102! Patience: 0/50
+2025-10-13 19:27:35.185318: train_loss -0.0921
+2025-10-13 19:27:35.185517: val_loss -0.251
+2025-10-13 19:27:35.185672: Pseudo dice [np.float32(0.5801)]
+2025-10-13 19:27:35.185869: Epoch time: 79.28 s
+2025-10-13 19:27:35.185986: Yayy! New best EMA pseudo Dice: 0.5800999999046326
+2025-10-13 19:27:36.106709: 
+2025-10-13 19:27:36.106993: Epoch 1
+2025-10-13 19:27:36.107248: Current learning rate: 0.00994
+2025-10-13 19:28:22.027611: Validation loss improved from -0.25102 to -0.31985! Patience: 0/50
+2025-10-13 19:28:22.028491: train_loss -0.2633
+2025-10-13 19:28:22.028624: val_loss -0.3198
+2025-10-13 19:28:22.028821: Pseudo dice [np.float32(0.6067)]
+2025-10-13 19:28:22.029013: Epoch time: 45.92 s
+2025-10-13 19:28:22.029215: Yayy! New best EMA pseudo Dice: 0.5827999711036682
+2025-10-13 19:28:23.067391: 
+2025-10-13 19:28:23.067676: Epoch 2
+2025-10-13 19:28:23.067831: Current learning rate: 0.00988
+2025-10-13 19:29:09.146564: Validation loss improved from -0.31985 to -0.35535! Patience: 0/50
+2025-10-13 19:29:09.147106: train_loss -0.3446
+2025-10-13 19:29:09.147290: val_loss -0.3554
+2025-10-13 19:29:09.147424: Pseudo dice [np.float32(0.6459)]
+2025-10-13 19:29:09.147636: Epoch time: 46.08 s
+2025-10-13 19:29:09.147780: Yayy! New best EMA pseudo Dice: 0.5891000032424927
+2025-10-13 19:29:10.203630: 
+2025-10-13 19:29:10.203933: Epoch 3
+2025-10-13 19:29:10.204180: Current learning rate: 0.00982
+2025-10-13 19:29:56.245920: Validation loss improved from -0.35535 to -0.35831! Patience: 0/50
+2025-10-13 19:29:56.246596: train_loss -0.4113
+2025-10-13 19:29:56.246721: val_loss -0.3583
+2025-10-13 19:29:56.246896: Pseudo dice [np.float32(0.6197)]
+2025-10-13 19:29:56.247086: Epoch time: 46.04 s
+2025-10-13 19:29:56.247272: Yayy! New best EMA pseudo Dice: 0.5921000242233276
+2025-10-13 19:29:57.300479: 
+2025-10-13 19:29:57.301229: Epoch 4
+2025-10-13 19:29:57.301869: Current learning rate: 0.00976
+2025-10-13 19:30:43.329409: Validation loss improved from -0.35831 to -0.39422! Patience: 0/50
+2025-10-13 19:30:43.329966: train_loss -0.4399
+2025-10-13 19:30:43.330236: val_loss -0.3942
+2025-10-13 19:30:43.330457: Pseudo dice [np.float32(0.6656)]
+2025-10-13 19:30:43.330710: Epoch time: 46.03 s
+2025-10-13 19:30:43.705982: Yayy! New best EMA pseudo Dice: 0.5995000004768372
+2025-10-13 19:30:44.750803: 
+2025-10-13 19:30:44.751109: Epoch 5
+2025-10-13 19:30:44.751308: Current learning rate: 0.0097
+2025-10-13 19:31:30.744306: Validation loss did not improve from -0.39422. Patience: 1/50
+2025-10-13 19:31:30.744902: train_loss -0.4601
+2025-10-13 19:31:30.745137: val_loss -0.3819
+2025-10-13 19:31:30.745331: Pseudo dice [np.float32(0.6507)]
+2025-10-13 19:31:30.745550: Epoch time: 45.99 s
+2025-10-13 19:31:30.745733: Yayy! New best EMA pseudo Dice: 0.6046000123023987
+2025-10-13 19:31:31.786039: 
+2025-10-13 19:31:31.786377: Epoch 6
+2025-10-13 19:31:31.786677: Current learning rate: 0.00964
+2025-10-13 19:32:17.785075: Validation loss improved from -0.39422 to -0.42179! Patience: 1/50
+2025-10-13 19:32:17.785608: train_loss -0.4806
+2025-10-13 19:32:17.785787: val_loss -0.4218
+2025-10-13 19:32:17.785917: Pseudo dice [np.float32(0.6821)]
+2025-10-13 19:32:17.786074: Epoch time: 46.0 s
+2025-10-13 19:32:17.786222: Yayy! New best EMA pseudo Dice: 0.6123999953269958
+2025-10-13 19:32:18.831434: 
+2025-10-13 19:32:18.831933: Epoch 7
+2025-10-13 19:32:18.832319: Current learning rate: 0.00958
+2025-10-13 19:33:04.814818: Validation loss improved from -0.42179 to -0.44085! Patience: 0/50
+2025-10-13 19:33:04.815237: train_loss -0.5041
+2025-10-13 19:33:04.815375: val_loss -0.4409
+2025-10-13 19:33:04.815520: Pseudo dice [np.float32(0.6952)]
+2025-10-13 19:33:04.815639: Epoch time: 45.98 s
+2025-10-13 19:33:04.815770: Yayy! New best EMA pseudo Dice: 0.6207000017166138
+2025-10-13 19:33:05.862394: 
+2025-10-13 19:33:05.862656: Epoch 8
+2025-10-13 19:33:05.862828: Current learning rate: 0.00952
+2025-10-13 19:33:51.902598: Validation loss did not improve from -0.44085. Patience: 1/50
+2025-10-13 19:33:51.903198: train_loss -0.5144
+2025-10-13 19:33:51.903379: val_loss -0.4278
+2025-10-13 19:33:51.903505: Pseudo dice [np.float32(0.6762)]
+2025-10-13 19:33:51.903637: Epoch time: 46.04 s
+2025-10-13 19:33:51.903747: Yayy! New best EMA pseudo Dice: 0.6262000203132629
+2025-10-13 19:33:52.969088: 
+2025-10-13 19:33:52.969381: Epoch 9
+2025-10-13 19:33:52.969558: Current learning rate: 0.00946
+2025-10-13 19:34:39.003033: Validation loss did not improve from -0.44085. Patience: 2/50
+2025-10-13 19:34:39.003778: train_loss -0.5216
+2025-10-13 19:34:39.004131: val_loss -0.4256
+2025-10-13 19:34:39.004453: Pseudo dice [np.float32(0.6861)]
+2025-10-13 19:34:39.004780: Epoch time: 46.04 s
+2025-10-13 19:34:39.412393: Yayy! New best EMA pseudo Dice: 0.6322000026702881
+2025-10-13 19:34:40.437095: 
+2025-10-13 19:34:40.437394: Epoch 10
+2025-10-13 19:34:40.437550: Current learning rate: 0.0094
+2025-10-13 19:35:26.439173: Validation loss did not improve from -0.44085. Patience: 3/50
+2025-10-13 19:35:26.440627: train_loss -0.5388
+2025-10-13 19:35:26.441328: val_loss -0.4286
+2025-10-13 19:35:26.441927: Pseudo dice [np.float32(0.683)]
+2025-10-13 19:35:26.442513: Epoch time: 46.0 s
+2025-10-13 19:35:26.443072: Yayy! New best EMA pseudo Dice: 0.6373000144958496
+2025-10-13 19:35:27.498512: 
+2025-10-13 19:35:27.498816: Epoch 11
+2025-10-13 19:35:27.498990: Current learning rate: 0.00934
+2025-10-13 19:36:13.477471: Validation loss improved from -0.44085 to -0.44514! Patience: 3/50
+2025-10-13 19:36:13.478242: train_loss -0.558
+2025-10-13 19:36:13.478536: val_loss -0.4451
+2025-10-13 19:36:13.478744: Pseudo dice [np.float32(0.6976)]
+2025-10-13 19:36:13.479046: Epoch time: 45.98 s
+2025-10-13 19:36:13.479341: Yayy! New best EMA pseudo Dice: 0.6432999968528748
+2025-10-13 19:36:14.965567: 
+2025-10-13 19:36:14.965899: Epoch 12
+2025-10-13 19:36:14.966161: Current learning rate: 0.00928
+2025-10-13 19:37:00.988430: Validation loss improved from -0.44514 to -0.45845! Patience: 0/50
+2025-10-13 19:37:00.988975: train_loss -0.5616
+2025-10-13 19:37:00.989143: val_loss -0.4585
+2025-10-13 19:37:00.989312: Pseudo dice [np.float32(0.7077)]
+2025-10-13 19:37:00.989456: Epoch time: 46.02 s
+2025-10-13 19:37:00.989573: Yayy! New best EMA pseudo Dice: 0.6496999859809875
+2025-10-13 19:37:02.066696: 
+2025-10-13 19:37:02.067208: Epoch 13
+2025-10-13 19:37:02.067591: Current learning rate: 0.00922
+2025-10-13 19:37:48.209408: Validation loss did not improve from -0.45845. Patience: 1/50
+2025-10-13 19:37:48.210151: train_loss -0.5779
+2025-10-13 19:37:48.210461: val_loss -0.4305
+2025-10-13 19:37:48.210763: Pseudo dice [np.float32(0.6779)]
+2025-10-13 19:37:48.211076: Epoch time: 46.14 s
+2025-10-13 19:37:48.211402: Yayy! New best EMA pseudo Dice: 0.6525999903678894
+2025-10-13 19:37:49.278710: 
+2025-10-13 19:37:49.279466: Epoch 14
+2025-10-13 19:37:49.280077: Current learning rate: 0.00916
+2025-10-13 19:38:35.397251: Validation loss improved from -0.45845 to -0.46800! Patience: 1/50
+2025-10-13 19:38:35.397899: train_loss -0.5865
+2025-10-13 19:38:35.398142: val_loss -0.468
+2025-10-13 19:38:35.398491: Pseudo dice [np.float32(0.7019)]
+2025-10-13 19:38:35.398784: Epoch time: 46.12 s
+2025-10-13 19:38:35.828907: Yayy! New best EMA pseudo Dice: 0.6575000286102295
+2025-10-13 19:38:36.880221: 
+2025-10-13 19:38:36.880613: Epoch 15
+2025-10-13 19:38:36.880797: Current learning rate: 0.0091
+2025-10-13 19:39:22.875131: Validation loss improved from -0.46800 to -0.50211! Patience: 0/50
+2025-10-13 19:39:22.875613: train_loss -0.5985
+2025-10-13 19:39:22.875746: val_loss -0.5021
+2025-10-13 19:39:22.875885: Pseudo dice [np.float32(0.7231)]
+2025-10-13 19:39:22.876006: Epoch time: 46.0 s
+2025-10-13 19:39:22.876140: Yayy! New best EMA pseudo Dice: 0.6640999913215637
+2025-10-13 19:39:23.954013: 
+2025-10-13 19:39:23.954311: Epoch 16
+2025-10-13 19:39:23.954511: Current learning rate: 0.00903
+2025-10-13 19:40:10.033528: Validation loss did not improve from -0.50211. Patience: 1/50
+2025-10-13 19:40:10.034267: train_loss -0.6048
+2025-10-13 19:40:10.034691: val_loss -0.4317
+2025-10-13 19:40:10.034921: Pseudo dice [np.float32(0.6748)]
+2025-10-13 19:40:10.035230: Epoch time: 46.08 s
+2025-10-13 19:40:10.035569: Yayy! New best EMA pseudo Dice: 0.6650999784469604
+2025-10-13 19:40:11.116945: 
+2025-10-13 19:40:11.117296: Epoch 17
+2025-10-13 19:40:11.117460: Current learning rate: 0.00897
+2025-10-13 19:40:57.144184: Validation loss did not improve from -0.50211. Patience: 2/50
+2025-10-13 19:40:57.145046: train_loss -0.6107
+2025-10-13 19:40:57.145391: val_loss -0.4614
+2025-10-13 19:40:57.145677: Pseudo dice [np.float32(0.7044)]
+2025-10-13 19:40:57.145984: Epoch time: 46.03 s
+2025-10-13 19:40:57.146343: Yayy! New best EMA pseudo Dice: 0.6690999865531921
+2025-10-13 19:40:58.235512: 
+2025-10-13 19:40:58.235797: Epoch 18
+2025-10-13 19:40:58.235966: Current learning rate: 0.00891
+2025-10-13 19:41:44.284242: Validation loss did not improve from -0.50211. Patience: 3/50
+2025-10-13 19:41:44.284865: train_loss -0.6142
+2025-10-13 19:41:44.284999: val_loss -0.4103
+2025-10-13 19:41:44.285110: Pseudo dice [np.float32(0.6633)]
+2025-10-13 19:41:44.285239: Epoch time: 46.05 s
+2025-10-13 19:41:44.920686: 
+2025-10-13 19:41:44.921046: Epoch 19
+2025-10-13 19:41:44.921242: Current learning rate: 0.00885
+2025-10-13 19:42:30.987259: Validation loss did not improve from -0.50211. Patience: 4/50
+2025-10-13 19:42:30.987715: train_loss -0.6204
+2025-10-13 19:42:30.987929: val_loss -0.4815
+2025-10-13 19:42:30.988039: Pseudo dice [np.float32(0.7092)]
+2025-10-13 19:42:30.988173: Epoch time: 46.07 s
+2025-10-13 19:42:31.422690: Yayy! New best EMA pseudo Dice: 0.6725000143051147
+2025-10-13 19:42:32.507950: 
+2025-10-13 19:42:32.508432: Epoch 20
+2025-10-13 19:42:32.508774: Current learning rate: 0.00879
+2025-10-13 19:43:18.535164: Validation loss did not improve from -0.50211. Patience: 5/50
+2025-10-13 19:43:18.535805: train_loss -0.6199
+2025-10-13 19:43:18.535946: val_loss -0.4706
+2025-10-13 19:43:18.536071: Pseudo dice [np.float32(0.698)]
+2025-10-13 19:43:18.536205: Epoch time: 46.03 s
+2025-10-13 19:43:18.536364: Yayy! New best EMA pseudo Dice: 0.6751000285148621
+2025-10-13 19:43:19.630482: 
+2025-10-13 19:43:19.630728: Epoch 21
+2025-10-13 19:43:19.630883: Current learning rate: 0.00873
+2025-10-13 19:44:05.684392: Validation loss did not improve from -0.50211. Patience: 6/50
+2025-10-13 19:44:05.685140: train_loss -0.6347
+2025-10-13 19:44:05.685311: val_loss -0.4832
+2025-10-13 19:44:05.685495: Pseudo dice [np.float32(0.7262)]
+2025-10-13 19:44:05.685621: Epoch time: 46.06 s
+2025-10-13 19:44:05.685774: Yayy! New best EMA pseudo Dice: 0.6801999807357788
+2025-10-13 19:44:06.749840: 
+2025-10-13 19:44:06.750366: Epoch 22
+2025-10-13 19:44:06.750812: Current learning rate: 0.00867
+2025-10-13 19:44:52.768683: Validation loss did not improve from -0.50211. Patience: 7/50
+2025-10-13 19:44:52.769488: train_loss -0.6388
+2025-10-13 19:44:52.769813: val_loss -0.4943
+2025-10-13 19:44:52.770101: Pseudo dice [np.float32(0.7295)]
+2025-10-13 19:44:52.770391: Epoch time: 46.02 s
+2025-10-13 19:44:52.770689: Yayy! New best EMA pseudo Dice: 0.6851000189781189
+2025-10-13 19:44:53.852433: 
+2025-10-13 19:44:53.852768: Epoch 23
+2025-10-13 19:44:53.852957: Current learning rate: 0.00861
+2025-10-13 19:45:39.910805: Validation loss did not improve from -0.50211. Patience: 8/50
+2025-10-13 19:45:39.911491: train_loss -0.6458
+2025-10-13 19:45:39.911669: val_loss -0.4846
+2025-10-13 19:45:39.911814: Pseudo dice [np.float32(0.7203)]
+2025-10-13 19:45:39.911963: Epoch time: 46.06 s
+2025-10-13 19:45:39.912086: Yayy! New best EMA pseudo Dice: 0.6887000203132629
+2025-10-13 19:45:40.997424: 
+2025-10-13 19:45:40.998069: Epoch 24
+2025-10-13 19:45:40.998525: Current learning rate: 0.00855
+2025-10-13 19:46:27.099608: Validation loss did not improve from -0.50211. Patience: 9/50
+2025-10-13 19:46:27.100529: train_loss -0.6476
+2025-10-13 19:46:27.100904: val_loss -0.4727
+2025-10-13 19:46:27.101223: Pseudo dice [np.float32(0.7051)]
+2025-10-13 19:46:27.101539: Epoch time: 46.1 s
+2025-10-13 19:46:27.541587: Yayy! New best EMA pseudo Dice: 0.6902999877929688
+2025-10-13 19:46:28.621463: 
+2025-10-13 19:46:28.621836: Epoch 25
+2025-10-13 19:46:28.622067: Current learning rate: 0.00849
+2025-10-13 19:47:14.715017: Validation loss did not improve from -0.50211. Patience: 10/50
+2025-10-13 19:47:14.715575: train_loss -0.6582
+2025-10-13 19:47:14.715823: val_loss -0.4873
+2025-10-13 19:47:14.715958: Pseudo dice [np.float32(0.7147)]
+2025-10-13 19:47:14.716185: Epoch time: 46.09 s
+2025-10-13 19:47:14.716406: Yayy! New best EMA pseudo Dice: 0.6927000284194946
+2025-10-13 19:47:15.791618: 
+2025-10-13 19:47:15.791992: Epoch 26
+2025-10-13 19:47:15.792251: Current learning rate: 0.00843
+2025-10-13 19:48:01.844066: Validation loss did not improve from -0.50211. Patience: 11/50
+2025-10-13 19:48:01.844882: train_loss -0.6494
+2025-10-13 19:48:01.845179: val_loss -0.4761
+2025-10-13 19:48:01.845448: Pseudo dice [np.float32(0.7089)]
+2025-10-13 19:48:01.845771: Epoch time: 46.05 s
+2025-10-13 19:48:01.846043: Yayy! New best EMA pseudo Dice: 0.6944000124931335
+2025-10-13 19:48:03.389328: 
+2025-10-13 19:48:03.389697: Epoch 27
+2025-10-13 19:48:03.389926: Current learning rate: 0.00836
+2025-10-13 19:48:49.518783: Validation loss did not improve from -0.50211. Patience: 12/50
+2025-10-13 19:48:49.519288: train_loss -0.6519
+2025-10-13 19:48:49.519415: val_loss -0.4443
+2025-10-13 19:48:49.519526: Pseudo dice [np.float32(0.6927)]
+2025-10-13 19:48:49.519649: Epoch time: 46.13 s
+2025-10-13 19:48:50.148922: 
+2025-10-13 19:48:50.149210: Epoch 28
+2025-10-13 19:48:50.149362: Current learning rate: 0.0083
+2025-10-13 19:49:36.278768: Validation loss did not improve from -0.50211. Patience: 13/50
+2025-10-13 19:49:36.279425: train_loss -0.6633
+2025-10-13 19:49:36.279743: val_loss -0.4832
+2025-10-13 19:49:36.279953: Pseudo dice [np.float32(0.7043)]
+2025-10-13 19:49:36.280171: Epoch time: 46.13 s
+2025-10-13 19:49:36.280431: Yayy! New best EMA pseudo Dice: 0.6952000260353088
+2025-10-13 19:49:37.337953: 
+2025-10-13 19:49:37.338294: Epoch 29
+2025-10-13 19:49:37.338474: Current learning rate: 0.00824
+2025-10-13 19:50:23.538723: Validation loss did not improve from -0.50211. Patience: 14/50
+2025-10-13 19:50:23.539234: train_loss -0.6666
+2025-10-13 19:50:23.539503: val_loss -0.4927
+2025-10-13 19:50:23.539764: Pseudo dice [np.float32(0.7307)]
+2025-10-13 19:50:23.539957: Epoch time: 46.2 s
+2025-10-13 19:50:23.988192: Yayy! New best EMA pseudo Dice: 0.6988000273704529
+2025-10-13 19:50:25.043676: 
+2025-10-13 19:50:25.044210: Epoch 30
+2025-10-13 19:50:25.044643: Current learning rate: 0.00818
+2025-10-13 19:51:11.201261: Validation loss did not improve from -0.50211. Patience: 15/50
+2025-10-13 19:51:11.201894: train_loss -0.6697
+2025-10-13 19:51:11.202060: val_loss -0.4837
+2025-10-13 19:51:11.202211: Pseudo dice [np.float32(0.7323)]
+2025-10-13 19:51:11.202355: Epoch time: 46.16 s
+2025-10-13 19:51:11.202496: Yayy! New best EMA pseudo Dice: 0.7020999789237976
+2025-10-13 19:51:12.270833: 
+2025-10-13 19:51:12.271587: Epoch 31
+2025-10-13 19:51:12.272111: Current learning rate: 0.00812
+2025-10-13 19:51:58.431768: Validation loss did not improve from -0.50211. Patience: 16/50
+2025-10-13 19:51:58.432334: train_loss -0.672
+2025-10-13 19:51:58.432612: val_loss -0.4995
+2025-10-13 19:51:58.432872: Pseudo dice [np.float32(0.7225)]
+2025-10-13 19:51:58.433151: Epoch time: 46.16 s
+2025-10-13 19:51:58.433394: Yayy! New best EMA pseudo Dice: 0.704200029373169
+2025-10-13 19:51:59.507339: 
+2025-10-13 19:51:59.507679: Epoch 32
+2025-10-13 19:51:59.507876: Current learning rate: 0.00806
+2025-10-13 19:52:45.657908: Validation loss did not improve from -0.50211. Patience: 17/50
+2025-10-13 19:52:45.658605: train_loss -0.6723
+2025-10-13 19:52:45.658920: val_loss -0.5004
+2025-10-13 19:52:45.659164: Pseudo dice [np.float32(0.7226)]
+2025-10-13 19:52:45.659388: Epoch time: 46.15 s
+2025-10-13 19:52:45.659739: Yayy! New best EMA pseudo Dice: 0.7059999704360962
+2025-10-13 19:52:46.735640: 
+2025-10-13 19:52:46.736094: Epoch 33
+2025-10-13 19:52:46.736565: Current learning rate: 0.008
+2025-10-13 19:53:32.948307: Validation loss did not improve from -0.50211. Patience: 18/50
+2025-10-13 19:53:32.948700: train_loss -0.6691
+2025-10-13 19:53:32.948937: val_loss -0.4509
+2025-10-13 19:53:32.949131: Pseudo dice [np.float32(0.6942)]
+2025-10-13 19:53:32.949335: Epoch time: 46.21 s
+2025-10-13 19:53:33.585163: 
+2025-10-13 19:53:33.585483: Epoch 34
+2025-10-13 19:53:33.585633: Current learning rate: 0.00793
+2025-10-13 19:54:19.732522: Validation loss did not improve from -0.50211. Patience: 19/50
+2025-10-13 19:54:19.733107: train_loss -0.6772
+2025-10-13 19:54:19.733250: val_loss -0.4441
+2025-10-13 19:54:19.733353: Pseudo dice [np.float32(0.6935)]
+2025-10-13 19:54:19.733476: Epoch time: 46.15 s
+2025-10-13 19:54:20.798282: 
+2025-10-13 19:54:20.798579: Epoch 35
+2025-10-13 19:54:20.798731: Current learning rate: 0.00787
+2025-10-13 19:55:06.932036: Validation loss did not improve from -0.50211. Patience: 20/50
+2025-10-13 19:55:06.932477: train_loss -0.6837
+2025-10-13 19:55:06.932629: val_loss -0.4873
+2025-10-13 19:55:06.932846: Pseudo dice [np.float32(0.721)]
+2025-10-13 19:55:06.933038: Epoch time: 46.13 s
+2025-10-13 19:55:07.570341: 
+2025-10-13 19:55:07.570584: Epoch 36
+2025-10-13 19:55:07.570829: Current learning rate: 0.00781
+2025-10-13 19:55:53.751465: Validation loss did not improve from -0.50211. Patience: 21/50
+2025-10-13 19:55:53.752006: train_loss -0.6962
+2025-10-13 19:55:53.752153: val_loss -0.4584
+2025-10-13 19:55:53.752266: Pseudo dice [np.float32(0.7014)]
+2025-10-13 19:55:53.752417: Epoch time: 46.18 s
+2025-10-13 19:55:54.385861: 
+2025-10-13 19:55:54.386302: Epoch 37
+2025-10-13 19:55:54.386475: Current learning rate: 0.00775
+2025-10-13 19:56:40.485474: Validation loss did not improve from -0.50211. Patience: 22/50
+2025-10-13 19:56:40.485900: train_loss -0.6917
+2025-10-13 19:56:40.486130: val_loss -0.4414
+2025-10-13 19:56:40.486246: Pseudo dice [np.float32(0.6969)]
+2025-10-13 19:56:40.486380: Epoch time: 46.1 s
+2025-10-13 19:56:41.120182: 
+2025-10-13 19:56:41.120465: Epoch 38
+2025-10-13 19:56:41.120683: Current learning rate: 0.00769
+2025-10-13 19:57:27.141763: Validation loss did not improve from -0.50211. Patience: 23/50
+2025-10-13 19:57:27.142271: train_loss -0.6992
+2025-10-13 19:57:27.142440: val_loss -0.4901
+2025-10-13 19:57:27.142616: Pseudo dice [np.float32(0.7198)]
+2025-10-13 19:57:27.142766: Epoch time: 46.02 s
+2025-10-13 19:57:27.774419: 
+2025-10-13 19:57:27.774810: Epoch 39
+2025-10-13 19:57:27.775026: Current learning rate: 0.00763
+2025-10-13 19:58:13.812711: Validation loss did not improve from -0.50211. Patience: 24/50
+2025-10-13 19:58:13.813077: train_loss -0.6952
+2025-10-13 19:58:13.813241: val_loss -0.4434
+2025-10-13 19:58:13.813380: Pseudo dice [np.float32(0.6832)]
+2025-10-13 19:58:13.813500: Epoch time: 46.04 s
+2025-10-13 19:58:14.878829: 
+2025-10-13 19:58:14.879129: Epoch 40
+2025-10-13 19:58:14.879307: Current learning rate: 0.00756
+2025-10-13 19:59:00.929930: Validation loss improved from -0.50211 to -0.51329! Patience: 24/50
+2025-10-13 19:59:00.930509: train_loss -0.6918
+2025-10-13 19:59:00.930670: val_loss -0.5133
+2025-10-13 19:59:00.930827: Pseudo dice [np.float32(0.7308)]
+2025-10-13 19:59:00.930985: Epoch time: 46.05 s
+2025-10-13 19:59:00.931144: Yayy! New best EMA pseudo Dice: 0.7062000036239624
+2025-10-13 19:59:02.027034: 
+2025-10-13 19:59:02.027471: Epoch 41
+2025-10-13 19:59:02.027810: Current learning rate: 0.0075
+2025-10-13 19:59:48.148650: Validation loss did not improve from -0.51329. Patience: 1/50
+2025-10-13 19:59:48.149073: train_loss -0.6991
+2025-10-13 19:59:48.149271: val_loss -0.4851
+2025-10-13 19:59:48.149525: Pseudo dice [np.float32(0.7116)]
+2025-10-13 19:59:48.149788: Epoch time: 46.12 s
+2025-10-13 19:59:48.149921: Yayy! New best EMA pseudo Dice: 0.7067999839782715
+2025-10-13 19:59:49.712880: 
+2025-10-13 19:59:49.713329: Epoch 42
+2025-10-13 19:59:49.713568: Current learning rate: 0.00744
+2025-10-13 20:00:35.812244: Validation loss did not improve from -0.51329. Patience: 2/50
+2025-10-13 20:00:35.812898: train_loss -0.7084
+2025-10-13 20:00:35.813210: val_loss -0.4645
+2025-10-13 20:00:35.813550: Pseudo dice [np.float32(0.6959)]
+2025-10-13 20:00:35.813833: Epoch time: 46.1 s
+2025-10-13 20:00:36.445740: 
+2025-10-13 20:00:36.446124: Epoch 43
+2025-10-13 20:00:36.446340: Current learning rate: 0.00738
+2025-10-13 20:01:22.544668: Validation loss did not improve from -0.51329. Patience: 3/50
+2025-10-13 20:01:22.545183: train_loss -0.705
+2025-10-13 20:01:22.545342: val_loss -0.4708
+2025-10-13 20:01:22.545452: Pseudo dice [np.float32(0.7052)]
+2025-10-13 20:01:22.545593: Epoch time: 46.1 s
+2025-10-13 20:01:23.171460: 
+2025-10-13 20:01:23.171662: Epoch 44
+2025-10-13 20:01:23.171804: Current learning rate: 0.00732
+2025-10-13 20:02:09.270381: Validation loss did not improve from -0.51329. Patience: 4/50
+2025-10-13 20:02:09.270842: train_loss -0.7014
+2025-10-13 20:02:09.271021: val_loss -0.4662
+2025-10-13 20:02:09.271288: Pseudo dice [np.float32(0.7032)]
+2025-10-13 20:02:09.271579: Epoch time: 46.1 s
+2025-10-13 20:02:10.330443: 
+2025-10-13 20:02:10.330675: Epoch 45
+2025-10-13 20:02:10.330879: Current learning rate: 0.00725
+2025-10-13 20:02:56.421346: Validation loss did not improve from -0.51329. Patience: 5/50
+2025-10-13 20:02:56.421823: train_loss -0.6985
+2025-10-13 20:02:56.421960: val_loss -0.469
+2025-10-13 20:02:56.422158: Pseudo dice [np.float32(0.7058)]
+2025-10-13 20:02:56.422295: Epoch time: 46.09 s
+2025-10-13 20:02:57.042100: 
+2025-10-13 20:02:57.042322: Epoch 46
+2025-10-13 20:02:57.042470: Current learning rate: 0.00719
+2025-10-13 20:03:43.152088: Validation loss did not improve from -0.51329. Patience: 6/50
+2025-10-13 20:03:43.152798: train_loss -0.7044
+2025-10-13 20:03:43.153091: val_loss -0.4569
+2025-10-13 20:03:43.153284: Pseudo dice [np.float32(0.6932)]
+2025-10-13 20:03:43.153467: Epoch time: 46.11 s
+2025-10-13 20:03:43.784414: 
+2025-10-13 20:03:43.784629: Epoch 47
+2025-10-13 20:03:43.784795: Current learning rate: 0.00713
+2025-10-13 20:04:29.867523: Validation loss did not improve from -0.51329. Patience: 7/50
+2025-10-13 20:04:29.867977: train_loss -0.6994
+2025-10-13 20:04:29.868206: val_loss -0.4755
+2025-10-13 20:04:29.868397: Pseudo dice [np.float32(0.7098)]
+2025-10-13 20:04:29.868588: Epoch time: 46.08 s
+2025-10-13 20:04:30.492919: 
+2025-10-13 20:04:30.493333: Epoch 48
+2025-10-13 20:04:30.493603: Current learning rate: 0.00707
+2025-10-13 20:05:16.623809: Validation loss did not improve from -0.51329. Patience: 8/50
+2025-10-13 20:05:16.624587: train_loss -0.7092
+2025-10-13 20:05:16.624787: val_loss -0.4903
+2025-10-13 20:05:16.625156: Pseudo dice [np.float32(0.7196)]
+2025-10-13 20:05:16.625440: Epoch time: 46.13 s
+2025-10-13 20:05:17.260587: 
+2025-10-13 20:05:17.260923: Epoch 49
+2025-10-13 20:05:17.261229: Current learning rate: 0.007
+2025-10-13 20:06:03.378881: Validation loss did not improve from -0.51329. Patience: 9/50
+2025-10-13 20:06:03.379899: train_loss -0.718
+2025-10-13 20:06:03.380266: val_loss -0.428
+2025-10-13 20:06:03.380466: Pseudo dice [np.float32(0.6741)]
+2025-10-13 20:06:03.380726: Epoch time: 46.12 s
+2025-10-13 20:06:04.452893: 
+2025-10-13 20:06:04.453231: Epoch 50
+2025-10-13 20:06:04.453455: Current learning rate: 0.00694
+2025-10-13 20:06:50.590549: Validation loss did not improve from -0.51329. Patience: 10/50
+2025-10-13 20:06:50.591101: train_loss -0.7178
+2025-10-13 20:06:50.591261: val_loss -0.419
+2025-10-13 20:06:50.591381: Pseudo dice [np.float32(0.6725)]
+2025-10-13 20:06:50.591527: Epoch time: 46.14 s
+2025-10-13 20:06:51.222668: 
+2025-10-13 20:06:51.222952: Epoch 51
+2025-10-13 20:06:51.223104: Current learning rate: 0.00688
+2025-10-13 20:07:37.368459: Validation loss did not improve from -0.51329. Patience: 11/50
+2025-10-13 20:07:37.368855: train_loss -0.7135
+2025-10-13 20:07:37.369048: val_loss -0.471
+2025-10-13 20:07:37.369202: Pseudo dice [np.float32(0.7156)]
+2025-10-13 20:07:37.369371: Epoch time: 46.15 s
+2025-10-13 20:07:37.999690: 
+2025-10-13 20:07:38.000025: Epoch 52
+2025-10-13 20:07:38.000218: Current learning rate: 0.00682
+2025-10-13 20:08:24.142722: Validation loss did not improve from -0.51329. Patience: 12/50
+2025-10-13 20:08:24.143730: train_loss -0.7144
+2025-10-13 20:08:24.143920: val_loss -0.4715
+2025-10-13 20:08:24.144143: Pseudo dice [np.float32(0.7061)]
+2025-10-13 20:08:24.144537: Epoch time: 46.14 s
+2025-10-13 20:08:24.773761: 
+2025-10-13 20:08:24.774283: Epoch 53
+2025-10-13 20:08:24.774657: Current learning rate: 0.00675
+2025-10-13 20:09:10.922766: Validation loss did not improve from -0.51329. Patience: 13/50
+2025-10-13 20:09:10.923368: train_loss -0.7247
+2025-10-13 20:09:10.923661: val_loss -0.4849
+2025-10-13 20:09:10.923916: Pseudo dice [np.float32(0.7223)]
+2025-10-13 20:09:10.924223: Epoch time: 46.15 s
+2025-10-13 20:09:11.550161: 
+2025-10-13 20:09:11.550365: Epoch 54
+2025-10-13 20:09:11.550682: Current learning rate: 0.00669
+2025-10-13 20:09:57.815934: Validation loss did not improve from -0.51329. Patience: 14/50
+2025-10-13 20:09:57.816607: train_loss -0.7232
+2025-10-13 20:09:57.816884: val_loss -0.4795
+2025-10-13 20:09:57.817103: Pseudo dice [np.float32(0.7218)]
+2025-10-13 20:09:57.817330: Epoch time: 46.27 s
+2025-10-13 20:09:58.886472: 
+2025-10-13 20:09:58.886778: Epoch 55
+2025-10-13 20:09:58.886928: Current learning rate: 0.00663
+2025-10-13 20:10:45.093590: Validation loss did not improve from -0.51329. Patience: 15/50
+2025-10-13 20:10:45.094282: train_loss -0.7275
+2025-10-13 20:10:45.094418: val_loss -0.4029
+2025-10-13 20:10:45.094530: Pseudo dice [np.float32(0.6858)]
+2025-10-13 20:10:45.094839: Epoch time: 46.21 s
+2025-10-13 20:10:45.729232: 
+2025-10-13 20:10:45.729556: Epoch 56
+2025-10-13 20:10:45.729731: Current learning rate: 0.00657
+2025-10-13 20:11:31.829835: Validation loss did not improve from -0.51329. Patience: 16/50
+2025-10-13 20:11:31.830198: train_loss -0.7253
+2025-10-13 20:11:31.830323: val_loss -0.4477
+2025-10-13 20:11:31.830458: Pseudo dice [np.float32(0.6944)]
+2025-10-13 20:11:31.830577: Epoch time: 46.1 s
+2025-10-13 20:11:32.468249: 
+2025-10-13 20:11:32.468724: Epoch 57
+2025-10-13 20:11:32.469044: Current learning rate: 0.0065
+2025-10-13 20:12:18.564069: Validation loss did not improve from -0.51329. Patience: 17/50
+2025-10-13 20:12:18.564530: train_loss -0.729
+2025-10-13 20:12:18.564671: val_loss -0.4992
+2025-10-13 20:12:18.564834: Pseudo dice [np.float32(0.727)]
+2025-10-13 20:12:18.565039: Epoch time: 46.1 s
+2025-10-13 20:12:19.665689: 
+2025-10-13 20:12:19.665922: Epoch 58
+2025-10-13 20:12:19.666085: Current learning rate: 0.00644
+2025-10-13 20:13:05.734707: Validation loss did not improve from -0.51329. Patience: 18/50
+2025-10-13 20:13:05.735783: train_loss -0.7379
+2025-10-13 20:13:05.736240: val_loss -0.4658
+2025-10-13 20:13:05.736631: Pseudo dice [np.float32(0.7144)]
+2025-10-13 20:13:05.737038: Epoch time: 46.07 s
+2025-10-13 20:13:06.387774: 
+2025-10-13 20:13:06.388307: Epoch 59
+2025-10-13 20:13:06.388701: Current learning rate: 0.00638
+2025-10-13 20:13:52.466985: Validation loss did not improve from -0.51329. Patience: 19/50
+2025-10-13 20:13:52.467581: train_loss -0.737
+2025-10-13 20:13:52.468020: val_loss -0.4727
+2025-10-13 20:13:52.468181: Pseudo dice [np.float32(0.7223)]
+2025-10-13 20:13:52.468329: Epoch time: 46.08 s
+2025-10-13 20:13:52.921710: Yayy! New best EMA pseudo Dice: 0.7077999711036682
+2025-10-13 20:13:54.007013: 
+2025-10-13 20:13:54.007782: Epoch 60
+2025-10-13 20:13:54.008534: Current learning rate: 0.00631
+2025-10-13 20:14:40.118578: Validation loss did not improve from -0.51329. Patience: 20/50
+2025-10-13 20:14:40.119440: train_loss -0.7351
+2025-10-13 20:14:40.119869: val_loss -0.4718
+2025-10-13 20:14:40.120257: Pseudo dice [np.float32(0.7111)]
+2025-10-13 20:14:40.120651: Epoch time: 46.11 s
+2025-10-13 20:14:40.120975: Yayy! New best EMA pseudo Dice: 0.7081000208854675
+2025-10-13 20:14:41.192388: 
+2025-10-13 20:14:41.192724: Epoch 61
+2025-10-13 20:14:41.192977: Current learning rate: 0.00625
+2025-10-13 20:15:27.311166: Validation loss did not improve from -0.51329. Patience: 21/50
+2025-10-13 20:15:27.311633: train_loss -0.7369
+2025-10-13 20:15:27.311811: val_loss -0.4607
+2025-10-13 20:15:27.311973: Pseudo dice [np.float32(0.7044)]
+2025-10-13 20:15:27.312161: Epoch time: 46.12 s
+2025-10-13 20:15:27.954321: 
+2025-10-13 20:15:27.954662: Epoch 62
+2025-10-13 20:15:27.954946: Current learning rate: 0.00619
+2025-10-13 20:16:14.042270: Validation loss did not improve from -0.51329. Patience: 22/50
+2025-10-13 20:16:14.043320: train_loss -0.7316
+2025-10-13 20:16:14.043747: val_loss -0.4732
+2025-10-13 20:16:14.044221: Pseudo dice [np.float32(0.7065)]
+2025-10-13 20:16:14.044687: Epoch time: 46.09 s
+2025-10-13 20:16:14.692105: 
+2025-10-13 20:16:14.692420: Epoch 63
+2025-10-13 20:16:14.692582: Current learning rate: 0.00612
+2025-10-13 20:17:00.769056: Validation loss did not improve from -0.51329. Patience: 23/50
+2025-10-13 20:17:00.769427: train_loss -0.7374
+2025-10-13 20:17:00.769594: val_loss -0.4639
+2025-10-13 20:17:00.769814: Pseudo dice [np.float32(0.7108)]
+2025-10-13 20:17:00.770019: Epoch time: 46.08 s
+2025-10-13 20:17:01.414859: 
+2025-10-13 20:17:01.415311: Epoch 64
+2025-10-13 20:17:01.415616: Current learning rate: 0.00606
+2025-10-13 20:17:47.495136: Validation loss did not improve from -0.51329. Patience: 24/50
+2025-10-13 20:17:47.495765: train_loss -0.7437
+2025-10-13 20:17:47.495930: val_loss -0.5086
+2025-10-13 20:17:47.496052: Pseudo dice [np.float32(0.7288)]
+2025-10-13 20:17:47.496175: Epoch time: 46.08 s
+2025-10-13 20:17:47.921727: Yayy! New best EMA pseudo Dice: 0.7099999785423279
+2025-10-13 20:17:48.981058: 
+2025-10-13 20:17:48.981510: Epoch 65
+2025-10-13 20:17:48.981827: Current learning rate: 0.006
+2025-10-13 20:18:35.084883: Validation loss did not improve from -0.51329. Patience: 25/50
+2025-10-13 20:18:35.085333: train_loss -0.75
+2025-10-13 20:18:35.085517: val_loss -0.4869
+2025-10-13 20:18:35.085632: Pseudo dice [np.float32(0.7171)]
+2025-10-13 20:18:35.085757: Epoch time: 46.1 s
+2025-10-13 20:18:35.085869: Yayy! New best EMA pseudo Dice: 0.7106999754905701
+2025-10-13 20:18:36.153927: 
+2025-10-13 20:18:36.154268: Epoch 66
+2025-10-13 20:18:36.154562: Current learning rate: 0.00593
+2025-10-13 20:19:22.262491: Validation loss did not improve from -0.51329. Patience: 26/50
+2025-10-13 20:19:22.262952: train_loss -0.743
+2025-10-13 20:19:22.263093: val_loss -0.5068
+2025-10-13 20:19:22.263290: Pseudo dice [np.float32(0.7333)]
+2025-10-13 20:19:22.263453: Epoch time: 46.11 s
+2025-10-13 20:19:22.263573: Yayy! New best EMA pseudo Dice: 0.7129999995231628
+2025-10-13 20:19:23.344494: 
+2025-10-13 20:19:23.344892: Epoch 67
+2025-10-13 20:19:23.345271: Current learning rate: 0.00587
+2025-10-13 20:20:09.443114: Validation loss did not improve from -0.51329. Patience: 27/50
+2025-10-13 20:20:09.443671: train_loss -0.7386
+2025-10-13 20:20:09.443816: val_loss -0.4509
+2025-10-13 20:20:09.443938: Pseudo dice [np.float32(0.705)]
+2025-10-13 20:20:09.444205: Epoch time: 46.1 s
+2025-10-13 20:20:10.085957: 
+2025-10-13 20:20:10.086254: Epoch 68
+2025-10-13 20:20:10.086438: Current learning rate: 0.00581
+2025-10-13 20:20:56.222902: Validation loss did not improve from -0.51329. Patience: 28/50
+2025-10-13 20:20:56.223451: train_loss -0.7497
+2025-10-13 20:20:56.223643: val_loss -0.4477
+2025-10-13 20:20:56.223801: Pseudo dice [np.float32(0.7009)]
+2025-10-13 20:20:56.224035: Epoch time: 46.14 s
+2025-10-13 20:20:56.862813: 
+2025-10-13 20:20:56.863155: Epoch 69
+2025-10-13 20:20:56.863398: Current learning rate: 0.00574
+2025-10-13 20:21:43.008670: Validation loss did not improve from -0.51329. Patience: 29/50
+2025-10-13 20:21:43.009126: train_loss -0.743
+2025-10-13 20:21:43.009339: val_loss -0.4892
+2025-10-13 20:21:43.009526: Pseudo dice [np.float32(0.7191)]
+2025-10-13 20:21:43.009751: Epoch time: 46.15 s
+2025-10-13 20:21:44.101084: 
+2025-10-13 20:21:44.101567: Epoch 70
+2025-10-13 20:21:44.101990: Current learning rate: 0.00568
+2025-10-13 20:22:30.157620: Validation loss did not improve from -0.51329. Patience: 30/50
+2025-10-13 20:22:30.158414: train_loss -0.7498
+2025-10-13 20:22:30.158625: val_loss -0.4924
+2025-10-13 20:22:30.158822: Pseudo dice [np.float32(0.7271)]
+2025-10-13 20:22:30.159033: Epoch time: 46.06 s
+2025-10-13 20:22:30.159245: Yayy! New best EMA pseudo Dice: 0.7134000062942505
+2025-10-13 20:22:31.235822: 
+2025-10-13 20:22:31.236468: Epoch 71
+2025-10-13 20:22:31.236838: Current learning rate: 0.00562
+2025-10-13 20:23:17.278494: Validation loss did not improve from -0.51329. Patience: 31/50
+2025-10-13 20:23:17.278993: train_loss -0.7504
+2025-10-13 20:23:17.279153: val_loss -0.486
+2025-10-13 20:23:17.279330: Pseudo dice [np.float32(0.7163)]
+2025-10-13 20:23:17.279569: Epoch time: 46.04 s
+2025-10-13 20:23:17.279772: Yayy! New best EMA pseudo Dice: 0.713699996471405
+2025-10-13 20:23:18.352080: 
+2025-10-13 20:23:18.352393: Epoch 72
+2025-10-13 20:23:18.352570: Current learning rate: 0.00555
+2025-10-13 20:24:04.347424: Validation loss did not improve from -0.51329. Patience: 32/50
+2025-10-13 20:24:04.348094: train_loss -0.749
+2025-10-13 20:24:04.348250: val_loss -0.4749
+2025-10-13 20:24:04.348446: Pseudo dice [np.float32(0.7208)]
+2025-10-13 20:24:04.348627: Epoch time: 46.0 s
+2025-10-13 20:24:04.348740: Yayy! New best EMA pseudo Dice: 0.7143999934196472
+2025-10-13 20:24:05.877084: 
+2025-10-13 20:24:05.877420: Epoch 73
+2025-10-13 20:24:05.877654: Current learning rate: 0.00549
+2025-10-13 20:24:51.912392: Validation loss did not improve from -0.51329. Patience: 33/50
+2025-10-13 20:24:51.913061: train_loss -0.755
+2025-10-13 20:24:51.913206: val_loss -0.4683
+2025-10-13 20:24:51.913326: Pseudo dice [np.float32(0.7125)]
+2025-10-13 20:24:51.913447: Epoch time: 46.04 s
+2025-10-13 20:24:52.552248: 
+2025-10-13 20:24:52.552625: Epoch 74
+2025-10-13 20:24:52.552972: Current learning rate: 0.00542
+2025-10-13 20:25:38.603388: Validation loss did not improve from -0.51329. Patience: 34/50
+2025-10-13 20:25:38.603927: train_loss -0.7562
+2025-10-13 20:25:38.604058: val_loss -0.4863
+2025-10-13 20:25:38.604176: Pseudo dice [np.float32(0.726)]
+2025-10-13 20:25:38.604303: Epoch time: 46.05 s
+2025-10-13 20:25:39.028435: Yayy! New best EMA pseudo Dice: 0.715399980545044
+2025-10-13 20:25:40.096791: 
+2025-10-13 20:25:40.097055: Epoch 75
+2025-10-13 20:25:40.097223: Current learning rate: 0.00536
+2025-10-13 20:26:26.128245: Validation loss did not improve from -0.51329. Patience: 35/50
+2025-10-13 20:26:26.128741: train_loss -0.7567
+2025-10-13 20:26:26.128879: val_loss -0.4921
+2025-10-13 20:26:26.128992: Pseudo dice [np.float32(0.7288)]
+2025-10-13 20:26:26.129115: Epoch time: 46.03 s
+2025-10-13 20:26:26.129257: Yayy! New best EMA pseudo Dice: 0.71670001745224
+2025-10-13 20:26:27.240787: 
+2025-10-13 20:26:27.241122: Epoch 76
+2025-10-13 20:26:27.241285: Current learning rate: 0.00529
+2025-10-13 20:27:13.293073: Validation loss did not improve from -0.51329. Patience: 36/50
+2025-10-13 20:27:13.294219: train_loss -0.7556
+2025-10-13 20:27:13.294544: val_loss -0.4879
+2025-10-13 20:27:13.294836: Pseudo dice [np.float32(0.7153)]
+2025-10-13 20:27:13.295156: Epoch time: 46.05 s
+2025-10-13 20:27:13.936981: 
+2025-10-13 20:27:13.937238: Epoch 77
+2025-10-13 20:27:13.937389: Current learning rate: 0.00523
+2025-10-13 20:27:59.983356: Validation loss did not improve from -0.51329. Patience: 37/50
+2025-10-13 20:27:59.983787: train_loss -0.7593
+2025-10-13 20:27:59.983977: val_loss -0.5003
+2025-10-13 20:27:59.984132: Pseudo dice [np.float32(0.7258)]
+2025-10-13 20:27:59.984295: Epoch time: 46.05 s
+2025-10-13 20:27:59.984455: Yayy! New best EMA pseudo Dice: 0.7174999713897705
+2025-10-13 20:28:01.077392: 
+2025-10-13 20:28:01.077679: Epoch 78
+2025-10-13 20:28:01.077835: Current learning rate: 0.00517
+2025-10-13 20:28:47.223724: Validation loss did not improve from -0.51329. Patience: 38/50
+2025-10-13 20:28:47.224370: train_loss -0.7581
+2025-10-13 20:28:47.224600: val_loss -0.4301
+2025-10-13 20:28:47.224818: Pseudo dice [np.float32(0.696)]
+2025-10-13 20:28:47.225025: Epoch time: 46.15 s
+2025-10-13 20:28:47.877821: 
+2025-10-13 20:28:47.878147: Epoch 79
+2025-10-13 20:28:47.878428: Current learning rate: 0.0051
+2025-10-13 20:29:34.024817: Validation loss did not improve from -0.51329. Patience: 39/50
+2025-10-13 20:29:34.025515: train_loss -0.7584
+2025-10-13 20:29:34.025941: val_loss -0.4809
+2025-10-13 20:29:34.026133: Pseudo dice [np.float32(0.7249)]
+2025-10-13 20:29:34.026323: Epoch time: 46.15 s
+2025-10-13 20:29:35.113007: 
+2025-10-13 20:29:35.113250: Epoch 80
+2025-10-13 20:29:35.113393: Current learning rate: 0.00504
+2025-10-13 20:30:21.227231: Validation loss did not improve from -0.51329. Patience: 40/50
+2025-10-13 20:30:21.227788: train_loss -0.7589
+2025-10-13 20:30:21.227972: val_loss -0.4863
+2025-10-13 20:30:21.228205: Pseudo dice [np.float32(0.7261)]
+2025-10-13 20:30:21.228422: Epoch time: 46.12 s
+2025-10-13 20:30:21.884495: 
+2025-10-13 20:30:21.884832: Epoch 81
+2025-10-13 20:30:21.885010: Current learning rate: 0.00497
+2025-10-13 20:31:08.032255: Validation loss did not improve from -0.51329. Patience: 41/50
+2025-10-13 20:31:08.032728: train_loss -0.7637
+2025-10-13 20:31:08.032886: val_loss -0.4825
+2025-10-13 20:31:08.033008: Pseudo dice [np.float32(0.7184)]
+2025-10-13 20:31:08.033149: Epoch time: 46.15 s
+2025-10-13 20:31:08.689608: 
+2025-10-13 20:31:08.689892: Epoch 82
+2025-10-13 20:31:08.690054: Current learning rate: 0.00491
+2025-10-13 20:31:54.766225: Validation loss did not improve from -0.51329. Patience: 42/50
+2025-10-13 20:31:54.766743: train_loss -0.7608
+2025-10-13 20:31:54.766887: val_loss -0.4831
+2025-10-13 20:31:54.767010: Pseudo dice [np.float32(0.7325)]
+2025-10-13 20:31:54.767137: Epoch time: 46.08 s
+2025-10-13 20:31:54.767246: Yayy! New best EMA pseudo Dice: 0.7189000248908997
+2025-10-13 20:31:55.861436: 
+2025-10-13 20:31:55.861727: Epoch 83
+2025-10-13 20:31:55.861894: Current learning rate: 0.00484
+2025-10-13 20:32:41.963681: Validation loss did not improve from -0.51329. Patience: 43/50
+2025-10-13 20:32:41.964229: train_loss -0.762
+2025-10-13 20:32:41.964532: val_loss -0.4475
+2025-10-13 20:32:41.964879: Pseudo dice [np.float32(0.7037)]
+2025-10-13 20:32:41.965180: Epoch time: 46.1 s
+2025-10-13 20:32:42.597031: 
+2025-10-13 20:32:42.597346: Epoch 84
+2025-10-13 20:32:42.597633: Current learning rate: 0.00478
+2025-10-13 20:33:28.643032: Validation loss did not improve from -0.51329. Patience: 44/50
+2025-10-13 20:33:28.644310: train_loss -0.7639
+2025-10-13 20:33:28.645293: val_loss -0.4865
+2025-10-13 20:33:28.645870: Pseudo dice [np.float32(0.7227)]
+2025-10-13 20:33:28.646333: Epoch time: 46.05 s
+2025-10-13 20:33:29.708617: 
+2025-10-13 20:33:29.709020: Epoch 85
+2025-10-13 20:33:29.709276: Current learning rate: 0.00471
+2025-10-13 20:34:15.758682: Validation loss did not improve from -0.51329. Patience: 45/50
+2025-10-13 20:34:15.759117: train_loss -0.7684
+2025-10-13 20:34:15.759255: val_loss -0.4605
+2025-10-13 20:34:15.759383: Pseudo dice [np.float32(0.7055)]
+2025-10-13 20:34:15.759505: Epoch time: 46.05 s
+2025-10-13 20:34:16.389803: 
+2025-10-13 20:34:16.390056: Epoch 86
+2025-10-13 20:34:16.390218: Current learning rate: 0.00465
+2025-10-13 20:35:02.498572: Validation loss improved from -0.51329 to -0.53333! Patience: 45/50
+2025-10-13 20:35:02.499133: train_loss -0.7631
+2025-10-13 20:35:02.499340: val_loss -0.5333
+2025-10-13 20:35:02.499524: Pseudo dice [np.float32(0.7413)]
+2025-10-13 20:35:02.499709: Epoch time: 46.11 s
+2025-10-13 20:35:02.499857: Yayy! New best EMA pseudo Dice: 0.7190999984741211
+2025-10-13 20:35:03.571626: 
+2025-10-13 20:35:03.571899: Epoch 87
+2025-10-13 20:35:03.572088: Current learning rate: 0.00458
+2025-10-13 20:35:49.821137: Validation loss did not improve from -0.53333. Patience: 1/50
+2025-10-13 20:35:49.821609: train_loss -0.7693
+2025-10-13 20:35:49.821806: val_loss -0.4879
+2025-10-13 20:35:49.821987: Pseudo dice [np.float32(0.7232)]
+2025-10-13 20:35:49.822241: Epoch time: 46.25 s
+2025-10-13 20:35:49.822389: Yayy! New best EMA pseudo Dice: 0.7195000052452087
+2025-10-13 20:35:51.387947: 
+2025-10-13 20:35:51.388350: Epoch 88
+2025-10-13 20:35:51.388610: Current learning rate: 0.00452
+2025-10-13 20:36:37.567225: Validation loss did not improve from -0.53333. Patience: 2/50
+2025-10-13 20:36:37.567818: train_loss -0.7701
+2025-10-13 20:36:37.567965: val_loss -0.4837
+2025-10-13 20:36:37.568102: Pseudo dice [np.float32(0.7306)]
+2025-10-13 20:36:37.568285: Epoch time: 46.18 s
+2025-10-13 20:36:37.568442: Yayy! New best EMA pseudo Dice: 0.7207000255584717
+2025-10-13 20:36:38.653801: 
+2025-10-13 20:36:38.654172: Epoch 89
+2025-10-13 20:36:38.654369: Current learning rate: 0.00445
+2025-10-13 20:37:24.825660: Validation loss did not improve from -0.53333. Patience: 3/50
+2025-10-13 20:37:24.826186: train_loss -0.7662
+2025-10-13 20:37:24.826335: val_loss -0.4835
+2025-10-13 20:37:24.826522: Pseudo dice [np.float32(0.7197)]
+2025-10-13 20:37:24.826712: Epoch time: 46.17 s
+2025-10-13 20:37:25.876903: 
+2025-10-13 20:37:25.877288: Epoch 90
+2025-10-13 20:37:25.877472: Current learning rate: 0.00438
+2025-10-13 20:38:11.965308: Validation loss did not improve from -0.53333. Patience: 4/50
+2025-10-13 20:38:11.965846: train_loss -0.7693
+2025-10-13 20:38:11.965971: val_loss -0.4989
+2025-10-13 20:38:11.966080: Pseudo dice [np.float32(0.7267)]
+2025-10-13 20:38:11.966229: Epoch time: 46.09 s
+2025-10-13 20:38:11.966362: Yayy! New best EMA pseudo Dice: 0.7211999893188477
+2025-10-13 20:38:13.045612: 
+2025-10-13 20:38:13.046047: Epoch 91
+2025-10-13 20:38:13.046369: Current learning rate: 0.00432
+2025-10-13 20:38:59.232720: Validation loss did not improve from -0.53333. Patience: 5/50
+2025-10-13 20:38:59.233386: train_loss -0.7716
+2025-10-13 20:38:59.233646: val_loss -0.4445
+2025-10-13 20:38:59.233836: Pseudo dice [np.float32(0.6983)]
+2025-10-13 20:38:59.234007: Epoch time: 46.19 s
+2025-10-13 20:38:59.871472: 
+2025-10-13 20:38:59.871798: Epoch 92
+2025-10-13 20:38:59.871948: Current learning rate: 0.00425
+2025-10-13 20:39:45.937920: Validation loss did not improve from -0.53333. Patience: 6/50
+2025-10-13 20:39:45.938664: train_loss -0.7692
+2025-10-13 20:39:45.938856: val_loss -0.4467
+2025-10-13 20:39:45.939003: Pseudo dice [np.float32(0.7056)]
+2025-10-13 20:39:45.939284: Epoch time: 46.07 s
+2025-10-13 20:39:46.580345: 
+2025-10-13 20:39:46.580652: Epoch 93
+2025-10-13 20:39:46.580823: Current learning rate: 0.00419
+2025-10-13 20:40:32.658911: Validation loss did not improve from -0.53333. Patience: 7/50
+2025-10-13 20:40:32.659389: train_loss -0.7699
+2025-10-13 20:40:32.659554: val_loss -0.4891
+2025-10-13 20:40:32.659690: Pseudo dice [np.float32(0.7206)]
+2025-10-13 20:40:32.659838: Epoch time: 46.08 s
+2025-10-13 20:40:33.297372: 
+2025-10-13 20:40:33.297663: Epoch 94
+2025-10-13 20:40:33.297889: Current learning rate: 0.00412
+2025-10-13 20:41:19.386430: Validation loss did not improve from -0.53333. Patience: 8/50
+2025-10-13 20:41:19.387334: train_loss -0.7794
+2025-10-13 20:41:19.387585: val_loss -0.4655
+2025-10-13 20:41:19.387837: Pseudo dice [np.float32(0.7124)]
+2025-10-13 20:41:19.388092: Epoch time: 46.09 s
+2025-10-13 20:41:20.454424: 
+2025-10-13 20:41:20.454741: Epoch 95
+2025-10-13 20:41:20.454911: Current learning rate: 0.00405
+2025-10-13 20:42:06.560815: Validation loss did not improve from -0.53333. Patience: 9/50
+2025-10-13 20:42:06.561207: train_loss -0.7784
+2025-10-13 20:42:06.561406: val_loss -0.493
+2025-10-13 20:42:06.561582: Pseudo dice [np.float32(0.7325)]
+2025-10-13 20:42:06.561753: Epoch time: 46.11 s
+2025-10-13 20:42:07.195715: 
+2025-10-13 20:42:07.196195: Epoch 96
+2025-10-13 20:42:07.196555: Current learning rate: 0.00399
+2025-10-13 20:42:53.295115: Validation loss did not improve from -0.53333. Patience: 10/50
+2025-10-13 20:42:53.295581: train_loss -0.7745
+2025-10-13 20:42:53.295764: val_loss -0.4237
+2025-10-13 20:42:53.295911: Pseudo dice [np.float32(0.6977)]
+2025-10-13 20:42:53.296042: Epoch time: 46.1 s
+2025-10-13 20:42:53.933282: 
+2025-10-13 20:42:53.933620: Epoch 97
+2025-10-13 20:42:53.933805: Current learning rate: 0.00392
+2025-10-13 20:43:39.994943: Validation loss did not improve from -0.53333. Patience: 11/50
+2025-10-13 20:43:39.995501: train_loss -0.7762
+2025-10-13 20:43:39.995639: val_loss -0.4304
+2025-10-13 20:43:39.995805: Pseudo dice [np.float32(0.7066)]
+2025-10-13 20:43:39.995937: Epoch time: 46.06 s
+2025-10-13 20:43:40.634595: 
+2025-10-13 20:43:40.635125: Epoch 98
+2025-10-13 20:43:40.635493: Current learning rate: 0.00385
+2025-10-13 20:44:26.769863: Validation loss did not improve from -0.53333. Patience: 12/50
+2025-10-13 20:44:26.770427: train_loss -0.777
+2025-10-13 20:44:26.770667: val_loss -0.4657
+2025-10-13 20:44:26.770857: Pseudo dice [np.float32(0.7129)]
+2025-10-13 20:44:26.771096: Epoch time: 46.14 s
+2025-10-13 20:44:27.420760: 
+2025-10-13 20:44:27.421150: Epoch 99
+2025-10-13 20:44:27.421351: Current learning rate: 0.00379
+2025-10-13 20:45:13.554832: Validation loss did not improve from -0.53333. Patience: 13/50
+2025-10-13 20:45:13.555187: train_loss -0.7788
+2025-10-13 20:45:13.555333: val_loss -0.5175
+2025-10-13 20:45:13.555444: Pseudo dice [np.float32(0.7346)]
+2025-10-13 20:45:13.555577: Epoch time: 46.14 s
+2025-10-13 20:45:14.642210: 
+2025-10-13 20:45:14.642436: Epoch 100
+2025-10-13 20:45:14.642607: Current learning rate: 0.00372
+2025-10-13 20:46:00.746974: Validation loss did not improve from -0.53333. Patience: 14/50
+2025-10-13 20:46:00.747567: train_loss -0.7822
+2025-10-13 20:46:00.747721: val_loss -0.487
+2025-10-13 20:46:00.747843: Pseudo dice [np.float32(0.7224)]
+2025-10-13 20:46:00.747964: Epoch time: 46.11 s
+2025-10-13 20:46:01.388064: 
+2025-10-13 20:46:01.388484: Epoch 101
+2025-10-13 20:46:01.388777: Current learning rate: 0.00365
+2025-10-13 20:46:47.459283: Validation loss did not improve from -0.53333. Patience: 15/50
+2025-10-13 20:46:47.459701: train_loss -0.7787
+2025-10-13 20:46:47.459939: val_loss -0.4927
+2025-10-13 20:46:47.460204: Pseudo dice [np.float32(0.7268)]
+2025-10-13 20:46:47.460413: Epoch time: 46.07 s
+2025-10-13 20:46:48.097590: 
+2025-10-13 20:46:48.097922: Epoch 102
+2025-10-13 20:46:48.098075: Current learning rate: 0.00359
+2025-10-13 20:47:34.225205: Validation loss did not improve from -0.53333. Patience: 16/50
+2025-10-13 20:47:34.225684: train_loss -0.78
+2025-10-13 20:47:34.225857: val_loss -0.489
+2025-10-13 20:47:34.226064: Pseudo dice [np.float32(0.7214)]
+2025-10-13 20:47:34.226266: Epoch time: 46.13 s
+2025-10-13 20:47:34.869157: 
+2025-10-13 20:47:34.869653: Epoch 103
+2025-10-13 20:47:34.870029: Current learning rate: 0.00352
+2025-10-13 20:48:20.996629: Validation loss did not improve from -0.53333. Patience: 17/50
+2025-10-13 20:48:20.997220: train_loss -0.7809
+2025-10-13 20:48:20.997424: val_loss -0.4751
+2025-10-13 20:48:20.997574: Pseudo dice [np.float32(0.7213)]
+2025-10-13 20:48:20.997732: Epoch time: 46.13 s
+2025-10-13 20:48:22.112636: 
+2025-10-13 20:48:22.112920: Epoch 104
+2025-10-13 20:48:22.113111: Current learning rate: 0.00345
+2025-10-13 20:49:08.370404: Validation loss did not improve from -0.53333. Patience: 18/50
+2025-10-13 20:49:08.370976: train_loss -0.7822
+2025-10-13 20:49:08.371124: val_loss -0.4816
+2025-10-13 20:49:08.371241: Pseudo dice [np.float32(0.7237)]
+2025-10-13 20:49:08.371427: Epoch time: 46.26 s
+2025-10-13 20:49:09.448040: 
+2025-10-13 20:49:09.448415: Epoch 105
+2025-10-13 20:49:09.448611: Current learning rate: 0.00338
+2025-10-13 20:49:55.571706: Validation loss did not improve from -0.53333. Patience: 19/50
+2025-10-13 20:49:55.572174: train_loss -0.7856
+2025-10-13 20:49:55.572358: val_loss -0.4588
+2025-10-13 20:49:55.572513: Pseudo dice [np.float32(0.7103)]
+2025-10-13 20:49:55.572772: Epoch time: 46.12 s
+2025-10-13 20:49:56.219265: 
+2025-10-13 20:49:56.219701: Epoch 106
+2025-10-13 20:49:56.219923: Current learning rate: 0.00332
+2025-10-13 20:50:42.327341: Validation loss did not improve from -0.53333. Patience: 20/50
+2025-10-13 20:50:42.327920: train_loss -0.7843
+2025-10-13 20:50:42.328073: val_loss -0.4766
+2025-10-13 20:50:42.328203: Pseudo dice [np.float32(0.7127)]
+2025-10-13 20:50:42.328334: Epoch time: 46.11 s
+2025-10-13 20:50:42.974394: 
+2025-10-13 20:50:42.974655: Epoch 107
+2025-10-13 20:50:42.974867: Current learning rate: 0.00325
+2025-10-13 20:51:29.035747: Validation loss did not improve from -0.53333. Patience: 21/50
+2025-10-13 20:51:29.036187: train_loss -0.7856
+2025-10-13 20:51:29.036331: val_loss -0.4916
+2025-10-13 20:51:29.036447: Pseudo dice [np.float32(0.7288)]
+2025-10-13 20:51:29.036613: Epoch time: 46.06 s
+2025-10-13 20:51:29.678614: 
+2025-10-13 20:51:29.678942: Epoch 108
+2025-10-13 20:51:29.679098: Current learning rate: 0.00318
+2025-10-13 20:52:15.799877: Validation loss did not improve from -0.53333. Patience: 22/50
+2025-10-13 20:52:15.800598: train_loss -0.7824
+2025-10-13 20:52:15.801158: val_loss -0.4511
+2025-10-13 20:52:15.801395: Pseudo dice [np.float32(0.7143)]
+2025-10-13 20:52:15.801613: Epoch time: 46.12 s
+2025-10-13 20:52:16.447853: 
+2025-10-13 20:52:16.448111: Epoch 109
+2025-10-13 20:52:16.448292: Current learning rate: 0.00311
+2025-10-13 20:53:02.688817: Validation loss did not improve from -0.53333. Patience: 23/50
+2025-10-13 20:53:02.689275: train_loss -0.7824
+2025-10-13 20:53:02.689422: val_loss -0.4271
+2025-10-13 20:53:02.689538: Pseudo dice [np.float32(0.6988)]
+2025-10-13 20:53:02.689682: Epoch time: 46.24 s
+2025-10-13 20:53:03.768110: 
+2025-10-13 20:53:03.768426: Epoch 110
+2025-10-13 20:53:03.768601: Current learning rate: 0.00304
+2025-10-13 20:53:50.017886: Validation loss did not improve from -0.53333. Patience: 24/50
+2025-10-13 20:53:50.018450: train_loss -0.7882
+2025-10-13 20:53:50.018609: val_loss -0.4816
+2025-10-13 20:53:50.018776: Pseudo dice [np.float32(0.7212)]
+2025-10-13 20:53:50.018948: Epoch time: 46.25 s
+2025-10-13 20:53:50.660748: 
+2025-10-13 20:53:50.661123: Epoch 111
+2025-10-13 20:53:50.661368: Current learning rate: 0.00297
+2025-10-13 20:54:36.857299: Validation loss did not improve from -0.53333. Patience: 25/50
+2025-10-13 20:54:36.857654: train_loss -0.786
+2025-10-13 20:54:36.857928: val_loss -0.4832
+2025-10-13 20:54:36.858173: Pseudo dice [np.float32(0.7262)]
+2025-10-13 20:54:36.858385: Epoch time: 46.2 s
+2025-10-13 20:54:37.502480: 
+2025-10-13 20:54:37.502804: Epoch 112
+2025-10-13 20:54:37.503126: Current learning rate: 0.00291
+2025-10-13 20:55:23.740475: Validation loss did not improve from -0.53333. Patience: 26/50
+2025-10-13 20:55:23.741037: train_loss -0.7894
+2025-10-13 20:55:23.741195: val_loss -0.4926
+2025-10-13 20:55:23.741351: Pseudo dice [np.float32(0.7296)]
+2025-10-13 20:55:23.741504: Epoch time: 46.24 s
+2025-10-13 20:55:24.391266: 
+2025-10-13 20:55:24.391604: Epoch 113
+2025-10-13 20:55:24.391817: Current learning rate: 0.00284
+2025-10-13 20:56:10.585138: Validation loss did not improve from -0.53333. Patience: 27/50
+2025-10-13 20:56:10.585600: train_loss -0.791
+2025-10-13 20:56:10.585792: val_loss -0.5033
+2025-10-13 20:56:10.585973: Pseudo dice [np.float32(0.7382)]
+2025-10-13 20:56:10.586161: Epoch time: 46.2 s
+2025-10-13 20:56:11.232029: 
+2025-10-13 20:56:11.232318: Epoch 114
+2025-10-13 20:56:11.232512: Current learning rate: 0.00277
+2025-10-13 20:56:57.341282: Validation loss did not improve from -0.53333. Patience: 28/50
+2025-10-13 20:56:57.341745: train_loss -0.7874
+2025-10-13 20:56:57.341884: val_loss -0.4643
+2025-10-13 20:56:57.342019: Pseudo dice [np.float32(0.705)]
+2025-10-13 20:56:57.342161: Epoch time: 46.11 s
+2025-10-13 20:56:58.420750: 
+2025-10-13 20:56:58.421016: Epoch 115
+2025-10-13 20:56:58.421243: Current learning rate: 0.0027
+2025-10-13 20:57:44.467008: Validation loss did not improve from -0.53333. Patience: 29/50
+2025-10-13 20:57:44.467694: train_loss -0.7905
+2025-10-13 20:57:44.467979: val_loss -0.4754
+2025-10-13 20:57:44.468205: Pseudo dice [np.float32(0.716)]
+2025-10-13 20:57:44.468405: Epoch time: 46.05 s
+2025-10-13 20:57:45.121685: 
+2025-10-13 20:57:45.121990: Epoch 116
+2025-10-13 20:57:45.122148: Current learning rate: 0.00263
+2025-10-13 20:58:31.127679: Validation loss did not improve from -0.53333. Patience: 30/50
+2025-10-13 20:58:31.128108: train_loss -0.7887
+2025-10-13 20:58:31.128280: val_loss -0.4652
+2025-10-13 20:58:31.128426: Pseudo dice [np.float32(0.7165)]
+2025-10-13 20:58:31.128569: Epoch time: 46.01 s
+2025-10-13 20:58:31.778433: 
+2025-10-13 20:58:31.778738: Epoch 117
+2025-10-13 20:58:31.778911: Current learning rate: 0.00256
+2025-10-13 20:59:17.826133: Validation loss did not improve from -0.53333. Patience: 31/50
+2025-10-13 20:59:17.826598: train_loss -0.7957
+2025-10-13 20:59:17.826768: val_loss -0.4891
+2025-10-13 20:59:17.826880: Pseudo dice [np.float32(0.7281)]
+2025-10-13 20:59:17.826998: Epoch time: 46.05 s
+2025-10-13 20:59:18.477161: 
+2025-10-13 20:59:18.477410: Epoch 118
+2025-10-13 20:59:18.477562: Current learning rate: 0.00249
+2025-10-13 21:00:04.527814: Validation loss did not improve from -0.53333. Patience: 32/50
+2025-10-13 21:00:04.529570: train_loss -0.7892
+2025-10-13 21:00:04.530132: val_loss -0.4633
+2025-10-13 21:00:04.530770: Pseudo dice [np.float32(0.7225)]
+2025-10-13 21:00:04.531427: Epoch time: 46.05 s
+2025-10-13 21:00:05.177712: 
+2025-10-13 21:00:05.177981: Epoch 119
+2025-10-13 21:00:05.178141: Current learning rate: 0.00242
+2025-10-13 21:00:51.628654: Validation loss did not improve from -0.53333. Patience: 33/50
+2025-10-13 21:00:51.629271: train_loss -0.7907
+2025-10-13 21:00:51.629582: val_loss -0.4632
+2025-10-13 21:00:51.629864: Pseudo dice [np.float32(0.7156)]
+2025-10-13 21:00:51.630170: Epoch time: 46.45 s
+2025-10-13 21:00:52.730605: 
+2025-10-13 21:00:52.730958: Epoch 120
+2025-10-13 21:00:52.731113: Current learning rate: 0.00235
+2025-10-13 21:01:38.815220: Validation loss did not improve from -0.53333. Patience: 34/50
+2025-10-13 21:01:38.815740: train_loss -0.7913
+2025-10-13 21:01:38.815902: val_loss -0.4535
+2025-10-13 21:01:38.816051: Pseudo dice [np.float32(0.7158)]
+2025-10-13 21:01:38.816186: Epoch time: 46.09 s
+2025-10-13 21:01:39.464924: 
+2025-10-13 21:01:39.465437: Epoch 121
+2025-10-13 21:01:39.465799: Current learning rate: 0.00228
+2025-10-13 21:02:25.442600: Validation loss did not improve from -0.53333. Patience: 35/50
+2025-10-13 21:02:25.443152: train_loss -0.7974
+2025-10-13 21:02:25.443316: val_loss -0.5015
+2025-10-13 21:02:25.443454: Pseudo dice [np.float32(0.7309)]
+2025-10-13 21:02:25.443758: Epoch time: 45.98 s
+2025-10-13 21:02:26.097314: 
+2025-10-13 21:02:26.097716: Epoch 122
+2025-10-13 21:02:26.097955: Current learning rate: 0.00221
+2025-10-13 21:03:12.220100: Validation loss did not improve from -0.53333. Patience: 36/50
+2025-10-13 21:03:12.220561: train_loss -0.7927
+2025-10-13 21:03:12.220690: val_loss -0.4918
+2025-10-13 21:03:12.220891: Pseudo dice [np.float32(0.7338)]
+2025-10-13 21:03:12.221014: Epoch time: 46.12 s
+2025-10-13 21:03:12.221146: Yayy! New best EMA pseudo Dice: 0.7217000126838684
+2025-10-13 21:03:13.338091: 
+2025-10-13 21:03:13.338408: Epoch 123
+2025-10-13 21:03:13.338565: Current learning rate: 0.00214
+2025-10-13 21:03:59.522996: Validation loss did not improve from -0.53333. Patience: 37/50
+2025-10-13 21:03:59.523510: train_loss -0.795
+2025-10-13 21:03:59.523691: val_loss -0.4577
+2025-10-13 21:03:59.523889: Pseudo dice [np.float32(0.7201)]
+2025-10-13 21:03:59.524061: Epoch time: 46.19 s
+2025-10-13 21:04:00.176070: 
+2025-10-13 21:04:00.176367: Epoch 124
+2025-10-13 21:04:00.176561: Current learning rate: 0.00207
+2025-10-13 21:04:46.331202: Validation loss did not improve from -0.53333. Patience: 38/50
+2025-10-13 21:04:46.332148: train_loss -0.7991
+2025-10-13 21:04:46.332390: val_loss -0.4632
+2025-10-13 21:04:46.332589: Pseudo dice [np.float32(0.7149)]
+2025-10-13 21:04:46.332805: Epoch time: 46.16 s
+2025-10-13 21:04:47.430002: 
+2025-10-13 21:04:47.430345: Epoch 125
+2025-10-13 21:04:47.430539: Current learning rate: 0.00199
+2025-10-13 21:05:33.557411: Validation loss did not improve from -0.53333. Patience: 39/50
+2025-10-13 21:05:33.557977: train_loss -0.799
+2025-10-13 21:05:33.558167: val_loss -0.4929
+2025-10-13 21:05:33.558333: Pseudo dice [np.float32(0.7265)]
+2025-10-13 21:05:33.558473: Epoch time: 46.13 s
+2025-10-13 21:05:34.209860: 
+2025-10-13 21:05:34.210450: Epoch 126
+2025-10-13 21:05:34.211380: Current learning rate: 0.00192
+2025-10-13 21:06:20.423928: Validation loss did not improve from -0.53333. Patience: 40/50
+2025-10-13 21:06:20.424751: train_loss -0.7979
+2025-10-13 21:06:20.425090: val_loss -0.4673
+2025-10-13 21:06:20.425361: Pseudo dice [np.float32(0.7148)]
+2025-10-13 21:06:20.425653: Epoch time: 46.22 s
+2025-10-13 21:06:21.081710: 
+2025-10-13 21:06:21.082046: Epoch 127
+2025-10-13 21:06:21.082275: Current learning rate: 0.00185
+2025-10-13 21:07:07.265781: Validation loss did not improve from -0.53333. Patience: 41/50
+2025-10-13 21:07:07.266343: train_loss -0.7974
+2025-10-13 21:07:07.266472: val_loss -0.4796
+2025-10-13 21:07:07.266606: Pseudo dice [np.float32(0.7212)]
+2025-10-13 21:07:07.266731: Epoch time: 46.19 s
+2025-10-13 21:07:07.915271: 
+2025-10-13 21:07:07.915733: Epoch 128
+2025-10-13 21:07:07.915891: Current learning rate: 0.00178
+2025-10-13 21:07:53.963989: Validation loss did not improve from -0.53333. Patience: 42/50
+2025-10-13 21:07:53.964567: train_loss -0.8001
+2025-10-13 21:07:53.964827: val_loss -0.4665
+2025-10-13 21:07:53.965153: Pseudo dice [np.float32(0.7252)]
+2025-10-13 21:07:53.965382: Epoch time: 46.05 s
+2025-10-13 21:07:54.614485: 
+2025-10-13 21:07:54.614776: Epoch 129
+2025-10-13 21:07:54.614953: Current learning rate: 0.0017
+2025-10-13 21:08:40.695256: Validation loss did not improve from -0.53333. Patience: 43/50
+2025-10-13 21:08:40.695691: train_loss -0.7951
+2025-10-13 21:08:40.695821: val_loss -0.4694
+2025-10-13 21:08:40.695941: Pseudo dice [np.float32(0.7173)]
+2025-10-13 21:08:40.696083: Epoch time: 46.08 s
+2025-10-13 21:08:41.784795: 
+2025-10-13 21:08:41.785233: Epoch 130
+2025-10-13 21:08:41.785571: Current learning rate: 0.00163
+2025-10-13 21:09:27.814218: Validation loss did not improve from -0.53333. Patience: 44/50
+2025-10-13 21:09:27.815094: train_loss -0.7968
+2025-10-13 21:09:27.815299: val_loss -0.4495
+2025-10-13 21:09:27.815491: Pseudo dice [np.float32(0.7112)]
+2025-10-13 21:09:27.815690: Epoch time: 46.03 s
+2025-10-13 21:09:28.462542: 
+2025-10-13 21:09:28.462783: Epoch 131
+2025-10-13 21:09:28.463006: Current learning rate: 0.00156
+2025-10-13 21:10:14.702600: Validation loss did not improve from -0.53333. Patience: 45/50
+2025-10-13 21:10:14.702988: train_loss -0.7977
+2025-10-13 21:10:14.703154: val_loss -0.4658
+2025-10-13 21:10:14.703408: Pseudo dice [np.float32(0.7134)]
+2025-10-13 21:10:14.703646: Epoch time: 46.24 s
+2025-10-13 21:10:15.344294: 
+2025-10-13 21:10:15.344612: Epoch 132
+2025-10-13 21:10:15.344824: Current learning rate: 0.00148
+2025-10-13 21:11:01.450504: Validation loss did not improve from -0.53333. Patience: 46/50
+2025-10-13 21:11:01.451092: train_loss -0.8002
+2025-10-13 21:11:01.451240: val_loss -0.4797
+2025-10-13 21:11:01.451396: Pseudo dice [np.float32(0.7266)]
+2025-10-13 21:11:01.451538: Epoch time: 46.11 s
+2025-10-13 21:11:02.093123: 
+2025-10-13 21:11:02.093454: Epoch 133
+2025-10-13 21:11:02.093610: Current learning rate: 0.00141
+2025-10-13 21:11:48.167675: Validation loss did not improve from -0.53333. Patience: 47/50
+2025-10-13 21:11:48.168201: train_loss -0.8016
+2025-10-13 21:11:48.168342: val_loss -0.4866
+2025-10-13 21:11:48.168455: Pseudo dice [np.float32(0.7253)]
+2025-10-13 21:11:48.168576: Epoch time: 46.08 s
+2025-10-13 21:11:49.264988: 
+2025-10-13 21:11:49.265275: Epoch 134
+2025-10-13 21:11:49.265662: Current learning rate: 0.00133
+2025-10-13 21:12:35.349161: Validation loss did not improve from -0.53333. Patience: 48/50
+2025-10-13 21:12:35.349727: train_loss -0.8031
+2025-10-13 21:12:35.349927: val_loss -0.4571
+2025-10-13 21:12:35.350095: Pseudo dice [np.float32(0.7154)]
+2025-10-13 21:12:35.350259: Epoch time: 46.09 s
+2025-10-13 21:12:36.439773: 
+2025-10-13 21:12:36.440097: Epoch 135
+2025-10-13 21:12:36.440330: Current learning rate: 0.00126
+2025-10-13 21:13:22.539352: Validation loss did not improve from -0.53333. Patience: 49/50
+2025-10-13 21:13:22.540310: train_loss -0.8017
+2025-10-13 21:13:22.541051: val_loss -0.4684
+2025-10-13 21:13:22.541765: Pseudo dice [np.float32(0.7198)]
+2025-10-13 21:13:22.542529: Epoch time: 46.1 s
+2025-10-13 21:13:23.194249: 
+2025-10-13 21:13:23.194602: Epoch 136
+2025-10-13 21:13:23.194801: Current learning rate: 0.00118
+2025-10-13 21:14:09.317256: Validation loss did not improve from -0.53333. Patience: 50/50
+2025-10-13 21:14:09.318511: train_loss -0.8019
+2025-10-13 21:14:09.318893: val_loss -0.4771
+2025-10-13 21:14:09.319224: Pseudo dice [np.float32(0.7132)]
+2025-10-13 21:14:09.319568: Epoch time: 46.12 s
+2025-10-13 21:14:09.968397: 
+2025-10-13 21:14:09.968742: Epoch 137
+2025-10-13 21:14:09.968917: Current learning rate: 0.00111
+2025-10-13 21:14:56.006885: Validation loss did not improve from -0.53333. Patience: 51/50
+2025-10-13 21:14:56.007368: train_loss -0.8007
+2025-10-13 21:14:56.007515: val_loss -0.4669
+2025-10-13 21:14:56.007642: Pseudo dice [np.float32(0.7113)]
+2025-10-13 21:14:56.007763: Epoch time: 46.04 s
+2025-10-13 21:14:56.653530: 
+2025-10-13 21:14:56.653831: Epoch 138
+2025-10-13 21:14:56.654002: Current learning rate: 0.00103
+2025-10-13 21:15:42.834703: Validation loss did not improve from -0.53333. Patience: 52/50
+2025-10-13 21:15:42.835201: train_loss -0.7999
+2025-10-13 21:15:42.835352: val_loss -0.4759
+2025-10-13 21:15:42.835458: Pseudo dice [np.float32(0.7243)]
+2025-10-13 21:15:42.835593: Epoch time: 46.18 s
+2025-10-13 21:15:43.479775: 
+2025-10-13 21:15:43.480052: Epoch 139
+2025-10-13 21:15:43.480227: Current learning rate: 0.00095
+2025-10-13 21:16:29.666217: Validation loss did not improve from -0.53333. Patience: 53/50
+2025-10-13 21:16:29.666792: train_loss -0.8036
+2025-10-13 21:16:29.666927: val_loss -0.4586
+2025-10-13 21:16:29.667061: Pseudo dice [np.float32(0.7135)]
+2025-10-13 21:16:29.667310: Epoch time: 46.19 s
+2025-10-13 21:16:30.757316: 
+2025-10-13 21:16:30.757615: Epoch 140
+2025-10-13 21:16:30.757765: Current learning rate: 0.00087
+2025-10-13 21:17:16.790721: Validation loss did not improve from -0.53333. Patience: 54/50
+2025-10-13 21:17:16.791368: train_loss -0.8038
+2025-10-13 21:17:16.791520: val_loss -0.47
+2025-10-13 21:17:16.791708: Pseudo dice [np.float32(0.7155)]
+2025-10-13 21:17:16.791970: Epoch time: 46.03 s
+2025-10-13 21:17:17.439193: 
+2025-10-13 21:17:17.439499: Epoch 141
+2025-10-13 21:17:17.439726: Current learning rate: 0.00079
+2025-10-13 21:18:03.593174: Validation loss did not improve from -0.53333. Patience: 55/50
+2025-10-13 21:18:03.593716: train_loss -0.8033
+2025-10-13 21:18:03.594054: val_loss -0.477
+2025-10-13 21:18:03.594460: Pseudo dice [np.float32(0.7182)]
+2025-10-13 21:18:03.594805: Epoch time: 46.16 s
+2025-10-13 21:18:04.247228: 
+2025-10-13 21:18:04.247767: Epoch 142
+2025-10-13 21:18:04.248221: Current learning rate: 0.00071
+2025-10-13 21:18:50.364036: Validation loss did not improve from -0.53333. Patience: 56/50
+2025-10-13 21:18:50.364679: train_loss -0.8026
+2025-10-13 21:18:50.364930: val_loss -0.4136
+2025-10-13 21:18:50.365098: Pseudo dice [np.float32(0.6912)]
+2025-10-13 21:18:50.365269: Epoch time: 46.12 s
+2025-10-13 21:18:51.011665: 
+2025-10-13 21:18:51.011976: Epoch 143
+2025-10-13 21:18:51.012134: Current learning rate: 0.00063
+2025-10-13 21:19:37.140401: Validation loss did not improve from -0.53333. Patience: 57/50
+2025-10-13 21:19:37.140996: train_loss -0.8025
+2025-10-13 21:19:37.141369: val_loss -0.482
+2025-10-13 21:19:37.141693: Pseudo dice [np.float32(0.7281)]
+2025-10-13 21:19:37.142050: Epoch time: 46.13 s
+2025-10-13 21:19:37.788472: 
+2025-10-13 21:19:37.788694: Epoch 144
+2025-10-13 21:19:37.788841: Current learning rate: 0.00055
+2025-10-13 21:20:23.890053: Validation loss did not improve from -0.53333. Patience: 58/50
+2025-10-13 21:20:23.891006: train_loss -0.8026
+2025-10-13 21:20:23.891161: val_loss -0.4388
+2025-10-13 21:20:23.891287: Pseudo dice [np.float32(0.7119)]
+2025-10-13 21:20:23.891415: Epoch time: 46.1 s
+2025-10-13 21:20:24.975313: 
+2025-10-13 21:20:24.975779: Epoch 145
+2025-10-13 21:20:24.976234: Current learning rate: 0.00047
+2025-10-13 21:21:10.967791: Validation loss did not improve from -0.53333. Patience: 59/50
+2025-10-13 21:21:10.968395: train_loss -0.8039
+2025-10-13 21:21:10.968569: val_loss -0.496
+2025-10-13 21:21:10.968690: Pseudo dice [np.float32(0.7367)]
+2025-10-13 21:21:10.968832: Epoch time: 45.99 s
+2025-10-13 21:21:11.620082: 
+2025-10-13 21:21:11.620518: Epoch 146
+2025-10-13 21:21:11.620713: Current learning rate: 0.00038
+2025-10-13 21:21:57.691438: Validation loss did not improve from -0.53333. Patience: 60/50
+2025-10-13 21:21:57.692058: train_loss -0.803
+2025-10-13 21:21:57.692290: val_loss -0.4855
+2025-10-13 21:21:57.692439: Pseudo dice [np.float32(0.7249)]
+2025-10-13 21:21:57.692576: Epoch time: 46.07 s
+2025-10-13 21:21:58.343476: 
+2025-10-13 21:21:58.343737: Epoch 147
+2025-10-13 21:21:58.343903: Current learning rate: 0.0003
+2025-10-13 21:22:44.467201: Validation loss did not improve from -0.53333. Patience: 61/50
+2025-10-13 21:22:44.467654: train_loss -0.806
+2025-10-13 21:22:44.467821: val_loss -0.4618
+2025-10-13 21:22:44.468099: Pseudo dice [np.float32(0.7205)]
+2025-10-13 21:22:44.468226: Epoch time: 46.12 s
+2025-10-13 21:22:45.118213: 
+2025-10-13 21:22:45.118530: Epoch 148
+2025-10-13 21:22:45.118776: Current learning rate: 0.00021
+2025-10-13 21:23:31.239718: Validation loss did not improve from -0.53333. Patience: 62/50
+2025-10-13 21:23:31.240426: train_loss -0.8028
+2025-10-13 21:23:31.240571: val_loss -0.4456
+2025-10-13 21:23:31.240683: Pseudo dice [np.float32(0.7097)]
+2025-10-13 21:23:31.240804: Epoch time: 46.12 s
+2025-10-13 21:23:31.912262: 
+2025-10-13 21:23:31.912562: Epoch 149
+2025-10-13 21:23:31.912761: Current learning rate: 0.00011
+2025-10-13 21:24:18.487981: Validation loss did not improve from -0.53333. Patience: 63/50
+2025-10-13 21:24:18.488603: train_loss -0.8063
+2025-10-13 21:24:18.488926: val_loss -0.4616
+2025-10-13 21:24:18.489208: Pseudo dice [np.float32(0.7139)]
+2025-10-13 21:24:18.489504: Epoch time: 46.58 s
+2025-10-13 21:24:19.680499: Training done.
+2025-10-13 21:24:19.704110: Using splits from existing split file: /nfs/erelab001/shared/Computational_Group/Naravich/datasets/nnUNet_Datasets/nnUNet_preprocessed/Dataset307_Sohee_Calcium_OCT_CrossValidation/splits_final_60.json
+2025-10-13 21:24:19.704740: The split file contains 5 splits.
+2025-10-13 21:24:19.705076: Desired fold for training: 0
+2025-10-13 21:24:19.705410: This split has 4 training and 4 validation cases.
+2025-10-13 21:24:19.705923: predicting 101-045
+2025-10-13 21:24:19.710182: 101-045, shape torch.Size([1, 375, 498, 498]), rank 0
+2025-10-13 21:25:07.126630: predicting 701-013
+2025-10-13 21:25:07.136280: 701-013, shape torch.Size([1, 375, 498, 498]), rank 0
+2025-10-13 21:25:41.352134: predicting 704-003
+2025-10-13 21:25:41.364008: 704-003, shape torch.Size([1, 375, 498, 498]), rank 0
+2025-10-13 21:26:15.642855: predicting 706-005
+2025-10-13 21:26:15.652022: 706-005, shape torch.Size([1, 375, 498, 498]), rank 0
+2025-10-13 21:27:02.697461: Validation complete
+2025-10-13 21:27:02.697697: Mean Validation Dice:  0.7127790363077597
+Finished training fold 0 saving to /nfs/erelab001/shared/Computational_Group/Naravich/datasets/nnUNet_Datasets/nnUNet_results/Dataset307_Sohee_Calcium_OCT_CrossValidation/nnUNetTrainerScaleAnalysis60__nnUNetPlans__3d_32x160x128_b10/fold_0_Genesis_Pretrained
